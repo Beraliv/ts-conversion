@@ -25,7 +25,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -73,8 +72,60 @@ pre > code {
 }
 
 pre {
-  margin: 0 1rem 0.5rem;
   padding: 1rem 1.5rem;
   overflow: scroll;
   background-color: #575757;
+  border-radius: 3px;
+}
+
+.Conversion {
+  display: grid;
+  gap: 1rem;
+}
+
+.UserInput {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.SelectContainer {
+  display: inline;
+}
+
+.Select {
+  padding: 0.25rem;
+}
+
+.SelectLabel {
+  margin-right: 0.5rem;
+}
+
+.MessageContainer {
+  display: grid;
+  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+  color: rgb(23, 43, 77);
+  border-radius: 3px;
+}
+
+.MessageContainer.warning {
+  background-color: #fff7d6;
+}
+
+.MessageContainer.note {
+  background-color: rgb(243, 240, 255);
+}
+
+.MessageHeader {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 0.5rem;
+}
+
+.MessageHeader > span {
+  font-weight: 700;
+}
+
+.MessageBody {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
 }

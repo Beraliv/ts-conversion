@@ -16,11 +16,12 @@ export const clampLines = (input: string): string => {
     }
   }
 
-  return (
-    lines
-      // Ignore empty lines
-      .filter((line) => line.trim().length > 0)
-      .map((line) => line.slice(minIndent))
-      .join("\n")
-  );
+  const clampedLines = lines.map((line) => line.slice(minIndent));
+
+  let start = 0;
+  if (clampedLines[start].trim().length === 0) {
+    start++;
+  }
+
+  return clampedLines.slice(start).join("\n");
 };

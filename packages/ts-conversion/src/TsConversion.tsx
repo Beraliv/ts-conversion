@@ -2,6 +2,8 @@ import { useCallback, useState } from "react";
 import { ValueOf } from "./ValueOf";
 import { clampLines } from "./clampLines";
 import { ExternalIcon } from "./ExternalIcon";
+import { Select } from "./Select";
+import { Message } from "./Message";
 
 const inputs = [
   "array",
@@ -16,8 +18,25 @@ type InputType = ValueOf<typeof inputs>;
 
 type MapConfig = {
   code: string;
+  warning?: string;
+  notes?: string[];
   playgroundUrl?: string;
 };
+
+interface TailRecursionEliminationNoteProps {
+  parameterType: string;
+  utilityType: string;
+}
+
+const createTailRecursionEliminationNote = ({
+  parameterType,
+  utilityType,
+}: TailRecursionEliminationNoteProps) => `
+  TypeScript 4.5 introduced a tail-recursion elimination to optimise
+  conditional types, which avoid intermediate instantiations. Therefore,
+  it's recommended to use accumulator parameter types, such as \`${parameterType}\`
+  in \`${utilityType}\`.
+`;
 
 const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   array: {
@@ -42,12 +61,12 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     object: undefined,
     union: {
       code: `
-        type UnionFrom<Tuple extends readonly number[]> = Tuple[number];
+        type UnionFrom<Tuple extends readonly unknown[]> = Tuple[number];
         type Tuple = [1, 2, 3];
         type Union = UnionFrom<Tuple>;
-        //   ^? 1 | 2 | 3
+        //   ^? 3 | 1 | 2
       `,
-      playgroundUrl: "https://tsplay.dev/WoZ9gm",
+      playgroundUrl: "https://tsplay.dev/mpM2XW",
     },
     stringLiteral: undefined,
     numericLiteral: {
@@ -57,6 +76,12 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         type Length = LengthOf<Tuple>;
         //   ^? 3
       `,
+      notes: [
+        `
+        One of differences between Arrays and Tuples is \`length\` property:
+        it's numeric literal for Tuples (e.g. 3), but \`number\` for Arrays.
+      `,
+      ],
       playgroundUrl: "https://tsplay.dev/w280rm",
     },
   },
@@ -82,10 +107,6 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     array: undefined,
     tuple: {
       code: `
-        // Please avoid when possible, the \`LastOfUnion\` logic may break at any TS
-        // version. However, it's acceptable to use \`UnionToTuple\`, when the logic
-        // doesn't rely on the tuple order.
-
         type UnionToIntersection<Union> = (Union extends any ? (arg: Union) => void : never) extends (
             arg: infer Intersection,
         ) => void
@@ -108,7 +129,15 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         type Tuple = UnionToTuple<Union>;
         //   ^? [1, 2, 3]
       `,
-      playgroundUrl: "https://tsplay.dev/w1D0KW",
+      playgroundUrl: "https://tsplay.dev/wOQvEm",
+      warning: `
+        In 99% of cases, it's recommended to keep a source of truth in a Tuple,
+        rather than a Union (see Tuple to Union). The reason to avoid it is,
+        because it's an expensive conversion, and it relies on a very fragile
+        logic that may break at any TypeScript version. However, in 1% of cases,
+        it's acceptable to use the utility type \`UnionToTuple\`, specifically
+        when logic doesn't rely on the tuple order.
+      `,
     },
     object: undefined,
     union: undefined,
@@ -129,6 +158,12 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         type CharUnion = CharUnionFrom<StringLiteral>;
         //   ^? 'w' | 'o' | 'r' | 'l' | 'd'
       `,
+      notes: [
+        createTailRecursionEliminationNote({
+          parameterType: "Union",
+          utilityType: "CharUnionFrom",
+        }),
+      ],
       playgroundUrl: "https://tsplay.dev/mA63ZW",
     },
     stringLiteral: undefined,
@@ -141,6 +176,12 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         type Length = LengthFrom<StringLiteral>;
         //   ^? 5
       `,
+      notes: [
+        createTailRecursionEliminationNote({
+          parameterType: "Tuple",
+          utilityType: "LengthFrom",
+        }),
+      ],
       playgroundUrl: "https://tsplay.dev/mpM27W",
     },
   },
@@ -154,6 +195,12 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         type NumericPair = Repeat<number, 2>;
         //   ^? [number, number]
       `,
+      notes: [
+        createTailRecursionEliminationNote({
+          parameterType: "Tuple",
+          utilityType: "Repeat",
+        }),
+      ],
       playgroundUrl: "https://tsplay.dev/m3D8kW",
     },
     object: undefined,
@@ -182,52 +229,57 @@ export const TsConversion = () => {
   );
 
   return (
-    <div>
-      <div className="row">
-        <label>Source</label>
-        <select onChange={handleSourceChange}>
-          <option disabled hidden selected>
-            Choose option:
-          </option>
-          {inputs.map((input) => (
-            <option key={input} value={input}>
-              {input}
-            </option>
-          ))}
-        </select>
+    <div className="Conversion">
+      <div className="UserInput">
+        <Select
+          label="Source"
+          handleChange={handleSourceChange}
+          options={inputs}
+        />
+
+        <Select
+          label="Target"
+          handleChange={handleTargetChange}
+          options={inputs}
+          isOptionDisabled={(input) =>
+            !source || (source && map[source][input] === undefined)
+          }
+        />
       </div>
-      <div className="row">
-        <label>Target</label>
-        <select onChange={handleTargetChange}>
-          <option disabled hidden selected>
-            Choose option:
-          </option>
-          {inputs.map((input) => (
-            <option
-              key={input}
-              disabled={!source || (source && map[source][input] === undefined)}
-            >
-              {input}
-            </option>
-          ))}
-        </select>
-      </div>
+
       {source && target && map[source][target] && (
         <>
+          {map[source][target].warning && (
+            <Message
+              text={clampLines(map[source][target].warning)}
+              type="warning"
+            />
+          )}
           <pre>
             <code>{clampLines(map[source][target].code)}</code>
           </pre>
           {map[source][target].playgroundUrl && (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={map[source][target].playgroundUrl}
-            >
-              <span>
-                Playground &#xFEFF;
-                <ExternalIcon />
-              </span>
-            </a>
+            <div>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={map[source][target].playgroundUrl}
+              >
+                <span>
+                  Playground &#xFEFF;
+                  <ExternalIcon />
+                </span>
+              </a>
+            </div>
+          )}
+          {map[source][target].notes && (
+            <div>
+              <h3>Insights</h3>
+
+              {map[source][target].notes.map((note, index) => (
+                <Message key={index} text={clampLines(note)} type="note" />
+              ))}
+            </div>
           )}
         </>
       )}
