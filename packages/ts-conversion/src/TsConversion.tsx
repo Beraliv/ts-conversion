@@ -80,7 +80,36 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   },
   union: {
     array: undefined,
-    tuple: undefined,
+    tuple: {
+      code: `
+        // Please avoid when possible, the \`LastOfUnion\` logic may break at any TS
+        // version. However, it's acceptable to use \`UnionToTuple\`, when the logic
+        // doesn't rely on the tuple order.
+
+        type UnionToIntersection<Union> = (Union extends any ? (arg: Union) => void : never) extends (
+            arg: infer Intersection,
+        ) => void
+            ? Intersection
+            : never;
+
+        type LastOfUnion<UnionType> = UnionToIntersection<
+            UnionType extends any ? (arg: UnionType) => any : never
+        > extends (arg: infer LastUnionElement) => any
+            ? LastUnionElement
+            : never;
+
+        type UnionToTuple<UnionType, Accumulator extends any[] = []> = [UnionType] extends [never]
+            ? Accumulator
+            : LastOfUnion<UnionType> extends infer LastUnionElement
+            ? UnionToTuple<Exclude<UnionType, LastUnionElement>, [LastUnionElement, ...Accumulator]>
+            : never;
+
+        type Union = 1 | 2 | 3;
+        type Tuple = UnionToTuple<Union>;
+        //   ^? [1, 2, 3]
+      `,
+      playgroundUrl: "https://tsplay.dev/w1D0KW",
+    },
     object: undefined,
     union: undefined,
     stringLiteral: undefined,
