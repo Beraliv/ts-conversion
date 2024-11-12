@@ -1,0 +1,39 @@
+name: Deploy ts-conversion to S3
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to current branch
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: ./.github/actions/setup-node
+
+      - name: Caches node modules
+        uses: ./.github/actions/cache-node-modules
+
+      - name: Setup pnpm
+        uses: ./.github/actions/setup-pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: Build
+        run: pnpm --filter ts-conversion run build
+
+      - name: Deploy to AWS S3
+        run: aws s3 sync ./packages/ts-conversion/dist s3://ts-conversion.beraliv.com --delete
