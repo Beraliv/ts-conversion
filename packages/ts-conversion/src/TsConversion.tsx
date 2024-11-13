@@ -12,6 +12,7 @@ const inputs = [
   "union",
   "stringLiteral",
   "numericLiteral",
+  // TODO: add intersection (example union to intersection)
 ] as const;
 
 type InputType = ValueOf<typeof inputs>;
@@ -42,6 +43,8 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   array: {
     array: undefined,
     tuple: undefined,
+    // TODO: Indexing an Array Type by a Specific Key
+    // e.g. [K in T[number]["id"]]: Extract<T[number], { id: K }>
     object: undefined,
     union: {
       code: `
@@ -58,7 +61,26 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   tuple: {
     array: undefined,
     tuple: undefined,
-    object: undefined,
+    // TODO: ToIndexedObject
+    // e.g. [K in keyof T]: T[K];
+    object: {
+      code: `
+        type ToLanguageLookup<Tuple extends readonly string[]> = {
+          [Element in Tuple[number]]: boolean;
+        };
+        type Tuple = ["TypeScript", "Python"];
+        type LanguageLookup = ToLanguageLookup<Tuple>;
+        //   ^? { TypeScript: boolean; Python: boolean }
+      `,
+      playgroundUrl: "https://tsplay.dev/NrZqVN",
+      notes: [
+        `
+          Mapped types are particularly useful for tuples, when the return type is expected
+          to be an object. Object keys can be either tuple indices using \`keyof Tuple\` (e.g. 0, 1)
+          or tuple elements using \`Tuple[number]\` (e.g. "TypeScript" and "Python").
+        `,
+      ],
+    },
     union: {
       code: `
         type UnionFrom<Tuple extends readonly unknown[]> = Tuple[number];
