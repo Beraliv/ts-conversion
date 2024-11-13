@@ -39,6 +39,7 @@ const createTailRecursionEliminationNote = ({
   in \`${utilityType}\`.
 `;
 
+// TODO: examples from real libraries
 const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   array: {
     array: undefined,
@@ -60,9 +61,13 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   },
   tuple: {
     array: undefined,
+    // TODO: Pop, Push, Shift, Unshift, Flatten, Filter
     tuple: undefined,
     // TODO: ToIndexedObject
     // e.g. [K in keyof T]: T[K];
+    // TODO: ToMirrorObject
+    // e.g. [V in T[number]]: V;
+    // TODO: Promise.all: [Promise<A>, ..., Promise<Z>] => Promise<[A, ..., Z]>
     object: {
       code: `
         type ToLanguageLookup<Tuple extends readonly string[]> = {
@@ -110,6 +115,7 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   object: {
     array: undefined,
     tuple: undefined,
+    // TODO: Pick, Readonly, Omit, Append key-value pair, GetOptional
     object: undefined,
     // TODO: add values
     union: {
@@ -162,6 +168,7 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       `,
     },
     object: undefined,
+    // TODO: Exclude, Extract, Permutations
     union: undefined,
     stringLiteral: undefined,
     // TODO: number of union elements
@@ -169,6 +176,7 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   },
   stringLiteral: {
     array: undefined,
+    // TODO: Split
     tuple: undefined,
     object: undefined,
     union: {
@@ -188,7 +196,9 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       ],
       playgroundUrl: "https://tsplay.dev/mA63ZW",
     },
+    // TODO: Trim, Uppercase, Lowercase, Capitalize, Uncapitalize, Replace, CamelCase (etc)
     stringLiteral: undefined,
+    // TODO: ParseInt
     numericLiteral: {
       code: `
         type LengthFrom<StringLiteral, Tuple extends any[] = []> = StringLiteral extends \`$\{infer _}$\{infer Tail}\`
@@ -228,6 +238,7 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     object: undefined,
     union: undefined,
     stringLiteral: undefined,
+    // TODO: Brand
     numericLiteral: undefined,
   },
 };
