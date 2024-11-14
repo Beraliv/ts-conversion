@@ -67,8 +67,30 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   },
   tuple: {
     array: undefined,
-    // TODO: Pop, Push, Shift, Unshift, Flatten, Filter
-    tuple: undefined,
+    // TODO: Pop, Push, Shift, Unshift, Flatten
+    tuple: {
+      code: `
+        type Filter<Tuple extends unknown[], What, Filtered extends unknown[] = []> = Tuple extends [infer Head, ...infer Tail]
+          ? Head extends What
+            ? Filter<Tail, What, Filtered>
+            : Filter<Tail, What, [...Filtered, Head]>
+          : Filtered;
+
+        type WithoutNumbers = Filter<[number, string], number>
+        //   ^? [string]
+      `,
+      playgroundUrl: "https://tsplay.dev/weq7Xw",
+      notes: [
+        `
+          TypeScript 4.1 introduced recursive conditional types, which are effective for iterating
+          over tuples.
+        `,
+        createTailRecursionEliminationNote({
+          parameterType: "Filtered",
+          utilityType: "Filter",
+        }),
+      ],
+    },
     // TODO: ToIndexedObject
     // e.g. [K in keyof T]: T[K];
     // TODO: ToMirrorObject
