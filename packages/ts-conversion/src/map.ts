@@ -40,9 +40,9 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       playgroundUrl: "https://tsplay.dev/WJPERN",
       notes: [
         `
-          When working with array literals like \`[1, 2, 3, 4]\`,
-          you can use const assertions (the \`as const\` construct introduced in TypeScript 3.4)
-          to convert these literals into readonly tuples, such as \`readonly [1, 2, 3, 4]\`.
+          TypeScript 3.4 introduced the \`as const\` construct, called const assertions. When
+          working with array literals like \`[1, 2, 3, 4]\`, you can use const assertions
+          to convert array literals into readonly tuples, such as \`readonly [1, 2, 3, 4]\`.
         `,
         `
           When passing array literals (e.g. \`NumericArray\`) as parameters of a function,
