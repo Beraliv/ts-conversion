@@ -90,7 +90,7 @@ export const TsConversion = () => {
             </div>
           )}
           {map[source][target].notes && (
-            <div>
+            <div className="insights">
               <h3>Insights</h3>
 
               {map[source][target].notes.map((note, index) => (

@@ -117,6 +117,11 @@ pre {
   padding-left: 1rem;
 }
 
+.insights {
+  display: grid;
+  gap: 1rem;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
