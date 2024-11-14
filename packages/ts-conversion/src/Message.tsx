@@ -1,3 +1,4 @@
+import { clampLines } from "./clampLines";
 import { classNames } from "./classNames";
 import { NoteIcon } from "./NoteIcon";
 import { WarningIcon } from "./WarningIcon";
@@ -23,7 +24,7 @@ export const Message = ({ text, type }: MessageProps) => {
           {type === "note" && "Note"}
         </span>
       </div>
-      <p className="MessageBody">{text}</p>
+      <p className="MessageBody">{clampLines(text)}</p>
     </div>
   );
 };
