@@ -26,7 +26,30 @@ const createTailRecursionEliminationNote = ({
 export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   array: {
     array: undefined,
-    tuple: undefined,
+    tuple: {
+      code: `
+        const array = [1, 2, 3, 4];
+        //    ^? number[]
+        const readonlyTuple = [1, 2, 3, 4] as const;
+        //    ^? readonly [1, 2, 3, 4]
+
+        const toTuple = <NumericArray extends number[]>(tuple: [...NumericArray]) => tuple;
+        const tuple = toTuple([1, 2, 3, 4]);
+        //    ^? [1, 2, 3, 4]
+      `,
+      playgroundUrl: "https://tsplay.dev/WJPERN",
+      notes: [
+        `
+          When working with array literals like \`[1, 2, 3, 4]\`,
+          you can use const assertions (the \`as const\` construct introduced in TypeScript 3.4)
+          to convert these literals into readonly tuples, such as \`readonly [1, 2, 3, 4]\`.
+        `,
+        `
+          When passing array literals (e.g. \`NumericArray\`) as parameters of a function,
+          \`[...NumericArray]\` transforms this to a tuple representation.
+        `,
+      ],
+    },
     // TODO: Indexing an Array Type by a Specific Key
     // e.g. [K in T[number]["id"]]: Extract<T[number], { id: K }>
     object: undefined,
