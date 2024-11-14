@@ -6,20 +6,42 @@ import { Message } from "./Message";
 import { inputs, InputType } from "./inputs";
 import { map } from "./map";
 
+const updateHistory = (params: URLSearchParams) => {
+  window.history.replaceState(
+    {},
+    "",
+    `${window.location.pathname}?${params.toString()}`
+  );
+};
+
 export const TsConversion = () => {
-  const [source, setSource] = useState<InputType | undefined>(undefined);
-  const [target, setTarget] = useState<InputType | undefined>(undefined);
+  const query = new URLSearchParams(window.location.search);
+
+  const [source, setSource] = useState<InputType>(
+    (query.get("source") as InputType) ?? undefined
+  );
+  const [target, setTarget] = useState<InputType>(
+    (query.get("target") as InputType) ?? undefined
+  );
 
   const handleSourceChange = useCallback(
     (event: React.ChangeEvent<HTMLSelectElement>) => {
-      setSource(event.target.value as InputType);
+      const nextSource = event.target.value as InputType;
+      setSource(nextSource);
+      const updatedQuery = new URLSearchParams(window.location.search);
+      updatedQuery.set("source", nextSource);
+      updateHistory(updatedQuery);
     },
     []
   );
 
   const handleTargetChange = useCallback(
     (event: React.ChangeEvent<HTMLSelectElement>) => {
-      setTarget(event.target.value as InputType);
+      const nextTarget = event.target.value as InputType;
+      setTarget(nextTarget);
+      const updatedQuery = new URLSearchParams(window.location.search);
+      updatedQuery.set("target", nextTarget);
+      updateHistory(updatedQuery);
     },
     []
   );
@@ -28,12 +50,14 @@ export const TsConversion = () => {
     <div className="Conversion">
       <div className="UserInput">
         <Select
+          value={source}
           label="Source"
           handleChange={handleSourceChange}
           options={inputs}
         />
 
         <Select
+          value={target}
           label="Target"
           handleChange={handleTargetChange}
           options={inputs}
