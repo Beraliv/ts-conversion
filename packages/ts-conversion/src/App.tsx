@@ -8,7 +8,7 @@ function App() {
         <h2>Converting types in TypeScript</h2>
         <p>
           Interactive website, helping engineers understand, how they can
-          convert one type to another in TypeScript, with examples and a link to
+          convert one type to another in TypeScript, with examples and links to
           TypeScript playground.
         </p>
         <TsConversion />
