@@ -61,8 +61,8 @@ pre > code {
 pre {
   padding: 1rem 1.5rem;
   overflow: scroll;
-  background-color: #575757;
   border-radius: 3px;
+  background-color: #575757;
 }
 
 .Conversion {
@@ -122,6 +122,13 @@ pre {
   gap: 1rem;
 }
 
+code:not(pre > code) {
+  padding: 0.1rem;
+  border-radius: 3px;
+  background-color: #c0c0c0;
+  color: rgba(0, 0, 0, 0.87);
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -133,7 +140,9 @@ pre {
   button {
     background-color: #f9f9f9;
   }
+
   pre {
     background-color: #f2f2f2;
+    color: #213547;
   }
 }

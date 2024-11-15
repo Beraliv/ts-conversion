@@ -1,14 +1,16 @@
-import { clampLines } from "../utils/clampLines";
+import { PropsWithChildren } from "react";
 import { classNames } from "../utils/classNames";
 import { NoteIcon } from "./NoteIcon";
 import { WarningIcon } from "./WarningIcon";
 
 interface MessageProps {
   type: "warning" | "note";
-  text: string;
 }
 
-export const Message = ({ text, type }: MessageProps) => {
+export const Message = ({
+  children,
+  type,
+}: PropsWithChildren<MessageProps>) => {
   return (
     <div
       className={classNames("MessageContainer", {
@@ -24,7 +26,7 @@ export const Message = ({ text, type }: MessageProps) => {
           {type === "note" && "Note"}
         </span>
       </div>
-      <p className="MessageBody">{clampLines(text)}</p>
+      <p className="MessageBody">{children}</p>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import { useCallback, useState } from "react";
 import { clampLines } from "../utils/clampLines";
-import { ExternalIcon } from "./ExternalIcon";
 import { Select } from "./Select";
 import { Message } from "./Message";
 import { inputs, InputType } from "../utils/inputs";
 import { map } from "../utils/map";
+import { Link } from "./Link";
 
 const updateHistory = (params: URLSearchParams) => {
   window.history.replaceState(
@@ -69,32 +69,29 @@ export const TsConversion = () => {
 
       {source && target && map[source][target] && (
         <>
-          {map[source][target].warning && (
-            <Message text={map[source][target].warning} type="warning" />
+          {map[source][target].Warning && (
+            <Message type="warning">{map[source][target].Warning({})}</Message>
           )}
           <pre>
             <code>{clampLines(map[source][target].code)}</code>
           </pre>
           {map[source][target].playgroundUrl && (
             <div>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
                 href={map[source][target].playgroundUrl}
-              >
-                <span>
-                  Playground &#xFEFF;
-                  <ExternalIcon />
-                </span>
-              </a>
+                external
+                text="Playground"
+              />
             </div>
           )}
-          {map[source][target].notes && (
+          {map[source][target].Notes && (
             <div className="insights">
               <h3>Insights</h3>
 
-              {map[source][target].notes.map((note, index) => (
-                <Message key={index} text={note} type="note" />
+              {map[source][target].Notes.map((Note, index) => (
+                <Message key={index} type="note">
+                  <Note />
+                </Message>
               ))}
             </div>
           )}
