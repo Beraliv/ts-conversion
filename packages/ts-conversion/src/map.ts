@@ -164,13 +164,13 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     tuple: {
       code: `
         type UnionToIntersection<Union> = (Union extends any ? (arg: Union) => void : never) extends (
-            arg: infer Intersection,
+          arg: infer Intersection,
         ) => void
           ? Intersection
           : never;
 
         type LastOfUnion<UnionType> = UnionToIntersection<
-            UnionType extends any ? (arg: UnionType) => any : never
+          UnionType extends any ? (arg: UnionType) => any : never
         > extends (arg: infer LastUnionElement) => any
           ? LastUnionElement
           : never;
@@ -195,7 +195,59 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         when logic doesn't rely on the tuple order.
       `,
     },
-    object: undefined,
+    object: {
+      code: `
+        type UnionToIntersection<Union> = (Union extends any ? (arg: Union) => void : never) extends (
+          arg: infer Intersection,
+        ) => void
+          ? Intersection
+          : never;
+
+        type Metadata = { pageUrl: string } | { videoId: string };
+
+        type AllMetadata = UnionToIntersection<Metadata>;
+        //   ^? { pageUrl: string; videoId: string }
+      `,
+      playgroundUrl: "https://tsplay.dev/WkZ7Dm",
+      notes: [
+        `
+          TypeScript 2.8 introduced Distributive conditional types. Using constructs like \`Union extends any\`,
+          it "iterates" over all union types, or "elements". For example, an instantiation
+          \`Union extends Filter ? never : Union\` with the type parameter \`A | B\` for \`Union\` is resolved as
+          \`(A extends Filter ? never : A) | (B extends Filter ? never : B)\`.
+        `,
+        `
+          When working with distributive conditional types, you may come across terms "Co-variance",
+          "Contra-variance" and "In-variance".
+        `,
+        `
+          The reason, \`UnionToIntersection\` infers an intersection, is that the second
+          distributive conditional type uses \`infer Intersection\`. The type \`Intersection\`
+          appears in a contra-variant position (i.e. a function parameter).
+        `,
+        `
+          TL;dr - "Co-variance" preserves the direction of assignability. In more details:
+          given there are variables \`animal: Animal\` and \`dog: Dog\` and functions
+          \`getAnimal: () => Animal\` and \`getDog: () => Dog\`, because dog is assignable to animal
+          (i.e. you can do \`animal = dog\`), extracting dog is also assignable to extracting animal
+          (i.e. you can do \`getAnimal = getDog\`).
+        `,
+        `
+          TL;dr - "Contra-variance" reverts the direction of assignability. In more details:
+          given there are variables \`animal: Animal\` and \`dog: Dog\` and functions
+          \`walkAnimal: (animal: Animal) => void\` and \`walkDog: (dog: Dog) => void\`,
+          because dog is assignable to animal (i.e. you can do \`animal = dog\`),
+          walking an animal is assignable to walking a dog (i.e. you can do \`walkDog = walkAnimal\`).
+        `,
+        `
+          TL;dr - "In-variance" doesn't let assign both directions. In more details:
+          given there are variables \`animal: Animal\` and \`dog: Dog\` and functions
+          \`groomAnimal: (animal: Animal) => Animal\` and \`groomDog: (dog: Dog) => Dog\`,
+          even though dog is assignable to animal (i.e. you can do \`animal = dog\`),
+          grooming an animal and a dog are not assignable to each other.
+        `,
+      ],
+    },
     // TODO: Exclude, Extract, Permutations
     union: undefined,
     stringLiteral: undefined,
