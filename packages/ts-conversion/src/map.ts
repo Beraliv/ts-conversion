@@ -144,7 +144,41 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     array: undefined,
     tuple: undefined,
     // TODO: Pick, Readonly, Omit, Append key-value pair, GetOptional
-    object: undefined,
+    object: {
+      code: `
+        type Person = {
+          name: string;
+        };
+
+        type Create<Object> = {
+          [Key in keyof Object as \`get$\{Capitalize<Key & string>}\`]: () => Object[Key];
+        } & {
+          [Key in keyof Object as \`set$\{Capitalize<Key & string>}\`]: (value: Object[Key]) => void;
+        }
+
+        type CreatePerson = Create<Person>;
+        //   ^? {getName: () => string} & {setName: (value: string) => void}
+      `,
+      playgroundUrl: "https://tsplay.dev/W4Dq7W",
+      notes: [
+        `
+          Mapped types are effective in converting an object to another object by modifying keys and values.
+          The syntax is \`[Key in keyof Object]: Type[Key]\`, where \`Key\` is a property name and \`Type[Key]\`
+          is the value by the correspondent property.
+        `,
+        `
+          TypeScript 4.1 introduced key remapping, which simplifies changing the object keys.
+          Use syntax \`as NewKey\` in \`[Key in keyof Type as NewKey]: Type[Key]\`
+          to re-map the key to whatever value you need.
+        `,
+        `
+          When defining an object (e.g. \`type Person = {name: string}\`), the properties are required and
+          writable by default. When you need to change this behaviour, use property modifiers: optional and
+          readonly. Optional modifier is \`?\` (as in \`type Person = {address?: Address}\`). Readonly
+          modifier is \`readonly\` (as in \`type Person = {readonly name: string}\`).
+        `,
+      ],
+    },
     // TODO: add values
     union: {
       code: `

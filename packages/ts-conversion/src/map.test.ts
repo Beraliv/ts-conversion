@@ -16,6 +16,6 @@ describe("map", () => {
     );
     const implementedCombinations = allCombinations.filter(Boolean);
 
-    expect(implementedCombinations.length).toBe(12);
+    expect(implementedCombinations.length).toBe(13);
   });
 });
