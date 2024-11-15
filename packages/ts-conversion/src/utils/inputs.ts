@@ -1,4 +1,4 @@
-import { ValueOf } from "./ValueOf";
+import { ValueOf } from "../types/ValueOf";
 
 export const inputs = [
   "array",

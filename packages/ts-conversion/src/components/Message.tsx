@@ -1,5 +1,5 @@
-import { clampLines } from "./clampLines";
-import { classNames } from "./classNames";
+import { clampLines } from "../utils/clampLines";
+import { classNames } from "../utils/classNames";
 import { NoteIcon } from "./NoteIcon";
 import { WarningIcon } from "./WarningIcon";
 

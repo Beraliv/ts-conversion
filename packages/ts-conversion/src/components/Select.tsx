@@ -1,4 +1,4 @@
-import { toCamelCase } from "./toCamelCase";
+import { toCamelCase } from "../utils/toCamelCase";
 
 interface SelectProps<T extends string> {
   value: T;

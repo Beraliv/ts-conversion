@@ -1,10 +1,10 @@
 import { useCallback, useState } from "react";
-import { clampLines } from "./clampLines";
+import { clampLines } from "../utils/clampLines";
 import { ExternalIcon } from "./ExternalIcon";
 import { Select } from "./Select";
 import { Message } from "./Message";
-import { inputs, InputType } from "./inputs";
-import { map } from "./map";
+import { inputs, InputType } from "../utils/inputs";
+import { map } from "../utils/map";
 
 const updateHistory = (params: URLSearchParams) => {
   window.history.replaceState(
