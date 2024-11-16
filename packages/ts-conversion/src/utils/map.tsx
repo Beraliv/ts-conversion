@@ -9,6 +9,15 @@ type MapConfig = {
   playgroundUrl?: string;
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
+const DistributiveConditionTypes = () => (
+  <Link
+    href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#distributive-conditional-types"
+    external
+    text="distributive conditional types"
+  />
+);
+
 // TODO: examples from real libraries
 export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   array: {
@@ -319,7 +328,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         ),
         () => (
           <>
-            When working with distributive conditional types, you may come
+            When working with <DistributiveConditionTypes />, you may come
             across terms "Co-variance", "Contra-variance" and "In-variance".
           </>
         ),
@@ -327,7 +336,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
           <>
             The reason, <code>UnionToIntersection</code> infers an intersection,
             is that the second distributive conditional type uses{" "}
-            <code>infer Intersection</code>. The type <code>Intersection</code>
+            <code>infer Intersection</code>. The type <code>Intersection</code>{" "}
             appears in a contra-variant position (i.e. a function parameter).
           </>
         ),
@@ -368,8 +377,50 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         ),
       ],
     },
-    // TODO: Exclude, Extract, Permutations
-    union: undefined,
+    // TODO: Permutations
+    union: {
+      code: `        
+        type Green<Union> = Union extends 'grass' ? Union : never;
+        type ObjectName = 'grass' | 'sky' | 'sun';
+        type GreenObjectName = Green<ObjectName>;
+        //   ^? 'grass'
+      `,
+      playgroundUrl: "https://tsplay.dev/w28Yjm",
+      Notes: [
+        () => (
+          <>
+            TypeScript 2.8 introduced <DistributiveConditionTypes />. Using
+            constructs like <code>Union extends 'grass'</code>, it "iterates"
+            over all union types, or "elements". For example, an instantiation{" "}
+            <code>Union extends 'grass' ? Union : never</code> with the type
+            parameter <code>'grass' | 'sky' | 'sun'</code> for{" "}
+            <code>Union</code> is resolved as{" "}
+            <code>
+              ('grass' extends 'grass' ? 'grass' : never) | ('sky' extends
+              'grass' ? 'sky' : never) | ('sun' extends 'grass' ? 'sun' : never)
+            </code>
+            equivalent to <code>'grass'</code>.
+          </>
+        ),
+        () => (
+          <>
+            Some built-in types, such as{" "}
+            <Link
+              href="https://www.typescriptlang.org/docs/handbook/utility-types.html#excludeuniontype-excludedmembers"
+              external
+              text="Exclude"
+            />{" "}
+            and{" "}
+            <Link
+              href="https://www.typescriptlang.org/docs/handbook/utility-types.html#extracttype-union"
+              external
+              text="Extract"
+            />
+            , already use distributive conditional types to update a union type.
+          </>
+        ),
+      ],
+    },
     stringLiteral: undefined,
     // TODO: number of union elements
     numericLiteral: undefined,
