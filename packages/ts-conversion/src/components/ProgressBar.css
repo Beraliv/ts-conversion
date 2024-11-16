@@ -1,0 +1,9 @@
+.ProgressData {
+  font-size: 0.75rem;
+}
+
+.ProgressBar {
+  display: flex;
+  height: 0.5rem;
+  background-color: #c0c0c0;
+}
