@@ -233,6 +233,20 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
             ).
           </>
         ),
+        () => (
+          <>
+            In 2024, there is no mechanism to manage property modifiers
+            conditionally (i.e. when property type is nullable, add optional
+            modifier, otherwise use required property). Currently, it's
+            mitigated by using multiple mapped types and then intersecting them
+            (i.e. <code>A & B</code>). The relevant GitHub issue is{" "}
+            <Link
+              href="https://github.com/microsoft/TypeScript/issues/32562"
+              external
+              text="TypeScript#32562"
+            />
+          </>
+        ),
       ],
     },
     // TODO: add values
