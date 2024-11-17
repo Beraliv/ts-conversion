@@ -65,6 +65,10 @@ pre {
   background-color: #575757;
 }
 
+ol {
+  margin: 0;
+}
+
 .Conversion {
   display: grid;
   gap: 1rem;

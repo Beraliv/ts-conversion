@@ -497,8 +497,85 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       ],
       playgroundUrl: "https://tsplay.dev/mA63ZW",
     },
-    // TODO: Trim, Uppercase, Lowercase, Capitalize, Uncapitalize, Replace, CamelCase (etc)
-    stringLiteral: undefined,
+    // TODO: Trim, Replace, CamelCase (etc)
+    stringLiteral: {
+      code: `
+        type ShakaError<StringLiteral extends string> = \`SHAKA-\${StringLiteral}\`
+        type ShakaVideoError = ShakaError<'3016'>;
+        //   ^? SHAKA-3016
+      `,
+      playgroundUrl: "https://tsplay.dev/NBrpkN",
+      Notes: [
+        () => (
+          <>
+            There are 3 ways of converting a string literal to another string
+            literal (from the simplest to the hardest):
+            <ol>
+              <li>
+                No iteration needed, as in the current example{" "}
+                <code>
+                  `SHAKA-${"{"}StringLiteral{"}"}`
+                </code>
+              </li>
+              <li>
+                By iterating over sub-strings, e.g.{" "}
+                <code>
+                  StringLiteral extends `${"{"}infer Key{"}"}.${"{"}infer Rest
+                  {"}"}`
+                </code>
+                , i.e. jumping between "dots". See{" "}
+                <Link
+                  href="/?source=stringLiteral&target=tuple"
+                  text="String Literal to Tuple"
+                />
+                .
+              </li>
+              <li>
+                By iterating character by character, e.g.{" "}
+                <code>
+                  StringLiteral extends `${"{"}infer Char{"}"}${"{"}infer Tail
+                  {"}"}`
+                </code>
+                . See{" "}
+                <Link
+                  href="/?source=stringLiteral&target=union"
+                  text="String Literal to Union"
+                />
+                .
+              </li>
+            </ol>
+          </>
+        ),
+        () => (
+          <>
+            There are 4 built-in utility types in TypeScript, that you can use:{" "}
+            <Link
+              href="https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html#uppercasestringtype"
+              external
+              text="Uppercase"
+            />
+            ,{" "}
+            <Link
+              href="https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html#lowercasestringtype"
+              external
+              text="Lowercase"
+            />
+            ,{" "}
+            <Link
+              href="https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html#capitalizestringtype"
+              external
+              text="Capitalize"
+            />{" "}
+            and{" "}
+            <Link
+              href="https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html#uncapitalizestringtype"
+              external
+              text="Uncapitalize"
+            />
+          </>
+        ),
+      ],
+    },
     // TODO: ParseInt
     numericLiteral: {
       code: `
