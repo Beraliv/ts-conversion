@@ -10,7 +10,7 @@ type MapConfig = {
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
-const DistributiveConditionTypes = () => (
+const DistributiveConditionalTypes = () => (
   <Link
     href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#distributive-conditional-types"
     external
@@ -342,7 +342,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         ),
         () => (
           <>
-            When working with <DistributiveConditionTypes />, you may come
+            When working with <DistributiveConditionalTypes />, you may come
             across terms "Co-variance", "Contra-variance" and "In-variance".
           </>
         ),
@@ -403,7 +403,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       Notes: [
         () => (
           <>
-            TypeScript 2.8 introduced <DistributiveConditionTypes />. Using
+            TypeScript 2.8 introduced <DistributiveConditionalTypes />. Using
             constructs like <code>Union extends 'grass'</code>, it "iterates"
             over all union types, or "elements". For example, an instantiation{" "}
             <code>Union extends 'grass' ? Union : never</code> with the type
@@ -441,8 +441,42 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   },
   stringLiteral: {
     array: undefined,
-    // TODO: Split
-    tuple: undefined,
+    tuple: {
+      code: `
+        type Path<StringLiteral, Tuple extends any[] = []> = StringLiteral extends \`\${infer Key}.\${infer Rest}\`
+          ? Path<Rest, [...Tuple, Key]>
+          : StringLiteral extends \`\${infer Key}\`
+            ? [...Tuple, Key]
+            : Tuple;
+
+        type Keys = Path<'address.postcode'>;
+        //   ^? ['address', 'postcode']
+      `,
+      playgroundUrl: "https://tsplay.dev/WJPjRN",
+      Notes: [
+        () => (
+          <>
+            Conditional types allow iterate over a string literal. At the
+            example above,{" "}
+            <code>
+              StringLiteral extends `${"{"}infer Key{"}"}.${"{"}infer Rest{"}"}`
+            </code>{" "}
+            is used to infer words around "dots". This is why it's important to
+            have another conditional type{" "}
+            <code>
+              StringLiteral extends `${"{"}infer Key{"}"}`
+            </code>{" "}
+            in case there are no "dots" in a string literal.
+          </>
+        ),
+        () => (
+          <TailRecursionEliminationNote
+            parameterType="Tuple"
+            utilityType="Path"
+          />
+        ),
+      ],
+    },
     object: undefined,
     union: {
       code: `
