@@ -3,11 +3,6 @@
   gap: 0.5rem;
 }
 
-.Intro > h2,
-.Intro > p {
-  margin: 0;
-}
-
 .ProgressData {
   font-size: 0.75rem;
 }

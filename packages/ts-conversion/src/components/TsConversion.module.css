@@ -1,6 +1,7 @@
 .Conversion {
   display: grid;
   gap: 1rem;
+  align-self: start;
 }
 
 .UserInput {
@@ -20,8 +21,4 @@
 .Insights {
   display: grid;
   gap: 0.5rem;
-}
-
-.Insights > h3 {
-  margin: 0;
 }
