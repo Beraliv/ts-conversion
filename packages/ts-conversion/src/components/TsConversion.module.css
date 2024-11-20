@@ -1,0 +1,27 @@
+.Conversion {
+  display: grid;
+  gap: 1rem;
+}
+
+.UserInput {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.CodeExperience {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.ProgressData {
+  font-size: 0.75rem;
+}
+
+.Insights {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.Insights > h3 {
+  margin: 0;
+}

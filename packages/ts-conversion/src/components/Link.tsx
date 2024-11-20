@@ -1,4 +1,5 @@
 import { ExternalIcon } from "./ExternalIcon";
+import style from "./Link.module.css";
 
 export type LinkProps = {
   href: string;
@@ -15,7 +16,7 @@ export const Link = ({ href, text, external }: LinkProps) => {
     <a href={href} {...linkProps}>
       {text}
       {external ? (
-        <span className="linkExternal">
+        <span className={style.LinkExternal}>
           &#xFEFF;
           <ExternalIcon />
         </span>

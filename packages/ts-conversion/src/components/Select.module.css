@@ -1,0 +1,11 @@
+.SelectContainer {
+  display: inline;
+}
+
+.Select {
+  padding: 0.25rem;
+}
+
+.SelectLabel {
+  margin-right: 0.5rem;
+}

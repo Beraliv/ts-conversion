@@ -1,4 +1,4 @@
-import "./ProgressBar.css";
+import styles from "./ProgressBar.module.css";
 import { roundTo1DecimalPlace } from "./roundTo1DecimalPlace";
 
 interface ProgressBarProps {
@@ -6,11 +6,10 @@ interface ProgressBarProps {
 }
 
 export const ProgressBar = ({ percent }: ProgressBarProps) => (
-  <>
+  <div>
     <sup>{roundTo1DecimalPlace(percent)}% completed</sup>
-    <div className="ProgressBar">
+    <div className={styles.ProgressBar}>
       <div
-        className="Progress"
         style={{
           width: `${percent}%`,
           backgroundColor: (() => {
@@ -26,5 +25,5 @@ export const ProgressBar = ({ percent }: ProgressBarProps) => (
         }}
       />
     </div>
-  </>
+  </div>
 );

@@ -1,4 +1,5 @@
 import { toCamelCase } from "../utils/toCamelCase";
+import style from "./Select.module.css";
 
 interface SelectProps<T extends string> {
   value: T;
@@ -17,10 +18,10 @@ export const Select = <T extends string>({
   options,
   isOptionDisabled = () => false,
 }: SelectProps<T>) => (
-  <div className="SelectContainer">
-    <label className="SelectLabel">{label}</label>
+  <div className={style.SelectContainer}>
+    <label className={style.SelectLabel}>{label}</label>
     <select
-      className="Select"
+      className={style.Select}
       onChange={handleChange}
       value={value ?? chooseOptionText}
     >

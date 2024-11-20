@@ -5,6 +5,7 @@ import { Message } from "./Message";
 import { inputs, InputType } from "../utils/inputs";
 import { map } from "../utils/map";
 import { Link } from "./Link";
+import style from "./TsConversion.module.css";
 
 const updateHistory = (params: URLSearchParams) => {
   window.history.replaceState(
@@ -46,9 +47,11 @@ export const TsConversion = () => {
     []
   );
 
+  let Warning: React.FunctionComponent<{}> | undefined;
+
   return (
-    <div className="Conversion">
-      <div className="UserInput">
+    <div className={style.Conversion}>
+      <div className={style.UserInput}>
         <Select
           value={source}
           label="Source"
@@ -69,23 +72,29 @@ export const TsConversion = () => {
 
       {source && target && map[source][target] && (
         <>
-          {map[source][target].Warning && (
-            <Message type="warning">{map[source][target].Warning({})}</Message>
-          )}
-          <pre>
-            <code>{clampLines(map[source][target].code)}</code>
-          </pre>
-          {map[source][target].playgroundUrl && (
+          {(Warning = map[source][target].Warning) && (
             <div>
-              <Link
-                href={map[source][target].playgroundUrl}
-                external
-                text="Playground"
-              />
+              <Message type="warning">
+                <Warning />
+              </Message>
             </div>
           )}
+          <div className={style.CodeExperience}>
+            <pre>
+              <code>{clampLines(map[source][target].code)}</code>
+            </pre>
+            {map[source][target].playgroundUrl && (
+              <div>
+                <Link
+                  href={map[source][target].playgroundUrl}
+                  external
+                  text="Playground"
+                />
+              </div>
+            )}
+          </div>
           {map[source][target].Notes && (
-            <div className="insights">
+            <div className={style.Insights}>
               <h3>Insights</h3>
 
               {map[source][target].Notes.map((Note, index) => (

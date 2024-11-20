@@ -13,6 +13,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -27,11 +33,6 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 button {
@@ -60,6 +61,7 @@ pre > code {
 
 pre {
   padding: 1rem 1.5rem;
+  margin: 0;
   overflow: scroll;
   border-radius: 3px;
   background-color: #575757;
@@ -67,63 +69,6 @@ pre {
 
 ol {
   margin: 0;
-}
-
-.Conversion {
-  display: grid;
-  gap: 1rem;
-}
-
-.UserInput {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.SelectContainer {
-  display: inline;
-}
-
-.Select {
-  padding: 0.25rem;
-}
-
-.SelectLabel {
-  margin-right: 0.5rem;
-}
-
-.MessageContainer {
-  display: grid;
-  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
-  color: rgb(23, 43, 77);
-  border-radius: 3px;
-}
-
-.MessageContainer.warning {
-  background-color: #fff7d6;
-}
-
-.MessageContainer.note {
-  background-color: rgb(243, 240, 255);
-}
-
-.MessageHeader {
-  display: grid;
-  grid-template-columns: 24px 1fr;
-  gap: 0.5rem;
-}
-
-.MessageHeader > span {
-  font-weight: 700;
-}
-
-.MessageBody {
-  margin: 0.5rem 0;
-  padding-left: 1rem;
-}
-
-.insights {
-  display: grid;
-  gap: 1rem;
 }
 
 code:not(pre > code) {
