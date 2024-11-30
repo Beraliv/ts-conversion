@@ -4,5 +4,5 @@
   grid-template-rows: auto 1fr auto;
   gap: 1rem;
   min-height: 96vh;
-  padding: 2vh 0;
+  padding: 2vh;
 }

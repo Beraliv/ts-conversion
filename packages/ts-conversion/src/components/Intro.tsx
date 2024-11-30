@@ -11,7 +11,7 @@ export const Intro = () => {
       <h2>
         Converting types in TypeScript
         <sup className={styles.ProgressData}>
-          {percent < 100 ? `in alpha` : "in beta"}
+          {percent < 100 ? "alpha" : "beta"}
         </sup>
       </h2>
       {percent < 100 && <ProgressBar percent={percent} />}
