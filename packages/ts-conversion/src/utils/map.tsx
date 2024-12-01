@@ -21,6 +21,7 @@ const DistributiveConditionalTypes = () => (
 // TODO: examples from real libraries
 export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   array: {
+    // TODO: string[] => number[]
     array: undefined,
     tuple: {
       code: `
@@ -58,6 +59,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     },
     // TODO: Indexing an Array Type by a Specific Key
     // e.g. [K in T[number]["id"]]: Extract<T[number], { id: K }>
+    // TODO: MergeAll
     object: undefined,
     union: {
       code: `
@@ -68,10 +70,13 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       `,
       playgroundUrl: "https://tsplay.dev/mqlBrN",
     },
+    // TODO: remove as it's not applicable
     stringLiteral: undefined,
+    // TODO: remove as it's not applicable
     numericLiteral: undefined,
   },
   tuple: {
+    // TODO: [string, number] => (string | number)[]
     array: undefined,
     // TODO: Pop, Push, Shift, Unshift, Flatten
     tuple: {
@@ -138,6 +143,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         ),
       ],
     },
+    // TODO: Distribute Unions, e.g. [1 | 2, 3 | 4] => [1, 3] | [1, 4] | [2, 3] | [2, 4]
     union: {
       code: `
         type UnionFrom<Tuple extends readonly unknown[]> = Tuple[number];
@@ -147,6 +153,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       `,
       playgroundUrl: "https://tsplay.dev/mpM2XW",
     },
+    // TODO: remove as it's not applicable
     stringLiteral: undefined,
     numericLiteral: {
       code: `
@@ -168,7 +175,9 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     },
   },
   object: {
+    // TODO: Obj => Obj[]
     array: undefined,
+    // TODO: Object.keys, Object.values
     tuple: undefined,
     // TODO: Pick, Readonly, Omit, Append key-value pair, GetOptional
     object: {
@@ -259,11 +268,13 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       `,
       playgroundUrl: "https://tsplay.dev/NBrXxN",
     },
+    // TODO: remove as it's not applicable
     stringLiteral: undefined,
     // TODO: number of keys
     numericLiteral: undefined,
   },
   union: {
+    // TODO: string | number => (string | number)[]
     array: undefined,
     tuple: {
       code: `
@@ -307,6 +318,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       ),
     },
     object: {
+      // TODO: Highlight that it's an Intersection of multiple objects
       code: `
         type UnionToIntersection<Union> = (Union extends any ? (arg: Union) => void : never) extends (
           arg: infer Intersection,
@@ -435,11 +447,13 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         ),
       ],
     },
+    // TODO: remove as it's not applicable
     stringLiteral: undefined,
     // TODO: number of union elements
     numericLiteral: undefined,
   },
   stringLiteral: {
+    // TODO: remove as it's not applicable
     array: undefined,
     tuple: {
       code: `
@@ -477,6 +491,8 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         ),
       ],
     },
+    // TODO: Query string parser, e.g. a=1&b=2&c=3 => {a: '1', b: '2', c: '3'}
+    // TODO: Extract dynamic route parameters, e.g. /blog/[slug]/page.js => {slug: string}
     object: undefined,
     union: {
       code: `
@@ -576,7 +592,6 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         ),
       ],
     },
-    // TODO: ParseInt
     numericLiteral: {
       code: `
         type LengthFrom<StringLiteral, Tuple extends any[] = []> = StringLiteral extends \`$\{infer _}$\{infer Tail}\`
@@ -598,6 +613,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     },
   },
   numericLiteral: {
+    // TODO: remove as it's not applicable
     array: undefined,
     tuple: {
       code: `
@@ -617,8 +633,11 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       ],
       playgroundUrl: "https://tsplay.dev/m3D8kW",
     },
+    // TODO: remove as it's not applicable
     object: undefined,
+    // TODO: NumberRange, e.g. Range<1, 3> => 1 | 2 | 3
     union: undefined,
+    // TODO: remove as it's not applicable
     stringLiteral: undefined,
     // TODO: Brand
     numericLiteral: undefined,
