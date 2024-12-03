@@ -8,6 +8,7 @@ interface SelectProps<T extends string> {
   chooseOptionText?: string;
   options: readonly T[];
   isOptionDisabled?: (option: T) => boolean;
+  getLabel?: (option: T) => string;
 }
 
 export const Select = <T extends string>({
@@ -17,6 +18,7 @@ export const Select = <T extends string>({
   chooseOptionText = "Choose option",
   options,
   isOptionDisabled = () => false,
+  getLabel = (option) => toCamelCase(option),
 }: SelectProps<T>) => (
   <div className={style.SelectContainer}>
     <label className={style.SelectLabel}>{label}</label>
@@ -30,7 +32,7 @@ export const Select = <T extends string>({
       </option>
       {options.map((option) => (
         <option key={option} value={option} disabled={isOptionDisabled(option)}>
-          {toCamelCase(option)}
+          {getLabel(option)}
         </option>
       ))}
     </select>

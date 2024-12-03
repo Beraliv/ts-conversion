@@ -68,6 +68,17 @@ export const TsConversion = () => {
           isOptionDisabled={(input) =>
             !source || map[source][input] === "missing"
           }
+          getLabel={(input) => {
+            if (
+              source &&
+              typeof map[source][input] === "object" &&
+              map[source][input].label
+            ) {
+              return map[source][input].label;
+            }
+
+            return toCamelCase(input);
+          }}
         />
       </div>
 

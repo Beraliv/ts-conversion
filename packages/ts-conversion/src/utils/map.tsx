@@ -5,6 +5,7 @@ import { InputType } from "./inputs";
 
 type MapConfigMissingExample = "missing";
 type MapConfigWithExample = {
+  label?: string;
   code: string;
   Warning?: React.FunctionComponent;
   Notes?: React.FunctionComponent[];
@@ -351,6 +352,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       ),
     },
     object: {
+      label: "Object / Intersection",
       // TODO: Highlight that it's an Intersection of multiple objects
       code: `
         type UnionToIntersection<Union> = (Union extends any ? (arg: Union) => void : never) extends (
@@ -359,12 +361,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           ? Intersection
           : never;
 
-        type Metadata = { pageUrl: string } | { videoId: string };
+        type Metadata = {pageUrl: string} | {videoId: string};
 
         type AllMetadata = UnionToIntersection<Metadata>;
-        //   ^? { pageUrl: string; videoId: string }
+        //   ^? {pageUrl: string} & {videoId: string}
       `,
-      playgroundUrl: "https://tsplay.dev/WkZ7Dm",
+      playgroundUrl: "https://tsplay.dev/WzV3eW",
       Notes: [
         () => (
           <>
