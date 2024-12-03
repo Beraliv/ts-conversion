@@ -3,12 +3,19 @@ import { Link } from "../components/Link";
 import { TailRecursionEliminationNote } from "../components/TailRecursionEliminationNote";
 import { InputType } from "./inputs";
 
-type MapConfig = {
+type MapConfigMissingExample = "missing";
+type MapConfigWithExample = {
   code: string;
   Warning?: React.FunctionComponent;
   Notes?: React.FunctionComponent[];
   playgroundUrl?: string;
 };
+type MapConfigWithoutExample = "empty";
+
+type MapConfig =
+  | MapConfigMissingExample
+  | MapConfigWithExample
+  | MapConfigWithoutExample;
 
 // eslint-disable-next-line react-refresh/only-export-components
 const DistributiveConditionalTypes = () => (
@@ -20,10 +27,10 @@ const DistributiveConditionalTypes = () => (
 );
 
 // TODO: examples from real libraries
-export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
+export const map: Record<InputType, Record<InputType, MapConfig>> = {
   array: {
     // TODO: string[] => number[]
-    array: undefined,
+    array: "missing",
     tuple: {
       code: `
         const array = [1, 2, 3, 4];
@@ -61,7 +68,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     // TODO: Indexing an Array Type by a Specific Key
     // e.g. [K in T[number]["id"]]: Extract<T[number], { id: K }>
     // TODO: MergeAll
-    object: undefined,
+    object: "missing",
     union: {
       code: `
         type UnionFrom<Array extends unknown[]> = Array[number];
@@ -71,14 +78,12 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       `,
       playgroundUrl: "https://tsplay.dev/mqlBrN",
     },
-    // TODO: remove as it's not applicable
-    stringLiteral: undefined,
-    // TODO: remove as it's not applicable
-    numericLiteral: undefined,
+    stringLiteral: "empty",
+    numericLiteral: "empty",
   },
   tuple: {
     // TODO: [string, number] => (string | number)[]
-    array: undefined,
+    array: "missing",
     // TODO: Pop, Push, Shift, Unshift, Flatten
     tuple: {
       code: `
@@ -154,8 +159,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       `,
       playgroundUrl: "https://tsplay.dev/mpM2XW",
     },
-    // TODO: remove as it's not applicable
-    stringLiteral: undefined,
+    stringLiteral: "empty",
     numericLiteral: {
       code: `
         type LengthOf<Tuple extends {length: number}> = Tuple['length'];
@@ -189,7 +193,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       Notes: [() => <ArrayConversionNote parameterType="Person" />],
     },
     // TODO: Object.keys, Object.values
-    tuple: undefined,
+    tuple: "missing",
     // TODO: Pick, Readonly, Omit, Append key-value pair, GetOptional
     object: {
       code: `
@@ -279,10 +283,9 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       `,
       playgroundUrl: "https://tsplay.dev/NBrXxN",
     },
-    // TODO: remove as it's not applicable
-    stringLiteral: undefined,
+    stringLiteral: "empty",
     // TODO: number of keys
-    numericLiteral: undefined,
+    numericLiteral: "missing",
   },
   union: {
     array: {
@@ -477,14 +480,12 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         ),
       ],
     },
-    // TODO: remove as it's not applicable
-    stringLiteral: undefined,
+    stringLiteral: "empty",
     // TODO: number of union elements
-    numericLiteral: undefined,
+    numericLiteral: "missing",
   },
   stringLiteral: {
-    // TODO: remove as it's not applicable
-    array: undefined,
+    array: "empty",
     tuple: {
       code: `
         type Path<StringLiteral, Tuple extends any[] = []> = StringLiteral extends \`\${infer Key}.\${infer Rest}\`
@@ -523,7 +524,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     },
     // TODO: Query string parser, e.g. a=1&b=2&c=3 => {a: '1', b: '2', c: '3'}
     // TODO: Extract dynamic route parameters, e.g. /blog/[slug]/page.js => {slug: string}
-    object: undefined,
+    object: "missing",
     union: {
       code: `
         type CharUnionFrom<StringLiteral, Union = never> = StringLiteral extends \`$\{infer Char}$\{infer Tail}\`
@@ -643,8 +644,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     },
   },
   numericLiteral: {
-    // TODO: remove as it's not applicable
-    array: undefined,
+    array: "empty",
     tuple: {
       code: `
         type Repeat<Value, NumericLiteral, Tuple extends Value[] = []> = Tuple['length'] extends NumericLiteral
@@ -663,13 +663,11 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
       ],
       playgroundUrl: "https://tsplay.dev/m3D8kW",
     },
-    // TODO: remove as it's not applicable
-    object: undefined,
+    object: "empty",
     // TODO: NumberRange, e.g. Range<1, 3> => 1 | 2 | 3
-    union: undefined,
-    // TODO: remove as it's not applicable
-    stringLiteral: undefined,
+    union: "missing",
+    stringLiteral: "empty",
     // TODO: Brand
-    numericLiteral: undefined,
+    numericLiteral: "missing",
   },
 };

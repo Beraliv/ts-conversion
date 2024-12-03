@@ -6,6 +6,7 @@ import { inputs, InputType } from "../utils/inputs";
 import { map } from "../utils/map";
 import { Link } from "./Link";
 import style from "./TsConversion.module.css";
+import { toCamelCase } from "../utils/toCamelCase";
 
 const updateHistory = (params: URLSearchParams) => {
   window.history.replaceState(
@@ -65,44 +66,64 @@ export const TsConversion = () => {
           handleChange={handleTargetChange}
           options={inputs}
           isOptionDisabled={(input) =>
-            !source || (source && map[source][input] === undefined)
+            !source || map[source][input] === "missing"
           }
         />
       </div>
 
-      {source && target && map[source][target] && (
+      {source && target && (
         <>
-          {(Warning = map[source][target].Warning) && (
+          {map[source][target] === "empty" ? (
             <div>
               <Message type="warning">
-                <Warning />
+                <>
+                  At the moment of writing, I wasn't able to find an application
+                  for {toCamelCase(source)} to {toCamelCase(target)} conversion.
+                  If you have a practical example, feel free to{" "}
+                  <Link
+                    href="https://github.com/Beraliv/beraliv.dev/issues"
+                    text="raise an issue"
+                    external
+                  />
+                  , I would be more than happy to re-consider my decision.
+                </>
               </Message>
             </div>
-          )}
-          <div className={style.CodeExperience}>
-            <pre>
-              <code>{clampLines(map[source][target].code)}</code>
-            </pre>
-            {map[source][target].playgroundUrl && (
-              <div>
-                <Link
-                  href={map[source][target].playgroundUrl}
-                  external
-                  text="Playground"
-                />
+          ) : map[source][target] === "missing" ? null : (
+            <>
+              {(Warning = map[source][target].Warning) && (
+                <div>
+                  <Message type="warning">
+                    <Warning />
+                  </Message>
+                </div>
+              )}
+              <div className={style.CodeExperience}>
+                <pre>
+                  <code>{clampLines(map[source][target].code)}</code>
+                </pre>
+                {map[source][target].playgroundUrl && (
+                  <div>
+                    <Link
+                      href={map[source][target].playgroundUrl}
+                      external
+                      text="Playground"
+                    />
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-          {map[source][target].Notes && (
-            <div className={style.Insights}>
-              <h3>Insights</h3>
+              {map[source][target].Notes && (
+                <div className={style.Insights}>
+                  <h3>Insights</h3>
 
-              {map[source][target].Notes.map((Note, index) => (
-                <Message key={index} type="note">
-                  <Note />
-                </Message>
-              ))}
-            </div>
+                  {map[source][target].Notes.map((Note, index) => (
+                    <Message key={index} type="note">
+                      <Note />
+                    </Message>
+                  ))}
+                </div>
+              )}
+            </>
           )}
         </>
       )}
