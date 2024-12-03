@@ -175,8 +175,31 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     },
   },
   object: {
-    // TODO: Obj => Obj[]
-    array: undefined,
+    array: {
+      code: `
+        type Person = {
+          name: string;
+        }
+
+        const people: Person[] = [{name: 'Alexey'}, {name: 'Ksenia'}];
+        //            ^^^^^^^^
+      `,
+      playgroundUrl: "https://tsplay.dev/mqlPjN",
+      Notes: [
+        () => (
+          <>
+            To convert any type to{" "}
+            <Link
+              href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#arrays"
+              external
+              text="an array"
+            />
+            , you may use the syntax <code>Person[]</code> or the syntax{" "}
+            <code>{"Array<Person>"}</code>
+          </>
+        ),
+      ],
+    },
     // TODO: Object.keys, Object.values
     tuple: undefined,
     // TODO: Pick, Readonly, Omit, Append key-value pair, GetOptional
