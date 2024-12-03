@@ -9,6 +9,6 @@ describe("map", () => {
   });
 
   test("checks implemented combinations", () => {
-    expect(current).toBe(17);
+    expect(current).toBe(18);
   });
 });

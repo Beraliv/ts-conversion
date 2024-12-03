@@ -1,3 +1,4 @@
+import { ArrayConversionNote } from "../components/ArrayConversionNote";
 import { Link } from "../components/Link";
 import { TailRecursionEliminationNote } from "../components/TailRecursionEliminationNote";
 import { InputType } from "./inputs";
@@ -185,20 +186,7 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         //            ^^^^^^^^
       `,
       playgroundUrl: "https://tsplay.dev/mqlPjN",
-      Notes: [
-        () => (
-          <>
-            To convert any type to{" "}
-            <Link
-              href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#arrays"
-              external
-              text="an array"
-            />
-            , you may use the syntax <code>Person[]</code> or the syntax{" "}
-            <code>{"Array<Person>"}</code>
-          </>
-        ),
-      ],
+      Notes: [() => <ArrayConversionNote parameterType="Person" />],
     },
     // TODO: Object.keys, Object.values
     tuple: undefined,
@@ -297,8 +285,27 @@ export const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     numericLiteral: undefined,
   },
   union: {
-    // TODO: string | number => (string | number)[]
-    array: undefined,
+    array: {
+      code: `
+        type CreatePlayerMessage = {version: string};
+        type LoadPlayerMessage = {startTime: number; sessionId: string};
+        type HeartbeatMessage = {playingTime: number; sessionId: string}
+
+        type Message =
+          | CreatePlayerMessage
+          | LoadPlayerMessage
+          | HeartbeatMessage;
+
+        const messageHistory: Message[] = [];
+        //                    ^^^^^^^^^
+
+        messageHistory.push({version: '1.0.0'});
+        messageHistory.push({startTime: 3, sessionId: '123456789'});
+        messageHistory.push({playingTime: 10, sessionId: '123456789'});
+      `,
+      playgroundUrl: "https://tsplay.dev/mA6eRW",
+      Notes: [() => <ArrayConversionNote parameterType="Message" />],
+    },
     tuple: {
       code: `
         type UnionToIntersection<Union> = (Union extends any ? (arg: Union) => void : never) extends (
