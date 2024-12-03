@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { clampLines } from "../utils/clampLines";
 import { Select } from "./Select";
 import { Message } from "./Message";
@@ -7,6 +7,9 @@ import { map } from "../utils/map";
 import { Link } from "./Link";
 import style from "./TsConversion.module.css";
 import { toCamelCase } from "../utils/toCamelCase";
+
+// eslint-disable-next-line prefer-const
+let DEV_MODE = false;
 
 const updateHistory = (params: URLSearchParams) => {
   window.history.replaceState(
@@ -25,6 +28,15 @@ export const TsConversion = () => {
   const [target, setTarget] = useState<InputType>(
     (query.get("target") as InputType) ?? undefined
   );
+
+  useEffect(() => {
+    if (source && target) {
+      if (DEV_MODE) {
+        console.log("Page", { source, target });
+      }
+      plausible?.("Page", { props: { source, target } });
+    }
+  }, [source, target]);
 
   const handleSourceChange = useCallback(
     (event: React.ChangeEvent<HTMLSelectElement>) => {
