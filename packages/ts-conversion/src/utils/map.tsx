@@ -1,4 +1,5 @@
 import { ArrayConversionNote } from "../components/ArrayConversionNote";
+import { IndexAccessTypesNote } from "../components/IndexAccessTypesNote";
 import { Link } from "../components/Link";
 import { TailRecursionEliminationNote } from "../components/TailRecursionEliminationNote";
 import { InputType } from "./inputs";
@@ -83,8 +84,35 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
     numericLiteral: "empty",
   },
   tuple: {
-    // TODO: [string, number] => (string | number)[]
-    array: "missing",
+    array: {
+      code: `
+        type ArrayFrom<Tuple extends readonly unknown[]> = Tuple[number][];
+
+        type Tuple = [string, number];
+        type ArrayFromType = ArrayFrom<Tuple>;
+        //   ^? (string | number)[]
+
+        const tuple: [string, number] = ['label', 2];
+        type ArrayFromRuntimeCode = ArrayFrom<typeof tuple>;
+        //   ^? (string | number)[]
+      `,
+      playgroundUrl: "https://tsplay.dev/m0DBxm",
+      Notes: [
+        () => (
+          <>
+            Similarly to{" "}
+            <Link
+              href="/?source=tuple&target=union"
+              text="Tuple to Union conversion"
+            />
+            , <IndexAccessTypesNote capital={false} /> All tuple's elements are
+            accessible by numeric keys, so you can get them by using the syntax{" "}
+            <code>[number]</code>. For example, for the tuple <code>Tuple</code>
+            , it will be <code>Tuple[number]</code>.
+          </>
+        ),
+      ],
+    },
     // TODO: Pop, Push, Shift, Unshift, Flatten
     tuple: {
       code: `
@@ -153,12 +181,27 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
     // TODO: Distribute Unions, e.g. [1 | 2, 3 | 4] => [1, 3] | [1, 4] | [2, 3] | [2, 4]
     union: {
       code: `
-        type UnionFrom<Tuple extends readonly unknown[]> = Tuple[number];
+        type ValueOf<Tuple extends readonly unknown[]> = Tuple[number];
+
         type Tuple = [1, 2, 3];
-        type Union = UnionFrom<Tuple>;
+        type UnionFromType = ValueOf<Tuple>;
+        //   ^? 3 | 1 | 2
+
+        const tuple = [1, 2, 3] as const;
+        type UnionFromRuntimeCode = ValueOf<typeof tuple>;
         //   ^? 3 | 1 | 2
       `,
-      playgroundUrl: "https://tsplay.dev/mpM2XW",
+      playgroundUrl: "https://tsplay.dev/wQQ9Yw",
+      Notes: [
+        () => (
+          <>
+            <IndexAccessTypesNote /> All tuple's elements are accessible by
+            numeric keys, so you can get them by using the syntax{" "}
+            <code>[number]</code>. For example, for the tuple <code>Tuple</code>
+            , it will be <code>Tuple[number]</code>.
+          </>
+        ),
+      ],
     },
     stringLiteral: "empty",
     numericLiteral: {
@@ -169,6 +212,14 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 3
       `,
       Notes: [
+        () => (
+          <>
+            <IndexAccessTypesNote /> As Tuples have a property called{" "}
+            <code>length</code>, it's possible to use the syntax{" "}
+            <code>['length']</code>. For example, for the tuple{" "}
+            <code>Tuple</code>, it will be <code>Tuple['length']</code>.
+          </>
+        ),
         () => (
           <>
             One of differences between Arrays and Tuples is <code>length</code>{" "}
