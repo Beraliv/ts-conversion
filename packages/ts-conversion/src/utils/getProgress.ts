@@ -1,12 +1,24 @@
 import { map } from "./map";
 
 export const getProgress = () => {
-  const current = Object.values(map)
-    .flatMap((value) => Object.values(value))
-    .filter((value) => value !== "missing").length;
-  const total = Object.values(map).flatMap((value) =>
-    Object.values(value)
-  ).length;
+  let missing = 0;
+  let empty = 0;
+  let implemented = 0;
+  let total = 0;
 
-  return { current, total };
+  for (const values of Object.values(map)) {
+    for (const value of Object.values(values)) {
+      total++;
+
+      if (value === "empty") {
+        empty++;
+      } else if (value === "missing") {
+        missing++;
+      } else {
+        implemented++;
+      }
+    }
+  }
+
+  return { missing, empty, implemented, total };
 };

@@ -2,13 +2,21 @@ import { describe, expect, test } from "vitest";
 import { getProgress } from "./getProgress";
 
 describe("map", () => {
-  const { current, total } = getProgress();
+  const { empty, implemented, missing, total } = getProgress();
 
-  test("checks all combinations", () => {
-    expect(total).toBe(36);
+  test("returns a number of combinations that don't have practical example", () => {
+    expect(empty).toBe(9);
   });
 
-  test("checks implemented combinations", () => {
-    expect(current).toBe(27);
+  test("returns a number of implemented combinations", () => {
+    expect(implemented).toBe(18);
+  });
+
+  test("returns a number of combinations with a missing example", () => {
+    expect(missing).toBe(9);
+  });
+
+  test("returns a number of total combinations", () => {
+    expect(total).toBe(36);
   });
 });
