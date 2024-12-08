@@ -747,8 +747,86 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       ],
     },
     // TODO: Query string parser, e.g. a=1&b=2&c=3 => {a: '1', b: '2', c: '3'}
-    // TODO: Extract dynamic route parameters, e.g. /blog/[slug]/page.js => {slug: string}
-    object: "missing",
+    // TODO(usage): router (e.g. react-router)
+    object: {
+      code: `
+        type InternalDynamicRoute<
+          StringLiteral extends string,
+          ObjectType extends  Record<string, string> = {}
+        > = StringLiteral extends ''
+          ? {[Key in keyof ObjectType]: ObjectType[Key]}
+          : StringLiteral extends \`\${infer Key}/\${infer Rest}\`
+            ? Key extends \`:\${infer Parameter}\`
+              ? InternalDynamicRoute<Rest, ObjectType & Record<Parameter, string>>
+              : InternalDynamicRoute<Rest, ObjectType>
+            : InternalDynamicRoute<\`\${StringLiteral}/\`, ObjectType>;
+
+        type DynamicRoute<StringLiteral extends string> = InternalDynamicRoute<StringLiteral>;
+
+        type BlogPageIdParameters = DynamicRoute<'/blog/:locale/:pageId'>;
+        //   ^? {locale: string; pageId: string}
+      `,
+      playgroundUrl: "https://tsplay.dev/N57poW",
+      insights: [
+        {
+          Element: <RecursiveConditionalTypesNote />,
+          type: "note",
+        },
+        {
+          Element: (
+            <RecursiveConditionalTypesWarning
+              baseCaseExample={
+                <>
+                  For example, an empty string when iterating over a string
+                  literal, i.e. <code>StringLiteral extends ''</code>
+                </>
+              }
+            />
+          ),
+          type: "warning",
+        },
+        {
+          Element: (
+            <TailRecursionEliminationNote
+              props={[
+                {
+                  parameterType: "ObjectType",
+                  utilityType: "InternalDynamicRoute",
+                },
+              ]}
+            />
+          ),
+          type: "note",
+        },
+        {
+          Element: (
+            <AccumulatorParameterTypesNote
+              internalUtilityType="InternalCharUnionFrom"
+              internalParameterTypes={2}
+              publicUtilityType="CharUnionFrom"
+              publicParameterTypes={1}
+            />
+          ),
+          type: "note",
+        },
+        {
+          Element: (
+            <>
+              When string literal is processed (i.e. <code>StringLiteral</code>{" "}
+              is empty),{" "}
+              <code>{"{[Key in keyof ObjectType]: ObjectType[Key]}"}</code>{" "}
+              (called <code>Prettier</code>) is used for a more readable output.
+              Without this line, you would see{" "}
+              <code>
+                {"Record<'locale', string> & Record<'pageId', string>"}
+              </code>
+              .
+            </>
+          ),
+          type: "note",
+        },
+      ],
+    },
     union: {
       code: `
         type InternalCharUnionFrom<StringLiteral, Union = never> = StringLiteral extends \`$\{infer Char}$\{infer Tail}\`
@@ -783,7 +861,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         {
           Element: (
             <TailRecursionEliminationNote
-              props={[{ parameterType: "Union", utilityType: "CharUnionFrom" }]}
+              props={[
+                {
+                  parameterType: "Union",
+                  utilityType: "InternalCharUnionFrom",
+                },
+              ]}
             />
           ),
           type: "note",
@@ -946,23 +1029,61 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
     array: "empty",
     tuple: {
       code: `
-        type Repeat<Value, NumericLiteral, Tuple extends Value[] = []> = Tuple['length'] extends NumericLiteral
+        type InternalRepeat<
+          Value,
+          NumericLiteral,
+          Tuple extends Value[] = []
+        > = Tuple['length'] extends NumericLiteral
           ? Tuple
-          : Repeat<Value, NumericLiteral, [...Tuple, Value]>;
+          : InternalRepeat<Value, NumericLiteral, [...Tuple, Value]>;
+
+        type Repeat<Value, NumericLiteral extends number> = InternalRepeat<Value, NumericLiteral>;
+
         type NumericPair = Repeat<number, 2>;
         //   ^? [number, number]
       `,
+      playgroundUrl: "https://tsplay.dev/NDQv1m",
       insights: [
+        {
+          Element: <RecursiveConditionalTypesNote />,
+          type: "note",
+        },
+        {
+          Element: (
+            <RecursiveConditionalTypesWarning
+              baseCaseExample={
+                <>
+                  For example, tuple length and numeric literal equality when
+                  adding elements to a tuple, i.e.{" "}
+                  <code>Tuple['length'] extends NumericLiteral</code>.
+                </>
+              }
+            />
+          ),
+          type: "warning",
+        },
         {
           Element: (
             <TailRecursionEliminationNote
-              props={[{ parameterType: "Tuple", utilityType: "Repeat" }]}
+              props={[
+                { parameterType: "Tuple", utilityType: "InternalRepeat" },
+              ]}
+            />
+          ),
+          type: "note",
+        },
+        {
+          Element: (
+            <AccumulatorParameterTypesNote
+              internalUtilityType="InternalRepeat"
+              internalParameterTypes={3}
+              publicUtilityType="Repeat"
+              publicParameterTypes={2}
             />
           ),
           type: "note",
         },
       ],
-      playgroundUrl: "https://tsplay.dev/m3D8kW",
     },
     object: "empty",
     union: {
