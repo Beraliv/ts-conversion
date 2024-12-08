@@ -445,7 +445,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
               />
             </>
           ),
-          type: "note",
+          type: "warning",
         },
       ],
     },
@@ -1153,7 +1153,64 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       ],
     },
     stringLiteral: "empty",
-    // TODO: Brand
-    numericLiteral: "missing",
+    numericLiteral: {
+      code: `
+        declare const __opaque__type__: unique symbol;
+
+        type OpaqueType<BaseType, TagName> = BaseType & {
+          readonly [__opaque__type__]: TagName;
+        };
+
+        type Seconds = OpaqueType<number, "seconds">;
+        type Minutes = OpaqueType<number, "minutes">;
+
+        declare let startTimeSeconds: Seconds;
+        declare let leftMinutes: Minutes;
+
+        // Type '"minutes"' is not assignable to type '"seconds"'
+        startTimeSeconds = leftMinutes;
+        //  Type '"seconds"' is not assignable to type '"minutes"'
+        leftMinutes = startTimeSeconds;
+      `,
+      playgroundUrl: "https://tsplay.dev/mZRp9m",
+      insights: [
+        {
+          Element: (
+            <>
+              An opaque type (also called nominal, brand or tagged type), is a
+              common utility, implemented in{" "}
+              <Link
+                text="type-fest"
+                external
+                href="https://github.com/sindresorhus/type-fest/blob/main/source/tagged.d.ts"
+              />
+              ,{" "}
+              <Link
+                text="ts-essentials"
+                external
+                href="https://github.com/ts-essentials/ts-essentials/blob/master/lib/opaque/index.ts"
+              />{" "}
+              and other libraries.
+            </>
+          ),
+          type: "note",
+        },
+        {
+          Element: (
+            <>
+              As of 2024, TypeScript has no support of nominal (or
+              non-structural) types. There is an open GitHub issue -
+              <Link
+                href="https://github.com/Microsoft/TypeScript/issues/202"
+                external
+                text="TypeScript#202"
+              />
+              , where engineers work on the proposal.
+            </>
+          ),
+          type: "warning",
+        },
+      ],
+    },
   },
 };
