@@ -19,11 +19,8 @@ jobs:
       - name: Caches node modules
         uses: ./.github/actions/cache-node-modules
 
-      - name: Setup pnpm
-        uses: ./.github/actions/setup-pnpm
-
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -33,7 +30,7 @@ jobs:
           aws-region: eu-central-1
 
       - name: Build
-        run: pnpm --filter ts-conversion run build
+        run: npm run build
 
       - name: Deploy to AWS S3
-        run: aws s3 sync ./packages/ts-conversion/dist s3://ts-conversion.beraliv.com --delete
+        run: aws s3 sync ./dist s3://ts-conversion.beraliv.com --delete

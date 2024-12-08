@@ -6,16 +6,14 @@ Try it now: https://ts-conversion.beraliv.com
 
 ## Quick start
 
-This project is part of pnpm workspaces.
-
 To install all dependencies, run the install command:
 
 ```bash
-pnpm install
+npm install
 ```
 
 To start developing the project, run the dev command:
 
 ```bash
-pnpm --filter ts-conversion run dev --host
+npm run dev --host
 ```
