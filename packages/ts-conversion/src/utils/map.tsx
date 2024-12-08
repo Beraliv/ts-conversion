@@ -7,6 +7,7 @@ import { RecursiveConditionalTypesWarning } from "../warnings/RecursiveCondition
 import { RecursiveConditionalTypesNote } from "../notes/RecursiveConditionalTypesNote";
 import { TailRecursionEliminationNote } from "../notes/TailRecursionEliminationNote";
 import { InputType } from "./inputs";
+import { KeyRemappingNote } from "../notes/KeyRemappingNote";
 
 type MapConfigMissingExample = "missing";
 type MapConfigWithExample = {
@@ -38,8 +39,42 @@ const DistributiveConditionalTypes = () => (
 // TODO: examples from real libraries
 export const map: Record<InputType, Record<InputType, MapConfig>> = {
   array: {
-    // TODO: string[] => number[]
-    array: "missing",
+    array: {
+      code: `
+        type GetPersonWithNames<ObjectType> = {
+          [Key in keyof ObjectType as ObjectType[Key] extends ObjectType[] ? \`\${Key & string}Names\` : Key]: ObjectType[Key] extends Person[]
+            ? string[]
+            : ObjectType[Key];
+        }
+
+        type Person = {
+          children: Person[];
+          name: string;
+          parents: Person[];
+        }
+
+        type PersonWithChildrenNames = GetPersonWithNames<Person>;
+        //   ^? {childrenNames: string[]; name: string; parentsNames: string[]}
+      `,
+      playgroundUrl: "https://tsplay.dev/W4DAaW",
+      insights: [
+        {
+          Element: (
+            <>
+              This technique is useful, when you have to update the existing
+              type in multiple places (e.g. <code>children</code> and{" "}
+              <code>parents</code> properties) and synchronise your changes with
+              runtime logic.
+            </>
+          ),
+          type: "note",
+        },
+        {
+          Element: <KeyRemappingNote />,
+          type: "note",
+        },
+      ],
+    },
     tuple: {
       code: `
         const array = [1, 2, 3, 4];
@@ -82,7 +117,6 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
     },
     // TODO: Indexing an Array Type by a Specific Key
     // e.g. [K in T[number]["id"]]: Extract<T[number], { id: K }>
-    // TODO: MergeAll
     object: "missing",
     union: {
       code: `
@@ -129,7 +163,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         },
       ],
     },
-    // TODO: Pop, Push, Shift, Unshift, Flatten
+    // TODO: Pop, Push, Shift, Unshift, Flatten, MergeAll
     tuple: {
       code: `
         type InternalFilter<
@@ -331,20 +365,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           type: "note",
         },
         {
-          Element: (
-            <>
-              TypeScript 4.1 introduced{" "}
-              <Link
-                href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-1.html#key-remapping-in-mapped-types"
-                external
-                text="key remapping"
-              />
-              , which simplifies changing the object keys. Use syntax{" "}
-              <code>as NewKey</code> in{" "}
-              <code>[Key in keyof Type as NewKey]: Type[Key]</code> to re-map
-              the key to whatever value you need.
-            </>
-          ),
+          Element: <KeyRemappingNote />,
           type: "note",
         },
         {
