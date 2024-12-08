@@ -1,3 +1,8 @@
+import SyntaxHighlighter from "react-syntax-highlighter";
+import {
+  tomorrow,
+  tomorrowNightEighties,
+} from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { useCallback, useEffect, useState } from "react";
 import { clampLines } from "../utils/clampLines";
 import { Select } from "./Select";
@@ -7,6 +12,7 @@ import { map } from "../utils/map";
 import { Link } from "./Link";
 import style from "./TsConversion.module.css";
 import { toCamelCase } from "../utils/toCamelCase";
+import { useTheme } from "../utils/useTheme";
 
 // eslint-disable-next-line prefer-const
 let DEV_MODE = false;
@@ -28,6 +34,7 @@ export const TsConversion = () => {
   const [target, setTarget] = useState<InputType>(
     (query.get("target") as InputType) ?? undefined
   );
+  const theme = useTheme();
 
   useEffect(() => {
     if (source && target) {
@@ -120,9 +127,14 @@ export const TsConversion = () => {
                 </div>
               )}
               <div className={style.CodeExperience}>
-                <pre>
-                  <code>{clampLines(map[source][target].code)}</code>
-                </pre>
+                <div className={style.CodeContainer}>
+                  <SyntaxHighlighter
+                    language="typescript"
+                    style={theme === "dark" ? tomorrowNightEighties : tomorrow}
+                  >
+                    {clampLines(map[source][target].code)}
+                  </SyntaxHighlighter>
+                </div>
                 {map[source][target].playgroundUrl && (
                   <div>
                     <Link

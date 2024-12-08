@@ -70,10 +70,9 @@ pre > code {
 }
 
 pre {
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.5rem !important;
   overflow: scroll;
   border-radius: 3px;
-  background-color: #575757;
 }
 
 code:not(pre > code) {
@@ -94,9 +93,8 @@ code:not(pre > code) {
   button {
     background-color: #f9f9f9;
   }
-
   pre {
-    background-color: #f2f2f2;
-    color: #213547;
+    /* override react-syntax-highlighter styles */
+    background-color: #f2f2f2 !important;
   }
 }
