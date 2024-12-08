@@ -102,7 +102,7 @@ export const TsConversion = () => {
                   for {toCamelCase(source)} to {toCamelCase(target)} conversion.
                   If you have a practical example, feel free to{" "}
                   <Link
-                    href="https://github.com/Beraliv/beraliv.dev/issues"
+                    href="https://github.com/Beraliv/ts-conversion/issues"
                     text="raise an issue"
                     external
                   />

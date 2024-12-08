@@ -9,7 +9,7 @@ export const Footer = () => (
     </p>
     <div>
       <Link
-        href="https://github.com/Beraliv/beraliv.dev/tree/main/packages/ts-conversion"
+        href="https://github.com/Beraliv/ts-conversion"
         text="Contribute to GitHub"
         external
       />
