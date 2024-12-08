@@ -19,15 +19,19 @@ export const Message = ({
         [styles.note]: type === "note",
       })}
     >
-      <div className={styles.MessageHeader}>
+      <div>
         {type === "warning" && <WarningIcon />}
         {type === "note" && <NoteIcon />}
-        <span>
-          {type === "warning" && "Warning"}
-          {type === "note" && "Note"}
-        </span>
       </div>
-      <div className={styles.MessageBody}>{children}</div>
+      <div>
+        <div className={styles.MessageHeader}>
+          <span>
+            {type === "warning" && "Warning"}
+            {type === "note" && "Note"}
+          </span>
+        </div>
+        {children}
+      </div>
     </div>
   );
 };

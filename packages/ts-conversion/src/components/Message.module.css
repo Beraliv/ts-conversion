@@ -1,6 +1,8 @@
 .MessageContainer {
   display: grid;
-  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem 0.75rem 0.5rem;
   color: rgb(23, 43, 77);
   border-radius: 3px;
 }
@@ -14,16 +16,9 @@
 }
 
 .MessageHeader {
-  display: grid;
-  grid-template-columns: 24px 1fr;
-  gap: 0.5rem;
+  padding-bottom: 0.25rem;
 }
 
 .MessageHeader > span {
   font-weight: 700;
-}
-
-.MessageBody {
-  margin: 0.5rem 0;
-  padding-left: 1rem;
 }
