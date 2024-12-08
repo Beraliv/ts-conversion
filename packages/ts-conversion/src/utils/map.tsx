@@ -8,6 +8,7 @@ import { RecursiveConditionalTypesNote } from "../notes/RecursiveConditionalType
 import { TailRecursionEliminationNote } from "../notes/TailRecursionEliminationNote";
 import { InputType } from "./inputs";
 import { KeyRemappingNote } from "../notes/KeyRemappingNote";
+import { ConditionalTypesNote } from "../notes/ConditionalTypesNote";
 
 type MapConfigMissingExample = "missing";
 type MapConfigWithExample = {
@@ -115,9 +116,39 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         },
       ],
     },
-    // TODO: Indexing an Array Type by a Specific Key
-    // e.g. [K in T[number]["id"]]: Extract<T[number], { id: K }>
-    object: "missing",
+    object: {
+      code: `
+        type ElementOf<ArrayType> = ArrayType extends readonly (infer Element)[]
+          ? Element
+          : never;
+
+        type HasAge = ElementOf<readonly {age: number}[]>;
+        //   ^? {age: number}
+      `,
+      playgroundUrl: "https://tsplay.dev/NaxJnw",
+      insights: [
+        {
+          Element: <ConditionalTypesNote />,
+          type: "note",
+        },
+        {
+          Element: (
+            <>
+              <Link
+                text="Conditional types"
+                external
+                href="https://www.typescriptlang.org/docs/handbook/2/conditional-types.html"
+              />
+              , provisioned with the <code>infer</code> keyword, allow engineer
+              to infer another type in the "true" branch. For example, the
+              utility type <code>ElementOf</code> returns an array element type{" "}
+              <code>Element</code>.
+            </>
+          ),
+          type: "note",
+        },
+      ],
+    },
     union: {
       code: `
         type UnionFrom<Array extends unknown[]> = Array[number];
@@ -188,7 +219,16 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           type: "note",
         },
         {
-          Element: <RecursiveConditionalTypesWarning />,
+          Element: (
+            <RecursiveConditionalTypesWarning
+              baseCaseExample={
+                <>
+                  For example, an empty tuple when iterating over tuples, i.e.{" "}
+                  <code>Tuple extends []</code>
+                </>
+              }
+            />
+          ),
           type: "warning",
         },
         {
@@ -511,17 +551,11 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         {
           Element: (
             <>
-              TypeScript 2.8 introduced{" "}
-              <Link
-                href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#distributive-conditional-types"
-                external
-                text="distributive conditional types"
-              />
-              . Using constructs like <code>Union extends any</code>, it
-              "iterates" over all union types, or "elements". For example, an
-              instantiation <code>Union extends Filter ? never : Union</code>{" "}
-              with the type parameter <code>A | B</code> for <code>Union</code>{" "}
-              is resolved as{" "}
+              TypeScript 2.8 introduced <DistributiveConditionalTypes />. Using
+              constructs like <code>Union extends any</code>, it "iterates" over
+              all union types, or "elements". For example, an instantiation{" "}
+              <code>Union extends Filter ? never : Union</code> with the type
+              parameter <code>A | B</code> for <code>Union</code> is resolved as{" "}
               <code>
                 (A extends Filter ? never : A) | (B extends Filter ? never : B)
               </code>
@@ -671,22 +705,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/wgxnvN",
       insights: [
         {
-          Element: (
-            <>
-              Conditional types allow iterate over a string literal. At the
-              example above,{" "}
-              <code>
-                StringLiteral extends `${"{"}infer Key{"}"}.${"{"}infer Rest
-                {"}"}`
-              </code>{" "}
-              is used to infer words around "dots". This is why it's important
-              to have another conditional type{" "}
-              <code>
-                StringLiteral extends `${"{"}infer Key{"}"}`
-              </code>{" "}
-              in case there are no "dots" in a string literal.
-            </>
-          ),
+          Element: <ConditionalTypesNote />,
           type: "note",
         },
         {
@@ -694,7 +713,16 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           type: "note",
         },
         {
-          Element: <RecursiveConditionalTypesWarning />,
+          Element: (
+            <RecursiveConditionalTypesWarning
+              baseCaseExample={
+                <>
+                  For example, an empty string when iterating over a string
+                  literal, i.e. <code>StringLiteral extends ''</code>
+                </>
+              }
+            />
+          ),
           type: "warning",
         },
         {
@@ -740,7 +768,16 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           type: "note",
         },
         {
-          Element: <RecursiveConditionalTypesWarning />,
+          Element: (
+            <RecursiveConditionalTypesWarning
+              baseCaseExample={
+                <>
+                  For example, an empty string when iterating over a string
+                  literal, i.e. <code>StringLiteral extends ''</code>
+                </>
+              }
+            />
+          ),
           type: "warning",
         },
         {
@@ -869,7 +906,16 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           type: "note",
         },
         {
-          Element: <RecursiveConditionalTypesWarning />,
+          Element: (
+            <RecursiveConditionalTypesWarning
+              baseCaseExample={
+                <>
+                  For example, an empty tuple when iterating over tuples, i.e.{" "}
+                  <code>Tuple extends []</code>
+                </>
+              }
+            />
+          ),
           type: "warning",
         },
         {
@@ -947,7 +993,17 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           type: "note",
         },
         {
-          Element: <RecursiveConditionalTypesWarning />,
+          Element: (
+            <RecursiveConditionalTypesWarning
+              baseCaseExample={
+                <>
+                  For example, start and end number equality when iterating over
+                  a numeric range, i.e.{" "}
+                  <code>StartNumericLiteral extends EndNumericLiteral</code>.
+                </>
+              }
+            />
+          ),
           type: "warning",
         },
         {

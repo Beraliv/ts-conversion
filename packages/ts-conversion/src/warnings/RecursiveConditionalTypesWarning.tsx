@@ -1,6 +1,12 @@
 import { Link } from "../components/Link";
 
-export const RecursiveConditionalTypesWarning = () => (
+interface RecursiveConditionalTypesWarningProps {
+  baseCaseExample: JSX.Element;
+}
+
+export const RecursiveConditionalTypesWarning = ({
+  baseCaseExample,
+}: RecursiveConditionalTypesWarningProps) => (
   <>
     Please pay close attention to a recursion depth, when using{" "}
     <Link
@@ -10,13 +16,10 @@ export const RecursiveConditionalTypesWarning = () => (
     />
     . When recursive depth limit is hit, TypeScript will throw a compile-time
     error (e.g.{" "}
-    <code>Type instantiation is excessively deep and possibly infinite</code>).
-    In this case, validate all the following scenarios:
+    <code>Type instantiation is excessively deep and possibly infinite</code>
+    ). In this case, validate all the following scenarios:
     <ol>
-      <li>
-        Handle base case correctly. For example, an empty tuple when iterating
-        over tuples, i.e. <code>Tuple extends []</code>
-      </li>
+      <li>Handle base case correctly. {baseCaseExample}</li>
       <li>
         Avoid too large union types. For example, instead of storing all
         integers, add a generic constraint to your API, i.e.{" "}
