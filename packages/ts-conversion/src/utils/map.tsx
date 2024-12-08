@@ -369,8 +369,113 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         },
       ],
     },
-    // TODO: Object.keys, Object.values
-    tuple: "missing",
+    tuple: {
+      Warning: () => (
+        <>
+          In 99% of cases, it's recommended to keep a source of truth in a
+          Tuple, rather than an Object (see{" "}
+          <Link
+            href="/?source=tuple&target=object"
+            text="Tuple to Object conversion"
+          />
+          ). The reason to avoid it is, because it's an expensive conversion,
+          and it relies on a very fragile logic that may break at any TypeScript
+          version. However, in 1% of cases, it's acceptable to use the utility
+          type <code>ObjectToTuple</code>, specifically when logic doesn't rely
+          on the tuple order.
+        </>
+      ),
+      code: `
+        type UnionToIntersection<Union> = (Union extends any ? (arg: Union) => void : never) extends (
+            arg: infer Intersection,
+        ) => void
+            ? Intersection
+            : never;
+
+        type LastOfUnion<UnionType> = UnionToIntersection<
+            UnionType extends any ? (arg: UnionType) => any : never
+        > extends (arg: infer LastUnionElement) => any
+            ? LastUnionElement
+            : never;
+
+        type InternalObjectToTuple<
+            ObjectType,
+            What extends 'entries' | 'keys' | 'values',
+            Accumulator extends unknown[] = [],
+            UnionType extends string = keyof ObjectType & string,
+        > = [UnionType] extends [never]
+            ? Accumulator
+            : LastOfUnion<UnionType> extends infer LastKey extends keyof ObjectType
+            ? InternalObjectToTuple<
+                Omit<ObjectType, LastKey>,
+                What,
+                [
+                    What extends 'entries'
+                        ? [LastKey, ObjectType[LastKey]]
+                        : What extends 'values'
+                            ? ObjectType[LastKey]
+                            : LastKey
+                    , 
+                    ...Accumulator
+                ]
+            >
+            : never;
+
+        type ObjectToTuple<ObjectType, What extends 'entries' | 'keys' | 'values'> = InternalObjectToTuple<ObjectType, What>;
+
+        type ObjectType = {locale: string, pageId: string};
+        type Keys = ObjectToTuple<ObjectType, 'keys'>;
+        //   ^? ['locale', 'pageId']
+        type Values = ObjectToTuple<ObjectType, 'values'>;
+        //   ^? [string, string]
+        type Entries = ObjectToTuple<ObjectType, 'entries'>;
+        //   ^? [['locale', string], ['pageId', string]]
+      `,
+      playgroundUrl: "https://tsplay.dev/NdxG6N",
+      insights: [
+        {
+          Element: <RecursiveConditionalTypesNote />,
+          type: "note",
+        },
+        {
+          Element: (
+            <RecursiveConditionalTypesWarning
+              baseCaseExample={
+                <>
+                  For example, never when iterating over a union type, i.e.{" "}
+                  <code>[UnionType] extends [never]</code>
+                </>
+              }
+            />
+          ),
+          type: "warning",
+        },
+        {
+          Element: (
+            <TailRecursionEliminationNote
+              props={[
+                {
+                  parameterType: "Accumulator",
+                  utilityType: "InternalObjectToTuple",
+                },
+              ]}
+            />
+          ),
+          type: "note",
+        },
+        {
+          Element: (
+            <AccumulatorParameterTypesNote
+              internalUtilityType="InternalObjectToTuple"
+              internalParameterTypes={4}
+              publicUtilityType="ObjectToTuple"
+              publicParameterTypes={2}
+            />
+          ),
+          type: "note",
+        },
+      ],
+    },
     // TODO: Pick, Readonly, Omit, Append key-value pair, GetOptional
     object: {
       code: `
@@ -491,6 +596,21 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       ],
     },
     tuple: {
+      Warning: () => (
+        <>
+          In 99% of cases, it's recommended to keep a source of truth in a
+          Tuple, rather than a Union (see{" "}
+          <Link
+            href="/?source=tuple&target=union"
+            text="Tuple to Union conversion"
+          />
+          ). The reason to avoid it is, because it's an expensive conversion,
+          and it relies on a very fragile logic that may break at any TypeScript
+          version. However, in 1% of cases, it's acceptable to use the utility
+          type <code>UnionToTuple</code>, specifically when logic doesn't rely
+          on the tuple order.
+        </>
+      ),
       code: `
         type UnionToIntersection<Union> = (Union extends any ? (arg: Union) => void : never) extends (
           arg: infer Intersection,
@@ -515,21 +635,6 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? [1, 2, 3]
       `,
       playgroundUrl: "https://tsplay.dev/wOQvEm",
-      Warning: () => (
-        <>
-          In 99% of cases, it's recommended to keep a source of truth in a
-          Tuple, rather than a Union (see{" "}
-          <Link
-            href="/?source=tuple&target=union"
-            text="Tuple to Union conversion"
-          />
-          ). The reason to avoid it is, because it's an expensive conversion,
-          and it relies on a very fragile logic that may break at any TypeScript
-          version. However, in 1% of cases, it's acceptable to use the utility
-          type <code>UnionToTuple</code>, specifically when logic doesn't rely
-          on the tuple order.
-        </>
-      ),
     },
     object: {
       label: "Object / Intersection",

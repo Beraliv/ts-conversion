@@ -9,11 +9,11 @@ describe("map", () => {
   });
 
   test("returns a number of implemented combinations", () => {
-    expect(implemented).toBe(24);
+    expect(implemented).toBe(25);
   });
 
   test("returns a number of combinations with a missing example", () => {
-    expect(missing).toBe(3);
+    expect(missing).toBe(2);
   });
 
   test("returns a number of total combinations", () => {
