@@ -1,4 +1,4 @@
-name: Deploy ts-conversion to S3
+name: Deploy
 
 on:
   push:

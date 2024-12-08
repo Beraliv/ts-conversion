@@ -1,0 +1,25 @@
+name: CI
+
+on: push
+
+jobs:
+  checks:
+    name: Checks
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to current branch
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: ./.github/actions/setup-node
+
+      - name: Caches node modules
+        uses: ./.github/actions/cache-node-modules
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Type check
+        run: npm run type-check
