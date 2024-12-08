@@ -1,13 +1,11 @@
-import { Link } from "./Link";
+import { Link } from "../components/Link";
 
 interface TailRecursionEliminationNoteProps {
-  parameterType: string;
-  utilityType: string;
+  props: { parameterType: string; utilityType: string }[];
 }
 
 export const TailRecursionEliminationNote = ({
-  parameterType,
-  utilityType,
+  props,
 }: TailRecursionEliminationNoteProps) => (
   <>
     TypeScript 4.5 introduced a{" "}
@@ -18,6 +16,18 @@ export const TailRecursionEliminationNote = ({
     />{" "}
     to optimise conditional types, which avoid intermediate instantiations.
     Therefore, it's recommended to use accumulator parameter types, such as{" "}
-    <code>{parameterType}</code> in <code>{utilityType}</code>.
+    <>
+      {props.map(({ parameterType, utilityType }, index) => (
+        <span key={index}>
+          <code>{parameterType}</code> in <code>{utilityType}</code>
+          {index === props.length - 2
+            ? " and "
+            : index === props.length - 1
+            ? ""
+            : ", "}
+        </span>
+      ))}
+    </>
+    .
   </>
 );

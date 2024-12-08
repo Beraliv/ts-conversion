@@ -4,7 +4,7 @@ import { NoteIcon } from "./NoteIcon";
 import { WarningIcon } from "./WarningIcon";
 import styles from "./Message.module.css";
 
-interface MessageProps {
+export interface MessageProps {
   type: "warning" | "note";
 }
 

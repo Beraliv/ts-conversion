@@ -135,13 +135,13 @@ export const TsConversion = () => {
                   </div>
                 )}
               </div>
-              {map[source][target].Notes && (
+              {map[source][target].insights && (
                 <div className={style.Insights}>
                   <h3>Insights</h3>
 
-                  {map[source][target].Notes.map((Note, index) => (
-                    <Message key={index} type="note">
-                      <Note />
+                  {map[source][target].insights.map((insight, index) => (
+                    <Message key={index} type={insight.type}>
+                      {insight.Element}
                     </Message>
                   ))}
                 </div>
