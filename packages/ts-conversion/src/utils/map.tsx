@@ -10,7 +10,6 @@ import { InputType } from "./inputs";
 import { KeyRemappingNote } from "../notes/KeyRemappingNote";
 import { ConditionalTypesNote } from "../notes/ConditionalTypesNote";
 
-type MapConfigMissingExample = "missing";
 type MapConfigWithExample = {
   label?: string;
   code: string;
@@ -23,10 +22,7 @@ type MapConfigWithExample = {
 };
 type MapConfigWithoutExample = "empty";
 
-type MapConfig =
-  | MapConfigMissingExample
-  | MapConfigWithExample
-  | MapConfigWithoutExample;
+type MapConfig = MapConfigWithExample | MapConfigWithoutExample;
 
 // eslint-disable-next-line react-refresh/only-export-components
 const DistributiveConditionalTypes = () => (
@@ -565,8 +561,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/NBrXxN",
     },
     stringLiteral: "empty",
-    // TODO: number of keys
-    numericLiteral: "missing",
+    numericLiteral: "empty",
   },
   union: {
     array: {
@@ -789,8 +784,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       ],
     },
     stringLiteral: "empty",
-    // TODO: number of union elements
-    numericLiteral: "missing",
+    numericLiteral: "empty",
   },
   stringLiteral: {
     array: "empty",

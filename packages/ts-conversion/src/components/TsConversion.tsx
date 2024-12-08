@@ -77,9 +77,7 @@ export const TsConversion = () => {
           label="Target"
           handleChange={handleTargetChange}
           options={inputs}
-          isOptionDisabled={(input) =>
-            !source || map[source][input] === "missing"
-          }
+          isOptionDisabled={() => !source}
           getLabel={(input) => {
             if (
               source &&
@@ -112,7 +110,7 @@ export const TsConversion = () => {
                 </>
               </Message>
             </div>
-          ) : map[source][target] === "missing" ? null : (
+          ) : (
             <>
               {(Warning = map[source][target].Warning) && (
                 <div>

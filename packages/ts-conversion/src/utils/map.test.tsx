@@ -5,7 +5,7 @@ describe("map", () => {
   const { empty, implemented, missing, total } = getProgress();
 
   test("returns a number of combinations that don't have practical example", () => {
-    expect(empty).toBe(9);
+    expect(empty).toBe(11);
   });
 
   test("returns a number of implemented combinations", () => {
@@ -13,7 +13,7 @@ describe("map", () => {
   });
 
   test("returns a number of combinations with a missing example", () => {
-    expect(missing).toBe(2);
+    expect(missing).toBe(0);
   });
 
   test("returns a number of total combinations", () => {

@@ -1,7 +1,7 @@
 import { map } from "./map";
 
 export const getProgress = () => {
-  let missing = 0;
+  const missing = 0;
   let empty = 0;
   let implemented = 0;
   let total = 0;
@@ -12,8 +12,6 @@ export const getProgress = () => {
 
       if (value === "empty") {
         empty++;
-      } else if (value === "missing") {
-        missing++;
       } else {
         implemented++;
       }
