@@ -8,6 +8,7 @@ declare global {
       props: {
         source: InputType;
         target: InputType;
+        query: `${InputType} to ${InputType}`;
       };
     };
   }

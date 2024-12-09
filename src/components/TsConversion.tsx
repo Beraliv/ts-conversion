@@ -39,9 +39,15 @@ export const TsConversion = () => {
   useEffect(() => {
     if (source && target) {
       if (DEV_MODE) {
-        console.log("Page", { source, target });
+        console.log("Page", {
+          source,
+          target,
+          query: `${source} to ${target}`,
+        });
       }
-      plausible?.("Page", { props: { source, target } });
+      plausible?.("Page", {
+        props: { source, target, query: `${source} to ${target}` },
+      });
     }
   }, [source, target]);
 
