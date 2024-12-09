@@ -3,16 +3,16 @@
   grid-template-columns: auto 1fr;
   gap: 0.5rem;
   padding: 0.5rem 1.5rem 0.75rem 0.5rem;
-  color: rgb(23, 43, 77);
+  color: #f3f3f3;
   border-radius: 3px;
 }
 
 .MessageContainer.warning {
-  background-color: #fff7d6;
+  background-color: #3c351d;
 }
 
 .MessageContainer.note {
-  background-color: rgb(243, 240, 255);
+  background-color: #352e51;
 }
 
 .MessageHeader {
@@ -21,4 +21,18 @@
 
 .MessageHeader > span {
   font-weight: 700;
+}
+
+@media (prefers-color-scheme: light) {
+  .MessageContainer {
+    color: #172b4d;
+  }
+
+  .MessageContainer.warning {
+    background-color: #fff7d6;
+  }
+
+  .MessageContainer.note {
+    background-color: #f3f0ff;
+  }
 }
