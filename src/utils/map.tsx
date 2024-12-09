@@ -1,14 +1,14 @@
-import { ArrayConversionNote } from "../components/ArrayConversionNote";
-import { IndexAccessTypesNote } from "../components/IndexAccessTypesNote";
 import { Link } from "../components/Link";
 import { MessageProps } from "../components/Message";
-import { AccumulatorParameterTypesNote } from "../notes/AccumulatorParameterTypesNote";
-import { RecursiveConditionalTypesWarning } from "../warnings/RecursiveConditionalTypesWarning";
-import { RecursiveConditionalTypesNote } from "../notes/RecursiveConditionalTypesNote";
-import { TailRecursionEliminationNote } from "../notes/TailRecursionEliminationNote";
+import { AccumulatorParameterTypesNote } from "../components/notes/AccumulatorParameterTypesNote";
+import { ArrayConversionNote } from "../components/notes/ArrayConversionNote";
+import { ConditionalTypesNote } from "../components/notes/ConditionalTypesNote";
+import { IndexAccessTypesNote } from "../components/notes/IndexAccessTypesNote";
+import { KeyRemappingNote } from "../components/notes/KeyRemappingNote";
+import { RecursiveConditionalTypesNote } from "../components/notes/RecursiveConditionalTypesNote";
+import { TailRecursionEliminationNote } from "../components/notes/TailRecursionEliminationNote";
+import { RecursiveConditionalTypesWarning } from "../components/warnings/RecursiveConditionalTypesWarning";
 import { InputType } from "./inputs";
-import { KeyRemappingNote } from "../notes/KeyRemappingNote";
-import { ConditionalTypesNote } from "../notes/ConditionalTypesNote";
 
 type MapConfigWithExample = {
   label?: string;

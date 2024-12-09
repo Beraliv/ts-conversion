@@ -1,4 +1,4 @@
-import { Link } from "../components/Link";
+import { Link } from "../Link";
 
 interface RecursiveConditionalTypesWarningProps {
   baseCaseExample: JSX.Element;
