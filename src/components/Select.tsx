@@ -21,8 +21,11 @@ export const Select = <T extends string>({
   getLabel = (option) => toCamelCase(option),
 }: SelectProps<T>) => (
   <div className={style.SelectContainer}>
-    <label className={style.SelectLabel}>{label}</label>
+    <label className={style.SelectLabel} htmlFor={label}>
+      {label}
+    </label>
     <select
+      id={label}
       className={style.Select}
       onChange={handleChange}
       value={value ?? chooseOptionText}
