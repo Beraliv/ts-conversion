@@ -7,7 +7,6 @@ export const inputs = [
   "union",
   "stringLiteral",
   "numericLiteral",
-  // TODO: add intersection (example union to intersection)
 ] as const;
 
 export type InputType = ValueOf<typeof inputs>;
