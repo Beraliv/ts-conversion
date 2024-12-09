@@ -473,8 +473,6 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       ],
     },
     // TODO: Pick, Readonly, Omit, Append key-value pair, GetOptional
-    // TODO: add homomorphic and non-homomorphic examples
-    // https://stackoverflow.com/questions/59790508/what-does-homomorphic-mapped-type-mean/59791889#59791889
     object: {
       code: `
         type Person = {
@@ -495,14 +493,62 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         {
           Element: (
             <>
-              <a href="https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#handbook-content">
-                Mapped types
-              </a>{" "}
+              <Link
+                text="Mapped types"
+                external
+                href="https://www.typescriptlang.org/docs/handbook/2/mapped-types.html"
+              />{" "}
               are effective in converting an object to another object by
               modifying keys and values. The syntax is{" "}
               <code>[Key in keyof Object]: Type[Key]</code>, where{" "}
               <code>Key</code> is a property name and <code>Type[Key]</code> is
               the value by the correspondent property.
+            </>
+          ),
+          type: "note",
+        },
+        {
+          Element: (
+            <>
+              In TypeScript, homomorphic mapped types are those that take the
+              form <code>{"{[Key in keyof Type (as ...)]: ...}"}</code>, where{" "}
+              <code>Type</code> is type parameter which is transformed by a
+              utility type, and <code>as ...</code> is an optional{" "}
+              <Link
+                href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-1.html#key-remapping-in-mapped-types"
+                external
+                text="key remapping"
+              />{" "}
+              clause. More about homomorphic mapped types in TypeScript in{" "}
+              <Link
+                text="What the heck is a homomorphic mapped type?"
+                external
+                href="https://andreasimonecosta.dev/posts/what-the-heck-is-a-homomorphic-mapped-type/"
+              />
+            </>
+          ),
+          type: "note",
+        },
+        {
+          Element: (
+            <>
+              When updating the structure of objects types with{" "}
+              <Link
+                text="Mapped types"
+                external
+                href="https://www.typescriptlang.org/docs/handbook/2/mapped-types.html"
+              />
+              , keep an eye on Homomorphism. <cite> </cite>
+              If you'd like to keep the same structure (i.e. property modifiers,
+              such as optional and readonly), use homomorphic mapped types.
+              Otherwise, use <code>Record</code>, <code>Partial</code>,{" "}
+              <code>Readonly</code>, etc. TypeScript examples of homomorphic and
+              non-homomorphic mapped types in a{" "}
+              <Link
+                text="stack overflow answer"
+                external
+                href="https://stackoverflow.com/a/59791889/3745332"
+              />
             </>
           ),
           type: "note",
