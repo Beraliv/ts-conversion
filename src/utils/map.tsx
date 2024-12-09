@@ -473,6 +473,8 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       ],
     },
     // TODO: Pick, Readonly, Omit, Append key-value pair, GetOptional
+    // TODO: add homomorphic and non-homomorphic examples
+    // https://stackoverflow.com/questions/59790508/what-does-homomorphic-mapped-type-mean/59791889#59791889
     object: {
       code: `
         type Person = {
