@@ -1,13 +1,36 @@
-import style from "./App.module.css";
+import { UserInputContextProvider } from "../contexts/UserInputContext";
+import { useTrackPage } from "../utils/useTrackPage";
+import { CodeExample } from "./CodeExample";
+import { Concern } from "./Concern";
 import { Footer } from "./Footer";
+import { Insights } from "./Insights";
 import { Intro } from "./Intro";
-import { TsConversion } from "./TsConversion";
+import { NoExampleWarning } from "./NoExampleWarning";
+import { UserInput } from "./UserInput";
+
+import style from "./App.module.css";
 
 function App() {
+  useTrackPage();
+
   return (
     <div className={style.App}>
       <Intro />
-      <TsConversion />
+      <UserInputContextProvider>
+        <div className={style.Conversion}>
+          <UserInput />
+          {/* if map[source][target] === "empty" */}
+          <>
+            <NoExampleWarning />
+          </>
+          {/* else */}
+          <>
+            <Concern />
+            <CodeExample />
+            <Insights />
+          </>
+        </div>
+      </UserInputContextProvider>
       <Footer />
     </div>
   );

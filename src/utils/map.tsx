@@ -13,7 +13,7 @@ import { InputType } from "./inputs";
 type MapConfigWithExample = {
   label?: string;
   code: string;
-  Warning?: React.FunctionComponent;
+  Concern?: React.FunctionComponent;
   insights?: {
     Element: JSX.Element;
     type: MessageProps["type"];
@@ -366,7 +366,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       ],
     },
     tuple: {
-      Warning: () => (
+      Concern: () => (
         <>
           In 99% of cases, it's recommended to keep a source of truth in a
           Tuple, rather than an Object (see{" "}
@@ -639,7 +639,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       ],
     },
     tuple: {
-      Warning: () => (
+      Concern: () => (
         <>
           In 99% of cases, it's recommended to keep a source of truth in a
           Tuple, rather than a Union (see{" "}

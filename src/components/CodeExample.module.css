@@ -1,0 +1,8 @@
+.CodeExperience {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.CodeContainer {
+  display: grid;
+}

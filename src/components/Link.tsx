@@ -1,4 +1,5 @@
 import { ExternalIcon } from "./icons/ExternalIcon";
+
 import style from "./Link.module.css";
 
 export type LinkProps = {

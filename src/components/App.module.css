@@ -6,3 +6,9 @@
   min-height: 96vh;
   padding: 2vh;
 }
+
+.Conversion {
+  display: grid;
+  gap: 1rem;
+  align-self: start;
+}

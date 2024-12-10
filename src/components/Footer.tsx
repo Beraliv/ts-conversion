@@ -1,4 +1,5 @@
 import { Link } from "./Link";
+
 import style from "./Footer.module.css";
 
 export const Footer = () => (

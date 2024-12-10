@@ -1,8 +1,9 @@
 import { toCamelCase } from "../utils/toCamelCase";
+
 import style from "./Select.module.css";
 
 interface SelectProps<T extends string> {
-  value: T;
+  value: T | undefined;
   label: string;
   handleChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   chooseOptionText?: string;

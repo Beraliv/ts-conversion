@@ -1,7 +1,9 @@
 import { PropsWithChildren } from "react";
+
 import { classNames } from "../utils/classNames";
 import { NoteIcon } from "./icons/NoteIcon";
 import { WarningIcon } from "./icons/WarningIcon";
+
 import styles from "./Message.module.css";
 
 export interface MessageProps {
