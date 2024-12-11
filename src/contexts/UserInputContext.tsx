@@ -14,7 +14,6 @@ interface UserInputContextType {
   target: InputType | undefined;
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const UserInputContext = createContext<UserInputContextType>({
   setSource: noop,
   setTarget: noop,

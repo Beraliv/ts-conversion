@@ -24,7 +24,6 @@ type MapConfigWithoutExample = "empty";
 
 type MapConfig = MapConfigWithExample | MapConfigWithoutExample;
 
-// eslint-disable-next-line react-refresh/only-export-components
 const DistributiveConditionalTypes = () => (
   <Link
     href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#distributive-conditional-types"
