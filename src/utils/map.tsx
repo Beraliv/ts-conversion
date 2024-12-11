@@ -22,6 +22,7 @@ type MapConfigWithExample = {
   applications?: {
     text: string;
     href: string;
+    githubStars?: number;
   }[];
 };
 type MapConfigWithoutExample = "empty";
@@ -215,6 +216,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         {
           text: "zod Enum.exclude(tuple)",
           href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4420-L4425",
+          githubStars: 34_400,
         },
       ],
       insights: [
@@ -277,6 +279,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         {
           text: "zod util.arrayToEnum(tuple)",
           href: "https://github.com/colinhacks/zod/blob/d969423266fccee56ef769da6744cc8bacb04550/src/helpers/util.ts#L141-L162",
+          githubStars: 34_400,
         },
       ],
       insights: [
@@ -317,6 +320,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         {
           text: "zod enum(tuple)",
           href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4345-L4349",
+          githubStars: 34_400,
         },
       ],
       insights: [
@@ -452,6 +456,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         {
           text: "zod Objects.keyof()",
           href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L3017",
+          githubStars: 34_400,
         },
       ],
       insights: [
@@ -519,10 +524,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         {
           text: "zod Objects.partial()",
           href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2946-L2950",
+          githubStars: 34_400,
         },
         {
           text: "zod Objects.required()",
           href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2979-L2983",
+          githubStars: 34_400,
         },
       ],
       insights: [
@@ -634,6 +641,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         },
       ],
     },
+    // TODO: Path
     // TODO: add values
     union: {
       code: `
@@ -671,6 +679,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         {
           text: "zod ZodStringDef",
           href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L631",
+          githubStars: 34_400,
         },
       ],
       insights: [
@@ -724,6 +733,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         {
           text: "zod Objects.keyof()",
           href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L3017",
+          githubStars: 34_400,
         },
       ],
     },
