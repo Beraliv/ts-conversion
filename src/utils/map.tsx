@@ -19,6 +19,10 @@ type MapConfigWithExample = {
     type: MessageProps["type"];
   }[];
   playgroundUrl?: string;
+  applications?: {
+    text: string;
+    href: string;
+  }[];
 };
 type MapConfigWithoutExample = "empty";
 
@@ -32,7 +36,6 @@ const DistributiveConditionalTypes = () => (
   />
 );
 
-// TODO: examples from real libraries
 export const map: Record<InputType, Record<InputType, MapConfig>> = {
   array: {
     array: {
@@ -208,6 +211,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? [string]
       `,
       playgroundUrl: "https://tsplay.dev/WJPQ5N",
+      applications: [
+        {
+          text: "zod Enum.exclude(tuple)",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4420-L4425",
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -264,6 +273,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? { TypeScript: boolean; Python: boolean }
       `,
       playgroundUrl: "https://tsplay.dev/NrZqVN",
+      applications: [
+        {
+          text: "zod util.arrayToEnum(tuple)",
+          href: "https://github.com/colinhacks/zod/blob/d969423266fccee56ef769da6744cc8bacb04550/src/helpers/util.ts#L141-L162",
+        },
+      ],
       insights: [
         {
           Element: (
@@ -298,6 +313,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 3 | 1 | 2
       `,
       playgroundUrl: "https://tsplay.dev/wQQ9Yw",
+      applications: [
+        {
+          text: "zod enum(tuple)",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4345-L4349",
+        },
+      ],
       insights: [
         {
           Element: (
@@ -427,6 +448,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? [['locale', string], ['pageId', string]]
       `,
       playgroundUrl: "https://tsplay.dev/NdxG6N",
+      applications: [
+        {
+          text: "zod Objects.keyof()",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L3017",
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -488,6 +515,16 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {getName: () => string} & {setName: (value: string) => void}
       `,
       playgroundUrl: "https://tsplay.dev/W4Dq7W",
+      applications: [
+        {
+          text: "zod Objects.partial()",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2946-L2950",
+        },
+        {
+          text: "zod Objects.required()",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2979-L2983",
+        },
+      ],
       insights: [
         {
           Element: (
@@ -630,6 +667,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         messageHistory.push({playingTime: 10, sessionId: '123456789'});
       `,
       playgroundUrl: "https://tsplay.dev/mA6eRW",
+      applications: [
+        {
+          text: "zod ZodStringDef",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L631",
+        },
+      ],
       insights: [
         {
           Element: <ArrayConversionNote parameterType="Message" />,
@@ -677,6 +720,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? [1, 2, 3]
       `,
       playgroundUrl: "https://tsplay.dev/wOQvEm",
+      applications: [
+        {
+          text: "zod Objects.keyof()",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L3017",
+        },
+      ],
     },
     object: {
       label: "Object / Intersection",
