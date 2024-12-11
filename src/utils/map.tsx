@@ -37,6 +37,7 @@ const DistributiveConditionalTypes = () => (
   />
 );
 
+// TODO: intrinsic types
 export const map: Record<InputType, Record<InputType, MapConfig>> = {
   array: {
     array: {
@@ -651,6 +652,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? keyof Person (i.e. 'name' | 'age')
       `,
       playgroundUrl: "https://tsplay.dev/NBrXxN",
+      applications: [
+        {
+          text: "dot-path-value getByPath",
+          href: "https://github.com/g-makarov/dot-path-value/blob/7911b5e2b08c286698ef8d6441a47065bad91589/src/index.ts#L63",
+          githubStars: 342,
+        },
+      ],
     },
     stringLiteral: "empty",
     numericLiteral: "empty",
