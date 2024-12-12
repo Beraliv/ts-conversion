@@ -980,6 +980,14 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {locale: string; pageId: string}
       `,
       playgroundUrl: "https://tsplay.dev/N57poW",
+      applications: [
+        {
+          text: "react-router useMatch",
+          // TODO: useMatch(stringLiteral) > matchPath > PathMatch['params']
+          href: "https://github.com/remix-run/react-router/blob/39630069d3780897eb04451e8d4f58b075b34462/packages/react-router/lib/hooks.tsx#L160-L163",
+          githubStars: 53_400,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -1053,6 +1061,14 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 'w' | 'o' | 'r' | 'l' | 'd'
       `,
       playgroundUrl: "https://tsplay.dev/NnZxBN",
+      applications: [
+        {
+          text: "react-router useMatch",
+          // TODO: useMatch(stringLiteral) > ParamParseKey > PathParam
+          href: "https://github.com/remix-run/react-router/blob/39630069d3780897eb04451e8d4f58b075b34462/packages/react-router/lib/hooks.tsx#L160-L163",
+          githubStars: 53_400,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
