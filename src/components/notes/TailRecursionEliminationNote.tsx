@@ -1,3 +1,4 @@
+import { conjunction } from "../../utils/conjunction";
 import { Link } from "../Link";
 
 interface TailRecursionEliminationNoteProps {
@@ -20,11 +21,7 @@ export const TailRecursionEliminationNote = ({
       {props.map(({ parameterType, utilityType }, index) => (
         <span key={index}>
           <code>{parameterType}</code> in <code>{utilityType}</code>
-          {index === props.length - 2
-            ? " and "
-            : index === props.length - 1
-            ? ""
-            : ", "}
+          {conjunction(index, props)}
         </span>
       ))}
     </>

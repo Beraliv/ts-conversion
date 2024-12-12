@@ -19,6 +19,11 @@ type MapConfigWithExample = {
     type: MessageProps["type"];
   }[];
   playgroundUrl?: string;
+  applications?: {
+    text: string;
+    href: string;
+    githubStars?: number;
+  }[];
 };
 type MapConfigWithoutExample = "empty";
 
@@ -32,7 +37,13 @@ const DistributiveConditionalTypes = () => (
   />
 );
 
-// TODO: examples from real libraries
+// TODO: applications from projects: rxjs, jest, react, redux, typeorm, prisma,
+// trpc, xstate, lodash
+
+// TODO: applications for examples: Opaque, Range, Repeat, Path, CamelCase,
+// UnionToIntersection, LengthOf<Tuple>, ElementOf
+
+// TODO: intrinsic types
 export const map: Record<InputType, Record<InputType, MapConfig>> = {
   array: {
     array: {
@@ -208,6 +219,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? [string]
       `,
       playgroundUrl: "https://tsplay.dev/WJPQ5N",
+      applications: [
+        {
+          text: "zod Enum.exclude(tuple)",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4420-L4425",
+          githubStars: 34_400,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -264,6 +282,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? { TypeScript: boolean; Python: boolean }
       `,
       playgroundUrl: "https://tsplay.dev/NrZqVN",
+      applications: [
+        {
+          text: "zod util.arrayToEnum(tuple)",
+          href: "https://github.com/colinhacks/zod/blob/d969423266fccee56ef769da6744cc8bacb04550/src/helpers/util.ts#L141-L162",
+          githubStars: 34_400,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -298,6 +323,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 3 | 1 | 2
       `,
       playgroundUrl: "https://tsplay.dev/wQQ9Yw",
+      applications: [
+        {
+          text: "zod enum(tuple)",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4345-L4349",
+          githubStars: 34_400,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -427,6 +459,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? [['locale', string], ['pageId', string]]
       `,
       playgroundUrl: "https://tsplay.dev/NdxG6N",
+      applications: [
+        {
+          text: "zod Objects.keyof()",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L3017",
+          githubStars: 34_400,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -488,6 +527,18 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {getName: () => string} & {setName: (value: string) => void}
       `,
       playgroundUrl: "https://tsplay.dev/W4Dq7W",
+      applications: [
+        {
+          text: "zod Objects.partial()",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2946-L2950",
+          githubStars: 34_400,
+        },
+        {
+          text: "zod Objects.required()",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2979-L2983",
+          githubStars: 34_400,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -597,6 +648,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         },
       ],
     },
+    // TODO: Path
     // TODO: add values
     union: {
       code: `
@@ -606,6 +658,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? keyof Person (i.e. 'name' | 'age')
       `,
       playgroundUrl: "https://tsplay.dev/NBrXxN",
+      applications: [
+        {
+          text: "dot-path-value getByPath",
+          href: "https://github.com/g-makarov/dot-path-value/blob/7911b5e2b08c286698ef8d6441a47065bad91589/src/index.ts#L63",
+          githubStars: 342,
+        },
+      ],
     },
     stringLiteral: "empty",
     numericLiteral: "empty",
@@ -630,6 +689,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         messageHistory.push({playingTime: 10, sessionId: '123456789'});
       `,
       playgroundUrl: "https://tsplay.dev/mA6eRW",
+      applications: [
+        {
+          text: "zod ZodStringDef",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L631",
+          githubStars: 34_400,
+        },
+      ],
       insights: [
         {
           Element: <ArrayConversionNote parameterType="Message" />,
@@ -677,6 +743,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? [1, 2, 3]
       `,
       playgroundUrl: "https://tsplay.dev/wOQvEm",
+      applications: [
+        {
+          text: "zod Objects.keyof()",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L3017",
+          githubStars: 34_400,
+        },
+      ],
     },
     object: {
       label: "Object / Intersection",
@@ -913,6 +986,14 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {locale: string; pageId: string}
       `,
       playgroundUrl: "https://tsplay.dev/N57poW",
+      applications: [
+        {
+          text: "react-router useMatch",
+          // TODO: useMatch(stringLiteral) > matchPath > PathMatch['params']
+          href: "https://github.com/remix-run/react-router/blob/39630069d3780897eb04451e8d4f58b075b34462/packages/react-router/lib/hooks.tsx#L160-L163",
+          githubStars: 53_400,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -986,6 +1067,14 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 'w' | 'o' | 'r' | 'l' | 'd'
       `,
       playgroundUrl: "https://tsplay.dev/NnZxBN",
+      applications: [
+        {
+          text: "react-router useMatch",
+          // TODO: useMatch(stringLiteral) > ParamParseKey > PathParam
+          href: "https://github.com/remix-run/react-router/blob/39630069d3780897eb04451e8d4f58b075b34462/packages/react-router/lib/hooks.tsx#L160-L163",
+          githubStars: 53_400,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -1116,6 +1205,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         },
       ],
     },
+    // TODO: mark as non-practical
     numericLiteral: {
       code: `
         type InternalLengthFrom<StringLiteral, Tuple extends unknown[] = []> = StringLiteral extends \`$\{infer _}$\{infer Tail}\`
