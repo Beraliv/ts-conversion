@@ -22,7 +22,7 @@ npm run dev --host
 
 - [x] 36 conversions in total
 - [x] Code snippets and links to TypeScript Playground
-- [ ] A list of libraries that use a respective conversion (_in progress_)
+- [ ] Applications from popular libraries ([_in progress_](https://github.com/Beraliv/ts-conversion/pull/1))
 - [x] A list of insights
   - [x] Notes with definitions and links to TypeScript documentation
   - [x] Warnings, which highlight potential issues and how to mitigate them
