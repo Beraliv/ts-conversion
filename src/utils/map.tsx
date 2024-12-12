@@ -37,6 +37,12 @@ const DistributiveConditionalTypes = () => (
   />
 );
 
+// TODO: applications from projects: rxjs, jest, react, redux, typeorm, prisma,
+// trpc, xstate, lodash
+
+// TODO: applications for examples: Opaque, Range, Repeat, Path, CamelCase,
+// UnionToIntersection, LengthOf<Tuple>, ElementOf
+
 // TODO: intrinsic types
 export const map: Record<InputType, Record<InputType, MapConfig>> = {
   array: {
@@ -1199,6 +1205,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         },
       ],
     },
+    // TODO: mark as non-practical
     numericLiteral: {
       code: `
         type InternalLengthFrom<StringLiteral, Tuple extends unknown[] = []> = StringLiteral extends \`$\{infer _}$\{infer Tail}\`
