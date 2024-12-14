@@ -37,7 +37,7 @@ const DistributiveConditionalTypes = () => (
   />
 );
 
-// TODO: applications from projects: rxjs, jest, react, redux, typeorm, prisma,
+// TODO: applications from projects: jest, react, redux, typeorm, prisma,
 // trpc, xstate, lodash
 
 // TODO: applications for examples: Opaque, Range, Repeat, Path, CamelCase,
@@ -94,6 +94,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //    ^? [1, 2, 3, 4]
       `,
       playgroundUrl: "https://tsplay.dev/WJPERN",
+      applications: [
+        {
+          text: "rxjs combineLatest",
+          href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/combineLatest.ts#L26-L29",
+          githubStars: 30_900,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -163,6 +170,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? number | string
       `,
       playgroundUrl: "https://tsplay.dev/mqlBrN",
+      applications: [
+        {
+          // of > ValueFromArray >
+          text: "rxjs of(...values)",
+          href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/of.ts#L15",
+        },
+      ],
     },
     stringLiteral: "empty",
     numericLiteral: "empty",
@@ -201,6 +215,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       ],
     },
     // TODO: Pop, Push, Shift, Unshift, Flatten, MergeAll
+    // TODO: Mapped Type, e.g. rxjs, combineLatest > ObservableInputTuple
     tuple: {
       code: `
         type InternalFilter<
@@ -224,6 +239,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           text: "zod Enum.exclude(tuple)",
           href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4420-L4425",
           githubStars: 34_400,
+        },
+        {
+          // combineLatestWith > Cons
+          text: "rxjs combineLatestWith",
+          href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/operators/combineLatestWith.ts#L45-L47",
+          githubStars: 30_900,
         },
       ],
       insights: [
@@ -389,6 +410,14 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //            ^^^^^^^^
       `,
       playgroundUrl: "https://tsplay.dev/mqlPjN",
+      applications: [
+        {
+          // race > raceInit > subscriptions
+          text: "rxjs race",
+          href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/race.ts#L61",
+          githubStars: 30_900,
+        },
+      ],
       insights: [
         {
           Element: <ArrayConversionNote parameterType="Person" />,
@@ -860,6 +889,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 'grass'
       `,
       playgroundUrl: "https://tsplay.dev/w28Yjm",
+      applications: [
+        {
+          text: "rxjs filter(Boolean)",
+          href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/operators/filter.ts#L7",
+          githubStars: 30_900,
+        },
+      ],
       insights: [
         {
           Element: (
