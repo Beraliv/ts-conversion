@@ -558,6 +558,11 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/W4Dq7W",
       applications: [
         {
+          text: "jest MockedObject",
+          href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L61-L69",
+          githubStars: 44_300,
+        },
+        {
           text: "zod Objects.partial()",
           href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2946-L2950",
           githubStars: 34_400,
@@ -719,6 +724,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       `,
       playgroundUrl: "https://tsplay.dev/mA6eRW",
       applications: [
+        {
+          // MockFunctionState > results
+          text: "jest MockFunctionState",
+          href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L233",
+          githubStars: 44_300,
+        },
         {
           text: "zod ZodStringDef",
           href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L631",
