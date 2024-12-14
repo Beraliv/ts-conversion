@@ -37,7 +37,7 @@ const DistributiveConditionalTypes = () => (
   />
 );
 
-// TODO: applications from projects: jest, react, redux, typeorm, prisma,
+// TODO: applications from projects: react, redux, typeorm, prisma,
 // trpc, xstate, lodash
 
 // TODO: applications for examples: Opaque, Range, Repeat, Path, CamelCase,
@@ -139,6 +139,14 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {age: number}
       `,
       playgroundUrl: "https://tsplay.dev/NaxJnw",
+      applications: [
+        {
+          // array > UnwrapArray
+          text: "ts-pattern array",
+          href: "https://github.com/gvergnaud/ts-pattern/blob/d3284224b47a4ac6f8ccdc244d01190312c7ab27/src/patterns.ts#L218-L221",
+          githubStars: 12_600,
+        },
+      ],
       insights: [
         {
           Element: <ConditionalTypesNote />,
