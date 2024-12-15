@@ -37,7 +37,7 @@ const DistributiveConditionalTypes = () => (
   />
 );
 
-// TODO: applications from projects: trpc, xstate, lodash
+// TODO: applications from projects: xstate, lodash
 
 // TODO: applications for examples: Opaque, Range, Repeat, Path, CamelCase,
 // UnionToIntersection, LengthOf<Tuple>, ElementOf
@@ -245,6 +245,11 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/WJPQ5N",
       applications: [
         {
+          text: "prisma UnwrapTuple",
+          href: "https://github.com/prisma/prisma/blob/8957496bd9b24c3ad49d998d51c3d52912aa90d7/packages/client/src/runtime/core/types/exported/Utils.ts#L50",
+          githubStars: 40_100,
+        },
+        {
           text: "zod Enum.exclude(tuple)",
           href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4420-L4425",
           githubStars: 34_400,
@@ -354,6 +359,11 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       `,
       playgroundUrl: "https://tsplay.dev/wQQ9Yw",
       applications: [
+        {
+          text: "prisma ITXClientDenyList",
+          href: "https://github.com/prisma/prisma/blob/94cd9dcede03b25fe1a28ee4fe3a1da117d86cdb/packages/client/src/runtime/core/types/exported/itxClientDenyList.ts#L5",
+          githubStars: 40_100,
+        },
         {
           text: "zod enum(tuple)",
           href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4345-L4349",
@@ -574,6 +584,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 44_300,
         },
         {
+          // Repository > create > DeepPartial
+          text: "typeorm Repository.create",
+          href: "https://github.com/typeorm/typeorm/blob/99d8249e450f7e649685105b372e265f41a0ee47/src/repository/Repository.ts#L114-L118",
+          githubStars: 34_600,
+        },
+        {
           text: "zod Objects.partial()",
           href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2946-L2950",
           githubStars: 34_400,
@@ -705,6 +721,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/NBrXxN",
       applications: [
         {
+          // Repository > average > PickKeysByType
+          text: "typeorm Repository.average",
+          href: "https://github.com/typeorm/typeorm/blob/99d8249e450f7e649685105b372e265f41a0ee47/src/repository/Repository.ts#L513-L516",
+          githubStars: 34_600,
+        },
+        {
           text: "dot-path-value getByPath",
           href: "https://github.com/g-makarov/dot-path-value/blob/7911b5e2b08c286698ef8d6441a47065bad91589/src/index.ts#L63",
           githubStars: 342,
@@ -740,6 +762,11 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           text: "jest MockFunctionState",
           href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L233",
           githubStars: 44_300,
+        },
+        {
+          text: "prisma JsonArray",
+          href: "https://github.com/prisma/prisma/blob/8957496bd9b24c3ad49d998d51c3d52912aa90d7/packages/client/src/runtime/core/types/exported/Json.ts#L12",
+          githubStars: 40_100,
         },
         {
           text: "zod ZodStringDef",
@@ -917,6 +944,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           text: "rxjs filter(Boolean)",
           href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/operators/filter.ts#L7",
           githubStars: 30_900,
+        },
+        {
+          // createReducer > NotFunction<any>
+          text: "@reduxjs/toolkit createReducer",
+          href: "https://github.com/reduxjs/redux-toolkit/blob/770a39476a428ccc062ec47bda7a1e61d8d8bf1b/packages/toolkit/src/createReducer.ts#L140-L143",
+          githubStars: 10_800,
         },
       ],
       insights: [
@@ -1187,7 +1220,25 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? SHAKA-3016
       `,
       playgroundUrl: "https://tsplay.dev/NBrpkN",
-      applications: [],
+      applications: [
+        {
+          text: "prisma ModelKey",
+          href: "https://github.com/prisma/prisma/blob/ce11a9080844bf91d0593ca17d0bfe724d79675c/packages/client/src/runtime/core/types/exported/Extensions.ts#L423-L425",
+          githubStars: 40_100,
+        },
+        {
+          // createServerSideHelpers > CreateServerSideHelpersOptions > CreateSSGHelpersInternal > TransformerOptions > TransformerOptionNo > TypeError
+          text: "trpc createServerSideHelpers",
+          href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/react-query/src/server/ssgProxy.ts#L82-L84",
+          githubStars: 35_300,
+        },
+        {
+          // tracked > TrackedEnvelope > TrackedId
+          text: "trpc tracked",
+          href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/stream/tracked.ts#L35-L38",
+          githubStars: 35_300,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -1280,7 +1331,14 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 5
       `,
       playgroundUrl: "https://tsplay.dev/WyZM2w",
-      applications: [],
+      applications: [
+        {
+          // exhaustive > DeepExcludeAll > DeepExclude > DistributeMatchingUnions > BuildMany > BuildOne > SetDeep > Iterator
+          text: "ts-pattern match(...).exhaustive()",
+          href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+          githubStars: 12_600,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
