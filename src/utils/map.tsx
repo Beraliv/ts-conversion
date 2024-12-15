@@ -19,7 +19,7 @@ type MapConfigWithExample = {
     type: MessageProps["type"];
   }[];
   playgroundUrl?: string;
-  applications?: {
+  applications: {
     text: string;
     href: string;
     githubStars?: number;
@@ -37,8 +37,7 @@ const DistributiveConditionalTypes = () => (
   />
 );
 
-// TODO: applications from projects: react, redux, typeorm, prisma,
-// trpc, xstate, lodash
+// TODO: applications from projects: trpc, xstate, lodash
 
 // TODO: applications for examples: Opaque, Range, Repeat, Path, CamelCase,
 // UnionToIntersection, LengthOf<Tuple>, ElementOf
@@ -64,6 +63,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {childrenNames: string[]; name: string; parentsNames: string[]}
       `,
       playgroundUrl: "https://tsplay.dev/W4DAaW",
+      applications: [],
       insights: [
         {
           Element: (
@@ -203,6 +203,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? (string | number)[]
       `,
       playgroundUrl: "https://tsplay.dev/m0DBxm",
+      applications: [],
       insights: [
         {
           Element: (
@@ -373,6 +374,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         },
       ],
     },
+    // TODO: Join, e.g. typeorm mongodb typings - https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L4062-L4068
     stringLiteral: "empty",
     numericLiteral: {
       code: `
@@ -405,6 +407,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         },
       ],
       playgroundUrl: "https://tsplay.dev/w280rm",
+      applications: [],
     },
   },
   object: {
@@ -691,7 +694,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       ],
     },
     // TODO: Path
-    // TODO: add values
+    // TODO: add values: typeorm ServerType, e.g. (typeof ServerType)[keyof typeof ServerType]
     union: {
       code: `
         type KeysFrom<Object> = keyof Object;
@@ -815,6 +818,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {pageUrl: string} & {videoId: string}
       `,
       playgroundUrl: "https://tsplay.dev/WzV3eW",
+      applications: [],
       insights: [
         {
           Element: (
@@ -977,6 +981,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? ['address', 'postcode']
       `,
       playgroundUrl: "https://tsplay.dev/wgxnvN",
+      applications: [],
       insights: [
         {
           Element: <ConditionalTypesNote />,
@@ -1182,6 +1187,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? SHAKA-3016
       `,
       playgroundUrl: "https://tsplay.dev/NBrpkN",
+      applications: [],
       insights: [
         {
           Element: (
@@ -1274,6 +1280,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 5
       `,
       playgroundUrl: "https://tsplay.dev/WyZM2w",
+      applications: [],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -1334,6 +1341,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? [number, number]
       `,
       playgroundUrl: "https://tsplay.dev/NDQv1m",
+      applications: [],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -1399,6 +1407,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
       `,
       playgroundUrl: "https://tsplay.dev/WKQ5yN",
+      applications: [],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -1464,6 +1473,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         leftMinutes = startTimeSeconds;
       `,
       playgroundUrl: "https://tsplay.dev/mZRp9m",
+      applications: [],
       insights: [
         {
           Element: (

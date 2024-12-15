@@ -12,7 +12,7 @@ export const Projects = () => {
 
   return (
     <>
-      {map[source][target].applications && (
+      {map[source][target].applications.length > 0 && (
         <div>
           <h3>Projects</h3>
           <span>Links to the libraries that already use this conversion:</span>
