@@ -727,6 +727,11 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 34_600,
         },
         {
+          text: "typeorm NestedPaths",
+          href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L5306",
+          githubStars: 34_600,
+        },
+        {
           text: "dot-path-value getByPath",
           href: "https://github.com/g-makarov/dot-path-value/blob/7911b5e2b08c286698ef8d6441a47065bad91589/src/index.ts#L63",
           githubStars: 342,
@@ -1399,7 +1404,14 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? [number, number]
       `,
       playgroundUrl: "https://tsplay.dev/NDQv1m",
-      applications: [],
+      applications: [
+        {
+          // NestedPaths > Depth
+          text: "typeorm NestedPaths",
+          href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L5306-L5309",
+          githubStars: 34_600,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
