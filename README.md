@@ -1,6 +1,6 @@
 # ts-conversion
 
-Interactive website, helping understand, how to convert one type to another in TypeScript, with code examples, links to TypeScript playground and examples from popular libraries
+Interactive website, helping understand, how to convert one type to another in TypeScript, with code examples, links to TypeScript playground and applications from popular libraries
 
 Try it now: https://ts-conversion.beraliv.com
 
@@ -22,7 +22,7 @@ npm run dev -- --host
 
 - [x] 36 conversions in total
 - [x] Code snippets and links to TypeScript Playground
-- [x] A list of libraries that use a respective conversion
+- [x] Applications from popular libraries
 - [x] A list of insights
   - [x] Notes with definitions and links to TypeScript documentation
   - [x] Warnings, which highlight potential issues and how to mitigate them
