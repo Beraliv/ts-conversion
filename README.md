@@ -15,14 +15,14 @@ npm install
 To start developing the project, run the dev command:
 
 ```bash
-npm run dev --host
+npm run dev -- --host
 ```
 
 ## Features
 
 - [x] 36 conversions in total
 - [x] Code snippets and links to TypeScript Playground
-- [ ] A list of libraries that use a respective conversion (_in progress_)
+- [x] A list of libraries that use a respective conversion
 - [x] A list of insights
   - [x] Notes with definitions and links to TypeScript documentation
   - [x] Warnings, which highlight potential issues and how to mitigate them
