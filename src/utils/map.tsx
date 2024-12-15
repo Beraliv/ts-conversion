@@ -1411,6 +1411,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L5306-L5309",
           githubStars: 34_600,
         },
+        {
+          // squared > SquareUnit > MultiplyUnits > AddIntegers > AddPositiveIntegers > TupleOfSize
+          text: "safe-units TupleOfSize",
+          href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L37-L39",
+          githubStars: 266,
+        },
       ],
       insights: [
         {
@@ -1543,7 +1549,20 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         leftMinutes = startTimeSeconds;
       `,
       playgroundUrl: "https://tsplay.dev/mZRp9m",
-      applications: [],
+      applications: [
+        {
+          // squared > SquareUnit > MultiplyUnits > AddIntegers > Negative
+          text: "safe-units Negative",
+          href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L1-L9",
+          githubStars: 266,
+        },
+        {
+          // squared > SquareUnit > MultiplyUnits > AddIntegers
+          text: "safe-units AddInteger",
+          href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L11-L20",
+          githubStars: 266,
+        },
+      ],
       insights: [
         {
           Element: (
