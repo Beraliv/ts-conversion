@@ -63,7 +63,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {childrenNames: string[]; name: string; parentsNames: string[]}
       `,
       playgroundUrl: "https://tsplay.dev/W4DAaW",
-      applications: [],
+      applications: [
+        {
+          text: "prisma PayloadToResult",
+          href: "https://github.com/prisma/prisma/blob/8957496bd9b24c3ad49d998d51c3d52912aa90d7/packages/client/src/runtime/core/types/exported/Utils.ts#L99-L105",
+          githubStars: 40_100,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -1040,7 +1046,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? ['address', 'postcode']
       `,
       playgroundUrl: "https://tsplay.dev/wgxnvN",
-      applications: [],
+      applications: [
+        {
+          text: "type-fest Split",
+          href: "https://github.com/sindresorhus/type-fest/blob/main/source/split.d.ts#L22-L29",
+          githubStars: 14_500,
+        },
+      ],
       insights: [
         {
           Element: <ConditionalTypesNote />,
@@ -1504,7 +1516,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
       `,
       playgroundUrl: "https://tsplay.dev/WKQ5yN",
-      applications: [],
+      applications: [
+        {
+          text: "type-fest IntRange",
+          href: "https://github.com/sindresorhus/type-fest/blob/main/source/int-range.d.ts#L40-L55",
+          githubStars: 14_500,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
