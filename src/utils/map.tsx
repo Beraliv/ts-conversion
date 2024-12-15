@@ -400,6 +400,15 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         type Length = LengthOf<Tuple>;
         //   ^? 3
       `,
+      playgroundUrl: "https://tsplay.dev/w280rm",
+      applications: [
+        {
+          // exhaustive > DeepExcludeAll > DeepExclude > DistributeMatchingUnions > FindUnionsMany > FindUnions > Length
+          text: "ts-pattern match(...).exhaustive()",
+          href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+          githubStars: 12_600,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -423,8 +432,6 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           type: "note",
         },
       ],
-      playgroundUrl: "https://tsplay.dev/w280rm",
-      applications: [],
     },
   },
   object: {
@@ -857,7 +864,14 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {pageUrl: string} & {videoId: string}
       `,
       playgroundUrl: "https://tsplay.dev/WzV3eW",
-      applications: [],
+      applications: [
+        {
+          // exhaustive > DeepExcludeAll > DeepExclude > DistributeMatchingUnions > FindUnionsMany > FindUnions > IsUnion > UnionToIntersection
+          text: "ts-pattern match(...).exhaustive()",
+          href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+          githubStars: 12_600,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -1557,6 +1571,12 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       `,
       playgroundUrl: "https://tsplay.dev/mZRp9m",
       applications: [
+        {
+          // branded > ZodBranded > BRAND
+          text: "zod branded",
+          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L532",
+          githubStars: 34_400,
+        },
         {
           // squared > SquareUnit > MultiplyUnits > AddIntegers > Negative
           text: "safe-units Negative",
