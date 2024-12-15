@@ -203,7 +203,14 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? (string | number)[]
       `,
       playgroundUrl: "https://tsplay.dev/m0DBxm",
-      applications: [],
+      applications: [
+        {
+          // build > createBuildOptions > flatten > Flatten
+          text: "prisma build",
+          href: "https://github.com/prisma/prisma/blob/37adb2dc0f3121d8e96aa2542db07943b4d40477/helpers/compile/build.ts#L170",
+          githubStars: 40_100,
+        },
+      ],
       insights: [
         {
           Element: (
