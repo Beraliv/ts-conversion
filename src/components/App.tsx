@@ -9,6 +9,7 @@ import { NoExampleWarning } from "./NoExampleWarning";
 import { UserInput } from "./UserInput";
 
 import style from "./App.module.css";
+import { Projects } from "./Projects";
 
 function App() {
   useTrackPage();
@@ -27,6 +28,7 @@ function App() {
           <>
             <Concern />
             <CodeExample />
+            <Projects />
             <Insights />
           </>
         </div>

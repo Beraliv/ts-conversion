@@ -12,7 +12,6 @@ import { Link } from "./Link";
 import { UserInputContext } from "../contexts/UserInputContext";
 
 import style from "./CodeExample.module.css";
-import { conjunction } from "../utils/conjunction";
 
 export const CodeExample = () => {
   const { source, target } = useContext(UserInputContext);
@@ -39,25 +38,6 @@ export const CodeExample = () => {
             external
             text="Playground"
           />
-        </div>
-      )}
-      {map[source][target].applications && (
-        <div>
-          <h3>Projects</h3>
-          <span>Links to the libraries that already use this conversion</span>
-          <br />
-          {map[source][target].applications.map((application, index, array) => (
-            <>
-              <span>
-                <Link
-                  href={application.href}
-                  external
-                  text={application.text}
-                />
-              </span>
-              {conjunction(index, array)}
-            </>
-          ))}
         </div>
       )}
     </div>
