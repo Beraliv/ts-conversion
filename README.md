@@ -1,6 +1,6 @@
 # ts-conversion
 
-Interactive website, helping engineers understand, how they can convert one type to another in TypeScript, with examples and links to TypeScript playground.
+Interactive website, helping understand, how to convert one type to another in TypeScript, with code examples, links to TypeScript playground and examples from popular libraries
 
 Try it now: https://ts-conversion.beraliv.com
 
