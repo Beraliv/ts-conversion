@@ -765,8 +765,21 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/W4Dq7W",
       applications: [
         {
-          text: "jest MockedObject",
-          href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L61-L69",
+          library: "jest",
+          breadcrumbs: [
+            {
+              text: "jest.mocked",
+              href: "https://github.com/jestjs/jest/blob/9c9ce8ad80c6719c3378dd0058c173830621a3ff/packages/jest-environment/src/index.ts#L223",
+            },
+            {
+              text: "Mocked",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L79-L85",
+            },
+            {
+              text: "MockedObject",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L61-L69",
+            },
+          ],
           githubStars: 44_300,
         },
         {
@@ -967,9 +980,33 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/mA6eRW",
       applications: [
         {
-          // MockFunctionState > results
-          text: "jest MockFunctionState",
-          href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L233",
+          library: "jest",
+          breadcrumbs: [
+            {
+              text: "jest.fn",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L1082",
+            },
+            {
+              text: "Mock",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L123-L128",
+            },
+            {
+              text: "MockInstance",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L136",
+            },
+            {
+              text: "mock",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L142",
+            },
+            {
+              text: "MockFunctionState",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L207",
+            },
+            {
+              text: "results",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L233",
+            },
+          ],
           githubStars: 44_300,
         },
         {
