@@ -110,8 +110,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/WJPERN",
       applications: [
         {
-          text: "rxjs combineLatest",
-          href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/combineLatest.ts#L26-L29",
+          library: "rxjs",
+          breadcrumbs: [
+            {
+              text: "combineLatest",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/combineLatest.ts#L26-L29",
+            },
+          ],
           githubStars: 30_900,
         },
       ],
@@ -194,9 +199,18 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/mqlBrN",
       applications: [
         {
-          // of > ValueFromArray >
-          text: "rxjs of(...values)",
-          href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/of.ts#L15",
+          library: "rxjs",
+          breadcrumbs: [
+            {
+              text: "of",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/of.ts#L15",
+            },
+            {
+              text: "ValueFromArray",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/types.ts#L296",
+            },
+          ],
+          githubStars: 30_900,
         },
       ],
     },
@@ -310,9 +324,17 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 34_400,
         },
         {
-          // combineLatestWith > Cons
-          text: "rxjs combineLatestWith",
-          href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/operators/combineLatestWith.ts#L45-L47",
+          library: "rxjs",
+          breadcrumbs: [
+            {
+              text: "combineLatestWith",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/operators/combineLatestWith.ts#L45-L47",
+            },
+            {
+              text: "Cons",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/types.ts#L277",
+            },
+          ],
           githubStars: 30_900,
         },
       ],
@@ -522,9 +544,21 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/mqlPjN",
       applications: [
         {
-          // race > raceInit > subscriptions
-          text: "rxjs race",
-          href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/race.ts#L61",
+          library: "rxjs",
+          breadcrumbs: [
+            {
+              text: "race",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/race.ts#L61",
+            },
+            {
+              text: "raceInit",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/race.ts#L59",
+            },
+            {
+              text: "subscriptions",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/race.ts#L61",
+            },
+          ],
           githubStars: 30_900,
         },
       ],
@@ -1108,8 +1142,17 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/w28Yjm",
       applications: [
         {
-          text: "rxjs filter(Boolean)",
-          href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/operators/filter.ts#L7",
+          library: "rxjs",
+          breadcrumbs: [
+            {
+              text: "filter",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/operators/filter.ts#L7",
+            },
+            {
+              text: "TruthyTypesOf",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/types.ts#L316",
+            },
+          ],
           githubStars: 30_900,
         },
         {
