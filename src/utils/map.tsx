@@ -20,8 +20,11 @@ type MapConfigWithExample = {
   }[];
   playgroundUrl?: string;
   applications: {
-    text: string;
-    href: string;
+    library: string;
+    breadcrumbs: {
+      text: string;
+      href: string;
+    }[];
     githubStars?: number;
   }[];
 };
@@ -263,8 +266,17 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 40_100,
         },
         {
-          text: "zod Enum.exclude(tuple)",
-          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4420-L4425",
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "Enum.exclude",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4420-L4425",
+            },
+            {
+              text: "FilterEnum",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4316-L4322",
+            },
+          ],
           githubStars: 34_400,
         },
         {
@@ -332,8 +344,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/NrZqVN",
       applications: [
         {
-          text: "zod util.arrayToEnum(tuple)",
-          href: "https://github.com/colinhacks/zod/blob/d969423266fccee56ef769da6744cc8bacb04550/src/helpers/util.ts#L141-L162",
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "util.arrayToEnum",
+              href: "https://github.com/colinhacks/zod/blob/d969423266fccee56ef769da6744cc8bacb04550/src/helpers/util.ts#L141-L162",
+            },
+          ],
           githubStars: 34_400,
         },
       ],
@@ -378,8 +395,21 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 40_100,
         },
         {
-          text: "zod enum(tuple)",
-          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4345-L4349",
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "enum",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5427",
+            },
+            {
+              text: "createZodEnum",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4326-L4333",
+            },
+            {
+              text: "ZodEnum",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4345-L4349",
+            },
+          ],
           githubStars: 34_400,
         },
       ],
@@ -531,8 +561,21 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/NdxG6N",
       applications: [
         {
-          text: "zod Objects.keyof()",
-          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L3017",
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "object",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5440",
+            },
+            {
+              text: "ZodObject.keyof",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L3017",
+            },
+            {
+              text: "enumUtil.UnionToTupleString",
+              href: "https://github.com/colinhacks/zod/blob/1d16205a84c90ee2f0903e171e40b53c5da906cf/src/helpers/enumUtil.ts#L18",
+            },
+          ],
           githubStars: 34_400,
         },
       ],
@@ -610,13 +653,31 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 34_600,
         },
         {
-          text: "zod Objects.partial()",
-          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2946-L2950",
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "object",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5440",
+            },
+            {
+              text: "ZodObject.partial",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2946-L2950",
+            },
+          ],
           githubStars: 34_400,
         },
         {
-          text: "zod Objects.required()",
-          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2979-L2983",
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "object",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5440",
+            },
+            {
+              text: "ZodObject.required",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2979-L2983",
+            },
+          ],
           githubStars: 34_400,
         },
       ],
@@ -794,8 +855,25 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 40_100,
         },
         {
-          text: "zod ZodStringDef",
-          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L631",
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "string",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5451",
+            },
+            {
+              text: "ZodString",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L773",
+            },
+            {
+              text: "ZodStringDef",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L630-L631",
+            },
+            {
+              text: "ZodStringCheck",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L587",
+            },
+          ],
           githubStars: 34_400,
         },
       ],
@@ -848,8 +926,21 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/wOQvEm",
       applications: [
         {
-          text: "zod Objects.keyof()",
-          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L3017",
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "object",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5440",
+            },
+            {
+              text: "ZodObject.keyof",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L3017",
+            },
+            {
+              text: "enumUtil.UnionToTupleString",
+              href: "https://github.com/colinhacks/zod/blob/1d16205a84c90ee2f0903e171e40b53c5da906cf/src/helpers/enumUtil.ts#L18",
+            },
+          ],
           githubStars: 34_400,
         },
       ],
@@ -1590,9 +1681,21 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/mZRp9m",
       applications: [
         {
-          // branded > ZodBranded > BRAND
-          text: "zod branded",
-          href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L532",
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "branded",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L532",
+            },
+            {
+              text: "ZodBranded",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5068-L5071",
+            },
+            {
+              text: "BRAND",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5063-L5066",
+            },
+          ],
           githubStars: 34_400,
         },
         {
