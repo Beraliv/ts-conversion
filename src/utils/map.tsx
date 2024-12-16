@@ -68,8 +68,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/W4DAaW",
       applications: [
         {
-          text: "prisma PayloadToResult",
-          href: "https://github.com/prisma/prisma/blob/8957496bd9b24c3ad49d998d51c3d52912aa90d7/packages/client/src/runtime/core/types/exported/Utils.ts#L99-L105",
+          library: "prisma",
+          breadcrumbs: [
+            {
+              text: "Utils.PayloadToResult",
+              href: "https://github.com/prisma/prisma/blob/8957496bd9b24c3ad49d998d51c3d52912aa90d7/packages/client/src/runtime/core/types/exported/Utils.ts#L99-L105",
+            },
+          ],
           githubStars: 40_100,
         },
       ],
@@ -214,9 +219,25 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/m0DBxm",
       applications: [
         {
-          // build > createBuildOptions > flatten > Flatten
-          text: "prisma build",
-          href: "https://github.com/prisma/prisma/blob/37adb2dc0f3121d8e96aa2542db07943b4d40477/helpers/compile/build.ts#L170",
+          library: "prisma",
+          breadcrumbs: [
+            {
+              text: "build",
+              href: "https://github.com/prisma/prisma/blob/37adb2dc0f3121d8e96aa2542db07943b4d40477/helpers/compile/build.ts#L170",
+            },
+            {
+              text: "createBuildOptions",
+              href: "https://github.com/prisma/prisma/blob/37adb2dc0f3121d8e96aa2542db07943b4d40477/helpers/compile/build.ts#L71",
+            },
+            {
+              text: "flatten",
+              href: "https://github.com/prisma/prisma/blob/906d265aacae8f08e177d8c807e91513f074f1f2/helpers/blaze/flatten.ts#L19",
+            },
+            {
+              text: "Flatten",
+              href: "https://github.com/prisma/prisma/blob/906d265aacae8f08e177d8c807e91513f074f1f2/helpers/blaze/flatten.ts#L23",
+            },
+          ],
           githubStars: 40_100,
         },
       ],
@@ -261,8 +282,17 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/WJPQ5N",
       applications: [
         {
-          text: "prisma UnwrapTuple",
-          href: "https://github.com/prisma/prisma/blob/8957496bd9b24c3ad49d998d51c3d52912aa90d7/packages/client/src/runtime/core/types/exported/Utils.ts#L50",
+          library: "prisma",
+          breadcrumbs: [
+            {
+              text: "prisma.$transaction",
+              href: "https://github.com/prisma/prisma/blob/94cd9dcede03b25fe1a28ee4fe3a1da117d86cdb/packages/client/scripts/default-index.d.ts#L60-L63",
+            },
+            {
+              text: "Utils.UnwrapTuple",
+              href: "https://github.com/prisma/prisma/blob/8957496bd9b24c3ad49d998d51c3d52912aa90d7/packages/client/src/runtime/core/types/exported/Utils.ts#L50",
+            },
+          ],
           githubStars: 40_100,
         },
         {
@@ -390,8 +420,17 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/wQQ9Yw",
       applications: [
         {
-          text: "prisma ITXClientDenyList",
-          href: "https://github.com/prisma/prisma/blob/94cd9dcede03b25fe1a28ee4fe3a1da117d86cdb/packages/client/src/runtime/core/types/exported/itxClientDenyList.ts#L5",
+          library: "prisma",
+          breadcrumbs: [
+            {
+              text: "prisma.$transaction",
+              href: "https://github.com/prisma/prisma/blob/94cd9dcede03b25fe1a28ee4fe3a1da117d86cdb/packages/client/scripts/default-index.d.ts#L56-L59",
+            },
+            {
+              text: "ITXClientDenyList",
+              href: "https://github.com/prisma/prisma/blob/94cd9dcede03b25fe1a28ee4fe3a1da117d86cdb/packages/client/src/runtime/core/types/exported/itxClientDenyList.ts#L5",
+            },
+          ],
           githubStars: 40_100,
         },
         {
@@ -850,8 +889,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 44_300,
         },
         {
-          text: "prisma JsonArray",
-          href: "https://github.com/prisma/prisma/blob/8957496bd9b24c3ad49d998d51c3d52912aa90d7/packages/client/src/runtime/core/types/exported/Json.ts#L12",
+          library: "prisma",
+          breadcrumbs: [
+            {
+              text: "JsonArray",
+              href: "https://github.com/prisma/prisma/blob/8957496bd9b24c3ad49d998d51c3d52912aa90d7/packages/client/src/runtime/core/types/exported/Json.ts#L12",
+            },
+          ],
           githubStars: 40_100,
         },
         {
@@ -1351,8 +1395,25 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/NBrpkN",
       applications: [
         {
-          text: "prisma ModelKey",
-          href: "https://github.com/prisma/prisma/blob/ce11a9080844bf91d0593ca17d0bfe724d79675c/packages/client/src/runtime/core/types/exported/Extensions.ts#L423-L425",
+          library: "prisma",
+          breadcrumbs: [
+            {
+              text: "prisma.$extends",
+              href: "https://github.com/prisma/prisma/blob/ce11a9080844bf91d0593ca17d0bfe724d79675c/packages/client/src/runtime/core/types/exported/Extensions.ts#L304",
+            },
+            {
+              text: "ExtendsHook",
+              href: "https://github.com/prisma/prisma/blob/ce11a9080844bf91d0593ca17d0bfe724d79675c/packages/client/src/runtime/core/types/exported/Extensions.ts#L321",
+            },
+            {
+              text: "DynamicQueryExtensionArgs",
+              href: "https://github.com/prisma/prisma/blob/ce11a9080844bf91d0593ca17d0bfe724d79675c/packages/client/src/runtime/core/types/exported/Extensions.ts#L56",
+            },
+            {
+              text: "ModelKey",
+              href: "https://github.com/prisma/prisma/blob/ce11a9080844bf91d0593ca17d0bfe724d79675c/packages/client/src/runtime/core/types/exported/Extensions.ts#L423-L425",
+            },
+          ],
           githubStars: 40_100,
         },
         {
