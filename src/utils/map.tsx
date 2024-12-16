@@ -160,9 +160,17 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/NaxJnw",
       applications: [
         {
-          // array > UnwrapArray
-          text: "ts-pattern array",
-          href: "https://github.com/gvergnaud/ts-pattern/blob/d3284224b47a4ac6f8ccdc244d01190312c7ab27/src/patterns.ts#L218-L221",
+          library: "ts-pattern",
+          breadcrumbs: [
+            {
+              text: "array",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/d3284224b47a4ac6f8ccdc244d01190312c7ab27/src/patterns.ts#L218-L221",
+            },
+            {
+              text: "UnwrapArray",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/d3284224b47a4ac6f8ccdc244d01190312c7ab27/src/patterns.ts#L197",
+            },
+          ],
           githubStars: 12_600,
         },
       ],
@@ -337,6 +345,20 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           ],
           githubStars: 30_900,
         },
+        {
+          library: "ts-pattern",
+          breadcrumbs: [
+            {
+              text: "exhaustive",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+            },
+            {
+              text: "DeepExcludeAll",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L234-L238",
+            },
+          ],
+          githubStars: 12_600,
+        },
       ],
       insights: [
         {
@@ -500,9 +522,37 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/w280rm",
       applications: [
         {
-          // exhaustive > DeepExcludeAll > DeepExclude > DistributeMatchingUnions > FindUnionsMany > FindUnions > Length
-          text: "ts-pattern match(...).exhaustive()",
-          href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+          library: "ts-pattern",
+          breadcrumbs: [
+            {
+              text: "exhaustive",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+            },
+            {
+              text: "DeepExcludeAll",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L234-L238",
+            },
+            {
+              text: "DeepExclude",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/27dbee0cdf35f2ee8350dc763dbaa5d475351c47/src/types/DeepExclude.ts#L3",
+            },
+            {
+              text: "DistributeMatchingUnions",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L41-L43",
+            },
+            {
+              text: "FindUnionsMany",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L46-L60",
+            },
+            {
+              text: "FindUnions",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L80-L84",
+            },
+            {
+              text: "Length",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/e1272af2796979d4b370aee8cc250e978a4c26b6/src/types/helpers.ts#L61",
+            },
+          ],
           githubStars: 12_600,
         },
       ],
@@ -1041,9 +1091,41 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/WzV3eW",
       applications: [
         {
-          // exhaustive > DeepExcludeAll > DeepExclude > DistributeMatchingUnions > FindUnionsMany > FindUnions > IsUnion > UnionToIntersection
-          text: "ts-pattern match(...).exhaustive()",
-          href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+          library: "ts-pattern",
+          breadcrumbs: [
+            {
+              text: "exhaustive",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+            },
+            {
+              text: "DeepExcludeAll",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L234-L238",
+            },
+            {
+              text: "DeepExclude",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/27dbee0cdf35f2ee8350dc763dbaa5d475351c47/src/types/DeepExclude.ts#L3",
+            },
+            {
+              text: "DistributeMatchingUnions",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L41-L43",
+            },
+            {
+              text: "FindUnionsMany",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L46-L60",
+            },
+            {
+              text: "FindUnions",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L80-L84",
+            },
+            {
+              text: "IsUnion",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/e1272af2796979d4b370aee8cc250e978a4c26b6/src/types/helpers.ts#L31",
+            },
+            {
+              text: "UnionToIntersection",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/e1272af2796979d4b370aee8cc250e978a4c26b6/src/types/helpers.ts#L25-L29",
+            },
+          ],
           githubStars: 12_600,
         },
       ],
@@ -1566,9 +1648,41 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/WyZM2w",
       applications: [
         {
-          // exhaustive > DeepExcludeAll > DeepExclude > DistributeMatchingUnions > BuildMany > BuildOne > SetDeep > Iterator
-          text: "ts-pattern match(...).exhaustive()",
-          href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+          library: "ts-pattern",
+          breadcrumbs: [
+            {
+              text: "exhaustive",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+            },
+            {
+              text: "DeepExcludeAll",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L234-L238",
+            },
+            {
+              text: "DeepExclude",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/27dbee0cdf35f2ee8350dc763dbaa5d475351c47/src/types/DeepExclude.ts#L3",
+            },
+            {
+              text: "DistributeMatchingUnions",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L41-L43",
+            },
+            {
+              text: "BuildMany",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/c5778f3f9e8c0e9bcf05a1d14dda310977b57765/src/types/BuildMany.ts#L4-L6",
+            },
+            {
+              text: "BuildOne",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/c5778f3f9e8c0e9bcf05a1d14dda310977b57765/src/types/BuildMany.ts#L11-L16",
+            },
+            {
+              text: "SetDeep",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/c5778f3f9e8c0e9bcf05a1d14dda310977b57765/src/types/BuildMany.ts#L19-L40",
+            },
+            {
+              text: "Iterator",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/e1272af2796979d4b370aee8cc250e978a4c26b6/src/types/helpers.ts#L63-L66",
+            },
+          ],
           githubStars: 12_600,
         },
       ],
