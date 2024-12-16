@@ -21,7 +21,11 @@ export const TailRecursionEliminationNote = ({
       {props.map(({ parameterType, utilityType }, index) => (
         <span key={index}>
           <code>{parameterType}</code> in <code>{utilityType}</code>
-          {conjunction(index, props)}
+          {conjunction(index, props, {
+            last: "",
+            secondToLast: " and ",
+            others: ", ",
+          })}
         </span>
       ))}
     </>

@@ -1,11 +1,21 @@
-export const conjunction = <T>(index: number, array: T[]): string => {
+type ConjunctionOptions = {
+  last: JSX.Element | string;
+  secondToLast: JSX.Element | string;
+  others: JSX.Element | string;
+};
+
+export const conjunction = <T>(
+  index: number,
+  array: T[],
+  options: ConjunctionOptions
+): JSX.Element | string => {
   if (index === array.length - 2) {
-    return " and ";
+    return options.secondToLast;
   }
 
   if (index === array.length - 1) {
-    return "";
+    return options.last;
   }
 
-  return ", ";
+  return options.others;
 };
