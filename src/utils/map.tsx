@@ -1662,15 +1662,73 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 40_100,
         },
         {
-          // createServerSideHelpers > CreateServerSideHelpersOptions > CreateSSGHelpersInternal > TransformerOptions > TransformerOptionNo > TypeError
-          text: "trpc createServerSideHelpers",
-          href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/react-query/src/server/ssgProxy.ts#L82-L84",
+          library: "trpc",
+          breadcrumbs: [
+            {
+              text: "createServerSideHelpers",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/react-query/src/server/ssgProxy.ts#L82-L84",
+            },
+            {
+              text: "CreateServerSideHelpersOptions",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/react-query/src/server/ssgProxy.ts#L47-L49",
+            },
+            {
+              text: "CreateSSGHelpersInternal",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/react-query/src/server/ssgProxy.ts#L38-L41",
+            },
+            {
+              text: "TransformerOptions",
+              href: "https://github.com/trpc/trpc/blob/f8e8d1715c164357239170fc6668de9f2b579b7d/packages/client/src/internals/transformer.ts#L37-L41",
+            },
+            {
+              text: "TransformerOptionNo",
+              href: "https://github.com/trpc/trpc/blob/f8e8d1715c164357239170fc6668de9f2b579b7d/packages/client/src/internals/transformer.ts#L24-L32",
+            },
+            {
+              text: "TypeError",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/types.ts#L172-L174",
+            },
+          ],
           githubStars: 35_300,
         },
         {
-          // tracked > TrackedEnvelope > TrackedId
-          text: "trpc tracked",
-          href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/stream/tracked.ts#L35-L38",
+          library: "trpc",
+          breadcrumbs: [
+            {
+              text: "createServerSideHelpers",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/react-query/src/server/ssgProxy.ts#L82-L84",
+            },
+            {
+              text: "CreateSSGHelpers",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/react-query/src/server/ssgProxy.ts#L135",
+            },
+            {
+              text: "ProtectedIntersection",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/types.ts#L159-L162",
+            },
+            {
+              text: "IntersectionError",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/types.ts#L153-L154",
+            },
+          ],
+          githubStars: 35_300,
+        },
+        {
+          library: "trpc",
+          breadcrumbs: [
+            {
+              text: "tracked",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/stream/tracked.ts#L35-L38",
+            },
+            {
+              text: "TrackedEnvelope",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/stream/tracked.ts#L6",
+            },
+            {
+              text: "TrackedId",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/stream/tracked.ts#L3-L5",
+            },
+          ],
           githubStars: 35_300,
         },
       ],
