@@ -783,9 +783,17 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 44_300,
         },
         {
-          // Repository > create > DeepPartial
-          text: "typeorm Repository.create",
-          href: "https://github.com/typeorm/typeorm/blob/99d8249e450f7e649685105b372e265f41a0ee47/src/repository/Repository.ts#L114-L118",
+          library: "typeorm",
+          breadcrumbs: [
+            {
+              text: "Repository.create",
+              href: "https://github.com/typeorm/typeorm/blob/99d8249e450f7e649685105b372e265f41a0ee47/src/repository/Repository.ts#L114-L118",
+            },
+            {
+              text: "DeepPartial",
+              href: "https://github.com/typeorm/typeorm/blob/8ba742eb36586a21a918ed178208874a53ace3f9/src/common/DeepPartial.ts#L4-L14",
+            },
+          ],
           githubStars: 34_600,
         },
         {
@@ -938,14 +946,43 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/NBrXxN",
       applications: [
         {
-          // Repository > average > PickKeysByType
-          text: "typeorm Repository.average",
-          href: "https://github.com/typeorm/typeorm/blob/99d8249e450f7e649685105b372e265f41a0ee47/src/repository/Repository.ts#L513-L516",
+          library: "typeorm",
+          breadcrumbs: [
+            {
+              text: "Repository.average",
+              href: "https://github.com/typeorm/typeorm/blob/99d8249e450f7e649685105b372e265f41a0ee47/src/repository/Repository.ts#L513-L516",
+            },
+            {
+              text: "PickKeysByType",
+              href: "https://github.com/typeorm/typeorm/blob/7d1f1d69588b771c5ec393c86976008a352ddcc0/src/common/PickKeysByType.ts#L4-L7",
+            },
+          ],
           githubStars: 34_600,
         },
         {
-          text: "typeorm NestedPaths",
-          href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L5306",
+          library: "typeorm",
+          breadcrumbs: [
+            {
+              text: "mongodb.max",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L3334-L3339",
+            },
+            {
+              text: "StrictUpdateFilter",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L6241",
+            },
+            {
+              text: "$max",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L6252",
+            },
+            {
+              text: "StrictMatchKeysAndValues",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L6215C21-L6215C45",
+            },
+            {
+              text: "NestedPaths",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L5306",
+            },
+          ],
           githubStars: 34_600,
         },
         {
@@ -1785,9 +1822,33 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/NDQv1m",
       applications: [
         {
-          // NestedPaths > Depth
-          text: "typeorm NestedPaths",
-          href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L5306-L5309",
+          library: "typeorm",
+          breadcrumbs: [
+            {
+              text: "mongodb.max",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L3334-L3339",
+            },
+            {
+              text: "StrictUpdateFilter",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L6241",
+            },
+            {
+              text: "$max",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L6252",
+            },
+            {
+              text: "StrictMatchKeysAndValues",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L6215C21-L6215C45",
+            },
+            {
+              text: "NestedPaths",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L5306",
+            },
+            {
+              text: "Depth",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L5326",
+            },
+          ],
           githubStars: 34_600,
         },
         {
