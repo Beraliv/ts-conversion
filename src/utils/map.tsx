@@ -986,8 +986,17 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 34_600,
         },
         {
-          text: "dot-path-value getByPath",
-          href: "https://github.com/g-makarov/dot-path-value/blob/7911b5e2b08c286698ef8d6441a47065bad91589/src/index.ts#L63",
+          library: "dot-path-value",
+          breadcrumbs: [
+            {
+              text: "getByPath",
+              href: "https://github.com/g-makarov/dot-path-value/blob/7911b5e2b08c286698ef8d6441a47065bad91589/src/index.ts#L63",
+            },
+            {
+              text: "Path",
+              href: "https://github.com/g-makarov/dot-path-value/blob/7911b5e2b08c286698ef8d6441a47065bad91589/src/index.ts#L13-L21",
+            },
+          ],
           githubStars: 342,
         },
       ],
