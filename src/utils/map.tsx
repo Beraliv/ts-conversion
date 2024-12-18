@@ -1399,8 +1399,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/wgxnvN",
       applications: [
         {
-          text: "type-fest Split",
-          href: "https://github.com/sindresorhus/type-fest/blob/main/source/split.d.ts#L22-L29",
+          library: "type-fest",
+          breadcrumbs: [
+            {
+              text: "Split",
+              href: "https://github.com/sindresorhus/type-fest/blob/main/source/split.d.ts#L22-L29",
+            },
+          ],
           githubStars: 14_500,
         },
       ],
@@ -1470,9 +1475,21 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/N57poW",
       applications: [
         {
-          text: "react-router useMatch",
-          // TODO: useMatch(stringLiteral) > matchPath > PathMatch['params']
-          href: "https://github.com/remix-run/react-router/blob/39630069d3780897eb04451e8d4f58b075b34462/packages/react-router/lib/hooks.tsx#L160-L163",
+          library: "react-router",
+          breadcrumbs: [
+            {
+              text: "useMatch",
+              href: "https://github.com/remix-run/react-router/blob/39630069d3780897eb04451e8d4f58b075b34462/packages/react-router/lib/hooks.tsx#L160-L163",
+            },
+            {
+              text: "PathMatch",
+              href: "https://github.com/remix-run/react-router/blob/538b9583490d1c11324ea6af765a7efd4d80b87e/packages/react-router/lib/router/utils.ts#L936",
+            },
+            {
+              text: "Params",
+              href: "https://github.com/remix-run/react-router/blob/538b9583490d1c11324ea6af765a7efd4d80b87e/packages/react-router/lib/router/utils.ts#L411-L413",
+            },
+          ],
           githubStars: 53_400,
         },
       ],
@@ -1551,9 +1568,21 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/NnZxBN",
       applications: [
         {
-          text: "react-router useMatch",
-          // TODO: useMatch(stringLiteral) > ParamParseKey > PathParam
-          href: "https://github.com/remix-run/react-router/blob/39630069d3780897eb04451e8d4f58b075b34462/packages/react-router/lib/hooks.tsx#L160-L163",
+          library: "react-router",
+          breadcrumbs: [
+            {
+              text: "useMatch",
+              href: "https://github.com/remix-run/react-router/blob/39630069d3780897eb04451e8d4f58b075b34462/packages/react-router/lib/hooks.tsx#L160-L163",
+            },
+            {
+              text: "ParamParseKey",
+              href: "https://github.com/remix-run/react-router/blob/538b9583490d1c11324ea6af765a7efd4d80b87e/packages/react-router/lib/router/utils.ts#L404-L406",
+            },
+            {
+              text: "PathParam",
+              href: "https://github.com/remix-run/react-router/blob/538b9583490d1c11324ea6af765a7efd4d80b87e/packages/react-router/lib/router/utils.ts#L379-L387",
+            },
+          ],
           githubStars: 53_400,
         },
       ],
@@ -1942,8 +1971,13 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       playgroundUrl: "https://tsplay.dev/WKQ5yN",
       applications: [
         {
-          text: "type-fest IntRange",
-          href: "https://github.com/sindresorhus/type-fest/blob/main/source/int-range.d.ts#L40-L55",
+          library: "type-fest",
+          breadcrumbs: [
+            {
+              text: "IntRange",
+              href: "https://github.com/sindresorhus/type-fest/blob/main/source/int-range.d.ts#L40-L55",
+            },
+          ],
           githubStars: 14_500,
         },
       ],
