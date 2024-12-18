@@ -1321,9 +1321,17 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 30_900,
         },
         {
-          // createReducer > NotFunction<any>
-          text: "@reduxjs/toolkit createReducer",
-          href: "https://github.com/reduxjs/redux-toolkit/blob/770a39476a428ccc062ec47bda7a1e61d8d8bf1b/packages/toolkit/src/createReducer.ts#L140-L143",
+          library: "@reduxjs/toolkit",
+          breadcrumbs: [
+            {
+              text: "createReducer",
+              href: "https://github.com/reduxjs/redux-toolkit/blob/770a39476a428ccc062ec47bda7a1e61d8d8bf1b/packages/toolkit/src/createReducer.ts#L140-L143",
+            },
+            {
+              text: "NotFunction",
+              href: "https://github.com/reduxjs/redux-toolkit/blob/770a39476a428ccc062ec47bda7a1e61d8d8bf1b/packages/toolkit/src/createReducer.ts#L66",
+            },
+          ],
           githubStars: 10_800,
         },
       ],
