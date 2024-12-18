@@ -1956,9 +1956,33 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 34_600,
         },
         {
-          // squared > SquareUnit > MultiplyUnits > AddIntegers > AddPositiveIntegers > TupleOfSize
-          text: "safe-units TupleOfSize",
-          href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L37-L39",
+          library: "safe-units",
+          breadcrumbs: [
+            {
+              text: "squared",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/genericMeasure.ts#L103",
+            },
+            {
+              text: "SquareUnit",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/unitTypeArithmetic.ts#L15",
+            },
+            {
+              text: "MultiplyUnits",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/unitTypeArithmetic.ts#L11-L13",
+            },
+            {
+              text: "AddIntegers",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L11-L20",
+            },
+            {
+              text: "AddPositiveIntegers",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L22-L24",
+            },
+            {
+              text: "TupleOfSize",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L37-L39",
+            },
+          ],
           githubStars: 266,
         },
       ],
@@ -2124,15 +2148,51 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           githubStars: 34_400,
         },
         {
-          // squared > SquareUnit > MultiplyUnits > AddIntegers > Negative
-          text: "safe-units Negative",
-          href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L1-L9",
+          library: "safe-units",
+          breadcrumbs: [
+            {
+              text: "squared",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/genericMeasure.ts#L103",
+            },
+            {
+              text: "SquareUnit",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/unitTypeArithmetic.ts#L15",
+            },
+            {
+              text: "MultiplyUnits",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/unitTypeArithmetic.ts#L11-L13",
+            },
+            {
+              text: "AddIntegers",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L11-L20",
+            },
+            {
+              text: "Negative",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L1-L9",
+            },
+          ],
           githubStars: 266,
         },
         {
-          // squared > SquareUnit > MultiplyUnits > AddIntegers
-          text: "safe-units AddInteger",
-          href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L11-L20",
+          library: "safe-units",
+          breadcrumbs: [
+            {
+              text: "squared",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/genericMeasure.ts#L103",
+            },
+            {
+              text: "SquareUnit",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/unitTypeArithmetic.ts#L15",
+            },
+            {
+              text: "MultiplyUnits",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/unitTypeArithmetic.ts#L11-L13",
+            },
+            {
+              text: "AddIntegers",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L11-L20",
+            },
+          ],
           githubStars: 266,
         },
       ],
