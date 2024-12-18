@@ -19,6 +19,14 @@ type MapConfigWithExample = {
     type: MessageProps["type"];
   }[];
   playgroundUrl?: string;
+  applications: {
+    library: string;
+    breadcrumbs: {
+      text: string;
+      href: string;
+    }[];
+    githubStars?: number;
+  }[];
 };
 type MapConfigWithoutExample = "empty";
 
@@ -32,7 +40,12 @@ const DistributiveConditionalTypes = () => (
   />
 );
 
-// TODO: examples from real libraries
+// TODO: applications from projects: xstate, lodash
+
+// TODO: applications for examples: Opaque, Range, Repeat, Path, CamelCase,
+// UnionToIntersection, LengthOf<Tuple>, ElementOf
+
+// TODO: intrinsic types
 export const map: Record<InputType, Record<InputType, MapConfig>> = {
   array: {
     array: {
@@ -53,6 +66,18 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {childrenNames: string[]; name: string; parentsNames: string[]}
       `,
       playgroundUrl: "https://tsplay.dev/W4DAaW",
+      applications: [
+        {
+          library: "prisma",
+          breadcrumbs: [
+            {
+              text: "Utils.PayloadToResult",
+              href: "https://github.com/prisma/prisma/blob/8957496bd9b24c3ad49d998d51c3d52912aa90d7/packages/client/src/runtime/core/types/exported/Utils.ts#L99-L105",
+            },
+          ],
+          githubStars: 40_100,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -83,6 +108,18 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //    ^? [1, 2, 3, 4]
       `,
       playgroundUrl: "https://tsplay.dev/WJPERN",
+      applications: [
+        {
+          library: "rxjs",
+          breadcrumbs: [
+            {
+              text: "combineLatest",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/combineLatest.ts#L26-L29",
+            },
+          ],
+          githubStars: 30_900,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -121,6 +158,22 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {age: number}
       `,
       playgroundUrl: "https://tsplay.dev/NaxJnw",
+      applications: [
+        {
+          library: "ts-pattern",
+          breadcrumbs: [
+            {
+              text: "array",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/d3284224b47a4ac6f8ccdc244d01190312c7ab27/src/patterns.ts#L218-L221",
+            },
+            {
+              text: "UnwrapArray",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/d3284224b47a4ac6f8ccdc244d01190312c7ab27/src/patterns.ts#L197",
+            },
+          ],
+          githubStars: 12_600,
+        },
+      ],
       insights: [
         {
           Element: <ConditionalTypesNote />,
@@ -152,6 +205,22 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? number | string
       `,
       playgroundUrl: "https://tsplay.dev/mqlBrN",
+      applications: [
+        {
+          library: "rxjs",
+          breadcrumbs: [
+            {
+              text: "of",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/of.ts#L15",
+            },
+            {
+              text: "ValueFromArray",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/types.ts#L296",
+            },
+          ],
+          githubStars: 30_900,
+        },
+      ],
     },
     stringLiteral: "empty",
     numericLiteral: "empty",
@@ -170,6 +239,30 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? (string | number)[]
       `,
       playgroundUrl: "https://tsplay.dev/m0DBxm",
+      applications: [
+        {
+          library: "prisma",
+          breadcrumbs: [
+            {
+              text: "build",
+              href: "https://github.com/prisma/prisma/blob/37adb2dc0f3121d8e96aa2542db07943b4d40477/helpers/compile/build.ts#L170",
+            },
+            {
+              text: "createBuildOptions",
+              href: "https://github.com/prisma/prisma/blob/37adb2dc0f3121d8e96aa2542db07943b4d40477/helpers/compile/build.ts#L71",
+            },
+            {
+              text: "flatten",
+              href: "https://github.com/prisma/prisma/blob/906d265aacae8f08e177d8c807e91513f074f1f2/helpers/blaze/flatten.ts#L19",
+            },
+            {
+              text: "Flatten",
+              href: "https://github.com/prisma/prisma/blob/906d265aacae8f08e177d8c807e91513f074f1f2/helpers/blaze/flatten.ts#L23",
+            },
+          ],
+          githubStars: 40_100,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -190,6 +283,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
       ],
     },
     // TODO: Pop, Push, Shift, Unshift, Flatten, MergeAll
+    // TODO: Mapped Type, e.g. rxjs, combineLatest > ObservableInputTuple
     tuple: {
       code: `
         type InternalFilter<
@@ -208,6 +302,64 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? [string]
       `,
       playgroundUrl: "https://tsplay.dev/WJPQ5N",
+      applications: [
+        {
+          library: "prisma",
+          breadcrumbs: [
+            {
+              text: "prisma.$transaction",
+              href: "https://github.com/prisma/prisma/blob/94cd9dcede03b25fe1a28ee4fe3a1da117d86cdb/packages/client/scripts/default-index.d.ts#L60-L63",
+            },
+            {
+              text: "Utils.UnwrapTuple",
+              href: "https://github.com/prisma/prisma/blob/8957496bd9b24c3ad49d998d51c3d52912aa90d7/packages/client/src/runtime/core/types/exported/Utils.ts#L50",
+            },
+          ],
+          githubStars: 40_100,
+        },
+        {
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "Enum.exclude",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4420-L4425",
+            },
+            {
+              text: "FilterEnum",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4316-L4322",
+            },
+          ],
+          githubStars: 34_400,
+        },
+        {
+          library: "rxjs",
+          breadcrumbs: [
+            {
+              text: "combineLatestWith",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/operators/combineLatestWith.ts#L45-L47",
+            },
+            {
+              text: "Cons",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/types.ts#L277",
+            },
+          ],
+          githubStars: 30_900,
+        },
+        {
+          library: "ts-pattern",
+          breadcrumbs: [
+            {
+              text: "exhaustive",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+            },
+            {
+              text: "DeepExcludeAll",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L234-L238",
+            },
+          ],
+          githubStars: 12_600,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -264,6 +416,18 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? { TypeScript: boolean; Python: boolean }
       `,
       playgroundUrl: "https://tsplay.dev/NrZqVN",
+      applications: [
+        {
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "util.arrayToEnum",
+              href: "https://github.com/colinhacks/zod/blob/d969423266fccee56ef769da6744cc8bacb04550/src/helpers/util.ts#L141-L162",
+            },
+          ],
+          githubStars: 34_400,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -298,6 +462,40 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 3 | 1 | 2
       `,
       playgroundUrl: "https://tsplay.dev/wQQ9Yw",
+      applications: [
+        {
+          library: "prisma",
+          breadcrumbs: [
+            {
+              text: "prisma.$transaction",
+              href: "https://github.com/prisma/prisma/blob/94cd9dcede03b25fe1a28ee4fe3a1da117d86cdb/packages/client/scripts/default-index.d.ts#L56-L59",
+            },
+            {
+              text: "ITXClientDenyList",
+              href: "https://github.com/prisma/prisma/blob/94cd9dcede03b25fe1a28ee4fe3a1da117d86cdb/packages/client/src/runtime/core/types/exported/itxClientDenyList.ts#L5",
+            },
+          ],
+          githubStars: 40_100,
+        },
+        {
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "enum",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5427",
+            },
+            {
+              text: "createZodEnum",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4326-L4333",
+            },
+            {
+              text: "ZodEnum",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L4345-L4349",
+            },
+          ],
+          githubStars: 34_400,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -312,6 +510,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         },
       ],
     },
+    // TODO: Join, e.g. typeorm mongodb typings - https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L4062-L4068
     stringLiteral: "empty",
     numericLiteral: {
       code: `
@@ -320,6 +519,43 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         type Length = LengthOf<Tuple>;
         //   ^? 3
       `,
+      playgroundUrl: "https://tsplay.dev/w280rm",
+      applications: [
+        {
+          library: "ts-pattern",
+          breadcrumbs: [
+            {
+              text: "exhaustive",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+            },
+            {
+              text: "DeepExcludeAll",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L234-L238",
+            },
+            {
+              text: "DeepExclude",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/27dbee0cdf35f2ee8350dc763dbaa5d475351c47/src/types/DeepExclude.ts#L3",
+            },
+            {
+              text: "DistributeMatchingUnions",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L41-L43",
+            },
+            {
+              text: "FindUnionsMany",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L46-L60",
+            },
+            {
+              text: "FindUnions",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L80-L84",
+            },
+            {
+              text: "Length",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/e1272af2796979d4b370aee8cc250e978a4c26b6/src/types/helpers.ts#L61",
+            },
+          ],
+          githubStars: 12_600,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -343,7 +579,6 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           type: "note",
         },
       ],
-      playgroundUrl: "https://tsplay.dev/w280rm",
     },
   },
   object: {
@@ -357,6 +592,26 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //            ^^^^^^^^
       `,
       playgroundUrl: "https://tsplay.dev/mqlPjN",
+      applications: [
+        {
+          library: "rxjs",
+          breadcrumbs: [
+            {
+              text: "race",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/race.ts#L61",
+            },
+            {
+              text: "raceInit",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/race.ts#L59",
+            },
+            {
+              text: "subscriptions",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/observable/race.ts#L61",
+            },
+          ],
+          githubStars: 30_900,
+        },
+      ],
       insights: [
         {
           Element: <ArrayConversionNote parameterType="Person" />,
@@ -427,6 +682,26 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? [['locale', string], ['pageId', string]]
       `,
       playgroundUrl: "https://tsplay.dev/NdxG6N",
+      applications: [
+        {
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "object",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5440",
+            },
+            {
+              text: "ZodObject.keyof",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L3017",
+            },
+            {
+              text: "enumUtil.UnionToTupleString",
+              href: "https://github.com/colinhacks/zod/blob/1d16205a84c90ee2f0903e171e40b53c5da906cf/src/helpers/enumUtil.ts#L18",
+            },
+          ],
+          githubStars: 34_400,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -488,6 +763,68 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {getName: () => string} & {setName: (value: string) => void}
       `,
       playgroundUrl: "https://tsplay.dev/W4Dq7W",
+      applications: [
+        {
+          library: "jest",
+          breadcrumbs: [
+            {
+              text: "jest.mocked",
+              href: "https://github.com/jestjs/jest/blob/9c9ce8ad80c6719c3378dd0058c173830621a3ff/packages/jest-environment/src/index.ts#L223",
+            },
+            {
+              text: "Mocked",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L79-L85",
+            },
+            {
+              text: "MockedObject",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L61-L69",
+            },
+          ],
+          githubStars: 44_300,
+        },
+        {
+          library: "typeorm",
+          breadcrumbs: [
+            {
+              text: "Repository.create",
+              href: "https://github.com/typeorm/typeorm/blob/99d8249e450f7e649685105b372e265f41a0ee47/src/repository/Repository.ts#L114-L118",
+            },
+            {
+              text: "DeepPartial",
+              href: "https://github.com/typeorm/typeorm/blob/8ba742eb36586a21a918ed178208874a53ace3f9/src/common/DeepPartial.ts#L4-L14",
+            },
+          ],
+          githubStars: 34_600,
+        },
+        {
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "object",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5440",
+            },
+            {
+              text: "ZodObject.partial",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2946-L2950",
+            },
+          ],
+          githubStars: 34_400,
+        },
+        {
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "object",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5440",
+            },
+            {
+              text: "ZodObject.required",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L2979-L2983",
+            },
+          ],
+          githubStars: 34_400,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -597,7 +934,8 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         },
       ],
     },
-    // TODO: add values
+    // TODO: Path
+    // TODO: add values: typeorm ServerType, e.g. (typeof ServerType)[keyof typeof ServerType]
     union: {
       code: `
         type KeysFrom<Object> = keyof Object;
@@ -606,6 +944,62 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? keyof Person (i.e. 'name' | 'age')
       `,
       playgroundUrl: "https://tsplay.dev/NBrXxN",
+      applications: [
+        {
+          library: "typeorm",
+          breadcrumbs: [
+            {
+              text: "Repository.average",
+              href: "https://github.com/typeorm/typeorm/blob/99d8249e450f7e649685105b372e265f41a0ee47/src/repository/Repository.ts#L513-L516",
+            },
+            {
+              text: "PickKeysByType",
+              href: "https://github.com/typeorm/typeorm/blob/7d1f1d69588b771c5ec393c86976008a352ddcc0/src/common/PickKeysByType.ts#L4-L7",
+            },
+          ],
+          githubStars: 34_600,
+        },
+        {
+          library: "typeorm",
+          breadcrumbs: [
+            {
+              text: "mongodb.max",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L3334-L3339",
+            },
+            {
+              text: "StrictUpdateFilter",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L6241",
+            },
+            {
+              text: "$max",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L6252",
+            },
+            {
+              text: "StrictMatchKeysAndValues",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L6215C21-L6215C45",
+            },
+            {
+              text: "NestedPaths",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L5306",
+            },
+          ],
+          githubStars: 34_600,
+        },
+        {
+          library: "dot-path-value",
+          breadcrumbs: [
+            {
+              text: "getByPath",
+              href: "https://github.com/g-makarov/dot-path-value/blob/7911b5e2b08c286698ef8d6441a47065bad91589/src/index.ts#L63",
+            },
+            {
+              text: "Path",
+              href: "https://github.com/g-makarov/dot-path-value/blob/7911b5e2b08c286698ef8d6441a47065bad91589/src/index.ts#L13-L21",
+            },
+          ],
+          githubStars: 342,
+        },
+      ],
     },
     stringLiteral: "empty",
     numericLiteral: "empty",
@@ -630,6 +1024,70 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         messageHistory.push({playingTime: 10, sessionId: '123456789'});
       `,
       playgroundUrl: "https://tsplay.dev/mA6eRW",
+      applications: [
+        {
+          library: "jest",
+          breadcrumbs: [
+            {
+              text: "jest.fn",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L1082",
+            },
+            {
+              text: "Mock",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L123-L128",
+            },
+            {
+              text: "MockInstance",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L136",
+            },
+            {
+              text: "mock",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L142",
+            },
+            {
+              text: "MockFunctionState",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L207",
+            },
+            {
+              text: "results",
+              href: "https://github.com/jestjs/jest/blob/c5a00aa33a15e040730422af107025e2f23786b6/packages/jest-mock/src/index.ts#L233",
+            },
+          ],
+          githubStars: 44_300,
+        },
+        {
+          library: "prisma",
+          breadcrumbs: [
+            {
+              text: "JsonArray",
+              href: "https://github.com/prisma/prisma/blob/8957496bd9b24c3ad49d998d51c3d52912aa90d7/packages/client/src/runtime/core/types/exported/Json.ts#L12",
+            },
+          ],
+          githubStars: 40_100,
+        },
+        {
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "string",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5451",
+            },
+            {
+              text: "ZodString",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L773",
+            },
+            {
+              text: "ZodStringDef",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L630-L631",
+            },
+            {
+              text: "ZodStringCheck",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L587",
+            },
+          ],
+          githubStars: 34_400,
+        },
+      ],
       insights: [
         {
           Element: <ArrayConversionNote parameterType="Message" />,
@@ -677,6 +1135,26 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? [1, 2, 3]
       `,
       playgroundUrl: "https://tsplay.dev/wOQvEm",
+      applications: [
+        {
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "object",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5440",
+            },
+            {
+              text: "ZodObject.keyof",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L3017",
+            },
+            {
+              text: "enumUtil.UnionToTupleString",
+              href: "https://github.com/colinhacks/zod/blob/1d16205a84c90ee2f0903e171e40b53c5da906cf/src/helpers/enumUtil.ts#L18",
+            },
+          ],
+          githubStars: 34_400,
+        },
+      ],
     },
     object: {
       label: "Object / Intersection",
@@ -694,6 +1172,46 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {pageUrl: string} & {videoId: string}
       `,
       playgroundUrl: "https://tsplay.dev/WzV3eW",
+      applications: [
+        {
+          library: "ts-pattern",
+          breadcrumbs: [
+            {
+              text: "exhaustive",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+            },
+            {
+              text: "DeepExcludeAll",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L234-L238",
+            },
+            {
+              text: "DeepExclude",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/27dbee0cdf35f2ee8350dc763dbaa5d475351c47/src/types/DeepExclude.ts#L3",
+            },
+            {
+              text: "DistributeMatchingUnions",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L41-L43",
+            },
+            {
+              text: "FindUnionsMany",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L46-L60",
+            },
+            {
+              text: "FindUnions",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L80-L84",
+            },
+            {
+              text: "IsUnion",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/e1272af2796979d4b370aee8cc250e978a4c26b6/src/types/helpers.ts#L31",
+            },
+            {
+              text: "UnionToIntersection",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/e1272af2796979d4b370aee8cc250e978a4c26b6/src/types/helpers.ts#L25-L29",
+            },
+          ],
+          githubStars: 12_600,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -787,6 +1305,36 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 'grass'
       `,
       playgroundUrl: "https://tsplay.dev/w28Yjm",
+      applications: [
+        {
+          library: "rxjs",
+          breadcrumbs: [
+            {
+              text: "filter",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/operators/filter.ts#L7",
+            },
+            {
+              text: "TruthyTypesOf",
+              href: "https://github.com/ReactiveX/rxjs/blob/05894120a55e6339a29ee74ec6ae2ee593af5704/packages/rxjs/src/internal/types.ts#L316",
+            },
+          ],
+          githubStars: 30_900,
+        },
+        {
+          library: "@reduxjs/toolkit",
+          breadcrumbs: [
+            {
+              text: "createReducer",
+              href: "https://github.com/reduxjs/redux-toolkit/blob/770a39476a428ccc062ec47bda7a1e61d8d8bf1b/packages/toolkit/src/createReducer.ts#L140-L143",
+            },
+            {
+              text: "NotFunction",
+              href: "https://github.com/reduxjs/redux-toolkit/blob/770a39476a428ccc062ec47bda7a1e61d8d8bf1b/packages/toolkit/src/createReducer.ts#L66",
+            },
+          ],
+          githubStars: 10_800,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -849,6 +1397,18 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? ['address', 'postcode']
       `,
       playgroundUrl: "https://tsplay.dev/wgxnvN",
+      applications: [
+        {
+          library: "type-fest",
+          breadcrumbs: [
+            {
+              text: "Split",
+              href: "https://github.com/sindresorhus/type-fest/blob/main/source/split.d.ts#L22-L29",
+            },
+          ],
+          githubStars: 14_500,
+        },
+      ],
       insights: [
         {
           Element: <ConditionalTypesNote />,
@@ -913,6 +1473,26 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? {locale: string; pageId: string}
       `,
       playgroundUrl: "https://tsplay.dev/N57poW",
+      applications: [
+        {
+          library: "react-router",
+          breadcrumbs: [
+            {
+              text: "useMatch",
+              href: "https://github.com/remix-run/react-router/blob/39630069d3780897eb04451e8d4f58b075b34462/packages/react-router/lib/hooks.tsx#L160-L163",
+            },
+            {
+              text: "PathMatch",
+              href: "https://github.com/remix-run/react-router/blob/538b9583490d1c11324ea6af765a7efd4d80b87e/packages/react-router/lib/router/utils.ts#L936",
+            },
+            {
+              text: "Params",
+              href: "https://github.com/remix-run/react-router/blob/538b9583490d1c11324ea6af765a7efd4d80b87e/packages/react-router/lib/router/utils.ts#L411-L413",
+            },
+          ],
+          githubStars: 53_400,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -986,6 +1566,26 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 'w' | 'o' | 'r' | 'l' | 'd'
       `,
       playgroundUrl: "https://tsplay.dev/NnZxBN",
+      applications: [
+        {
+          library: "react-router",
+          breadcrumbs: [
+            {
+              text: "useMatch",
+              href: "https://github.com/remix-run/react-router/blob/39630069d3780897eb04451e8d4f58b075b34462/packages/react-router/lib/hooks.tsx#L160-L163",
+            },
+            {
+              text: "ParamParseKey",
+              href: "https://github.com/remix-run/react-router/blob/538b9583490d1c11324ea6af765a7efd4d80b87e/packages/react-router/lib/router/utils.ts#L404-L406",
+            },
+            {
+              text: "PathParam",
+              href: "https://github.com/remix-run/react-router/blob/538b9583490d1c11324ea6af765a7efd4d80b87e/packages/react-router/lib/router/utils.ts#L379-L387",
+            },
+          ],
+          githubStars: 53_400,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -1038,6 +1638,100 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? SHAKA-3016
       `,
       playgroundUrl: "https://tsplay.dev/NBrpkN",
+      applications: [
+        {
+          library: "prisma",
+          breadcrumbs: [
+            {
+              text: "prisma.$extends",
+              href: "https://github.com/prisma/prisma/blob/ce11a9080844bf91d0593ca17d0bfe724d79675c/packages/client/src/runtime/core/types/exported/Extensions.ts#L304",
+            },
+            {
+              text: "ExtendsHook",
+              href: "https://github.com/prisma/prisma/blob/ce11a9080844bf91d0593ca17d0bfe724d79675c/packages/client/src/runtime/core/types/exported/Extensions.ts#L321",
+            },
+            {
+              text: "DynamicQueryExtensionArgs",
+              href: "https://github.com/prisma/prisma/blob/ce11a9080844bf91d0593ca17d0bfe724d79675c/packages/client/src/runtime/core/types/exported/Extensions.ts#L56",
+            },
+            {
+              text: "ModelKey",
+              href: "https://github.com/prisma/prisma/blob/ce11a9080844bf91d0593ca17d0bfe724d79675c/packages/client/src/runtime/core/types/exported/Extensions.ts#L423-L425",
+            },
+          ],
+          githubStars: 40_100,
+        },
+        {
+          library: "trpc",
+          breadcrumbs: [
+            {
+              text: "createServerSideHelpers",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/react-query/src/server/ssgProxy.ts#L82-L84",
+            },
+            {
+              text: "CreateServerSideHelpersOptions",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/react-query/src/server/ssgProxy.ts#L47-L49",
+            },
+            {
+              text: "CreateSSGHelpersInternal",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/react-query/src/server/ssgProxy.ts#L38-L41",
+            },
+            {
+              text: "TransformerOptions",
+              href: "https://github.com/trpc/trpc/blob/f8e8d1715c164357239170fc6668de9f2b579b7d/packages/client/src/internals/transformer.ts#L37-L41",
+            },
+            {
+              text: "TransformerOptionNo",
+              href: "https://github.com/trpc/trpc/blob/f8e8d1715c164357239170fc6668de9f2b579b7d/packages/client/src/internals/transformer.ts#L24-L32",
+            },
+            {
+              text: "TypeError",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/types.ts#L172-L174",
+            },
+          ],
+          githubStars: 35_300,
+        },
+        {
+          library: "trpc",
+          breadcrumbs: [
+            {
+              text: "createServerSideHelpers",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/react-query/src/server/ssgProxy.ts#L82-L84",
+            },
+            {
+              text: "CreateSSGHelpers",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/react-query/src/server/ssgProxy.ts#L135",
+            },
+            {
+              text: "ProtectedIntersection",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/types.ts#L159-L162",
+            },
+            {
+              text: "IntersectionError",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/types.ts#L153-L154",
+            },
+          ],
+          githubStars: 35_300,
+        },
+        {
+          library: "trpc",
+          breadcrumbs: [
+            {
+              text: "tracked",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/stream/tracked.ts#L35-L38",
+            },
+            {
+              text: "TrackedEnvelope",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/stream/tracked.ts#L6",
+            },
+            {
+              text: "TrackedId",
+              href: "https://github.com/trpc/trpc/blob/84e267ebb09195257a6b1e88dff237af929b3f7f/packages/server/src/unstable-core-do-not-import/stream/tracked.ts#L3-L5",
+            },
+          ],
+          githubStars: 35_300,
+        },
+      ],
       insights: [
         {
           Element: (
@@ -1116,6 +1810,7 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         },
       ],
     },
+    // TODO: mark as non-practical
     numericLiteral: {
       code: `
         type InternalLengthFrom<StringLiteral, Tuple extends unknown[] = []> = StringLiteral extends \`$\{infer _}$\{infer Tail}\`
@@ -1129,6 +1824,46 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 5
       `,
       playgroundUrl: "https://tsplay.dev/WyZM2w",
+      applications: [
+        {
+          library: "ts-pattern",
+          breadcrumbs: [
+            {
+              text: "exhaustive",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L194-L198",
+            },
+            {
+              text: "DeepExcludeAll",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/58bd6f6e8bebcf4bddfd3dd92b48b28c45f2030c/src/types/Match.ts#L234-L238",
+            },
+            {
+              text: "DeepExclude",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/27dbee0cdf35f2ee8350dc763dbaa5d475351c47/src/types/DeepExclude.ts#L3",
+            },
+            {
+              text: "DistributeMatchingUnions",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/8d23bc49b19d9951a61832779c2eeb03d2971fdc/src/types/DistributeUnions.ts#L41-L43",
+            },
+            {
+              text: "BuildMany",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/c5778f3f9e8c0e9bcf05a1d14dda310977b57765/src/types/BuildMany.ts#L4-L6",
+            },
+            {
+              text: "BuildOne",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/c5778f3f9e8c0e9bcf05a1d14dda310977b57765/src/types/BuildMany.ts#L11-L16",
+            },
+            {
+              text: "SetDeep",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/c5778f3f9e8c0e9bcf05a1d14dda310977b57765/src/types/BuildMany.ts#L19-L40",
+            },
+            {
+              text: "Iterator",
+              href: "https://github.com/gvergnaud/ts-pattern/blob/e1272af2796979d4b370aee8cc250e978a4c26b6/src/types/helpers.ts#L63-L66",
+            },
+          ],
+          githubStars: 12_600,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -1189,6 +1924,68 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? [number, number]
       `,
       playgroundUrl: "https://tsplay.dev/NDQv1m",
+      applications: [
+        {
+          library: "typeorm",
+          breadcrumbs: [
+            {
+              text: "mongodb.max",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L3334-L3339",
+            },
+            {
+              text: "StrictUpdateFilter",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L6241",
+            },
+            {
+              text: "$max",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L6252",
+            },
+            {
+              text: "StrictMatchKeysAndValues",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L6215C21-L6215C45",
+            },
+            {
+              text: "NestedPaths",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L5306",
+            },
+            {
+              text: "Depth",
+              href: "https://github.com/typeorm/typeorm/blob/3647b269ccb1f236595bf8ff3adcca5460a0d205/src/driver/mongodb/typings.ts#L5326",
+            },
+          ],
+          githubStars: 34_600,
+        },
+        {
+          library: "safe-units",
+          breadcrumbs: [
+            {
+              text: "squared",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/genericMeasure.ts#L103",
+            },
+            {
+              text: "SquareUnit",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/unitTypeArithmetic.ts#L15",
+            },
+            {
+              text: "MultiplyUnits",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/unitTypeArithmetic.ts#L11-L13",
+            },
+            {
+              text: "AddIntegers",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L11-L20",
+            },
+            {
+              text: "AddPositiveIntegers",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L22-L24",
+            },
+            {
+              text: "TupleOfSize",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L37-L39",
+            },
+          ],
+          githubStars: 266,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -1254,6 +2051,18 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         //   ^? 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
       `,
       playgroundUrl: "https://tsplay.dev/WKQ5yN",
+      applications: [
+        {
+          library: "type-fest",
+          breadcrumbs: [
+            {
+              text: "IntRange",
+              href: "https://github.com/sindresorhus/type-fest/blob/main/source/int-range.d.ts#L40-L55",
+            },
+          ],
+          githubStars: 14_500,
+        },
+      ],
       insights: [
         {
           Element: <RecursiveConditionalTypesNote />,
@@ -1319,6 +2128,74 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
         leftMinutes = startTimeSeconds;
       `,
       playgroundUrl: "https://tsplay.dev/mZRp9m",
+      applications: [
+        {
+          library: "zod",
+          breadcrumbs: [
+            {
+              text: "branded",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L532",
+            },
+            {
+              text: "ZodBranded",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5068-L5071",
+            },
+            {
+              text: "BRAND",
+              href: "https://github.com/colinhacks/zod/blob/4e219d6ad9d5e56e20afd7423092f506400a29e4/src/types.ts#L5063-L5066",
+            },
+          ],
+          githubStars: 34_400,
+        },
+        {
+          library: "safe-units",
+          breadcrumbs: [
+            {
+              text: "squared",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/genericMeasure.ts#L103",
+            },
+            {
+              text: "SquareUnit",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/unitTypeArithmetic.ts#L15",
+            },
+            {
+              text: "MultiplyUnits",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/unitTypeArithmetic.ts#L11-L13",
+            },
+            {
+              text: "AddIntegers",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L11-L20",
+            },
+            {
+              text: "Negative",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L1-L9",
+            },
+          ],
+          githubStars: 266,
+        },
+        {
+          library: "safe-units",
+          breadcrumbs: [
+            {
+              text: "squared",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/genericMeasure.ts#L103",
+            },
+            {
+              text: "SquareUnit",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/unitTypeArithmetic.ts#L15",
+            },
+            {
+              text: "MultiplyUnits",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/unitTypeArithmetic.ts#L11-L13",
+            },
+            {
+              text: "AddIntegers",
+              href: "https://github.com/jscheiny/safe-units/blob/b9a6617e2fa2fe763ed1b2a67a979db0537ae267/src/measure/exponentTypeArithmetic.ts#L11-L20",
+            },
+          ],
+          githubStars: 266,
+        },
+      ],
       insights: [
         {
           Element: (

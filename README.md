@@ -1,6 +1,6 @@
 # ts-conversion
 
-Interactive website, helping engineers understand, how they can convert one type to another in TypeScript, with examples and links to TypeScript playground.
+Interactive website, helping understand, how to convert one type to another in TypeScript, with code examples, links to TypeScript playground and applications from popular libraries
 
 Try it now: https://ts-conversion.beraliv.com
 
@@ -15,14 +15,14 @@ npm install
 To start developing the project, run the dev command:
 
 ```bash
-npm run dev --host
+npm run dev -- --host
 ```
 
 ## Features
 
 - [x] 36 conversions in total
 - [x] Code snippets and links to TypeScript Playground
-- [ ] Applications from popular libraries ([_in progress_](https://github.com/Beraliv/ts-conversion/pull/1))
+- [x] Applications from popular libraries
 - [x] A list of insights
   - [x] Notes with definitions and links to TypeScript documentation
   - [x] Warnings, which highlight potential issues and how to mitigate them
