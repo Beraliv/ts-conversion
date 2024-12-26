@@ -1166,12 +1166,24 @@ export const map: Record<InputType, Record<InputType, MapConfig>> = {
           ? Intersection
           : never;
 
-        type Metadata = {pageUrl: string} | {videoId: string};
+        type LogMetadata = {
+          openBlogPage: {pageUrl: string};
+          loadVideo: {videoId: string};
+        };
 
-        type AllMetadata = UnionToIntersection<Metadata>;
+        type AllLogMetadata = UnionToIntersection<LogMetadata[keyof LogMetadata]>;
         //   ^? {pageUrl: string} & {videoId: string}
+
+        type LogFunction = UnionToIntersection<
+          { [Action in keyof LogMetadata]: (action: Action, metadata: LogMetadata[Action]) => void }[keyof LogMetadata]
+        >;
+
+        declare const log: LogFunction;
+
+        log('openBlogPage', {pageUrl: 'https://www.typescriptlang.org/docs/handbook/2/basic-types.html'});
+        log('loadVideo', {videoId: 'KFWJGVDYZaw'});
       `,
-      playgroundUrl: "https://tsplay.dev/WzV3eW",
+      playgroundUrl: "https://tsplay.dev/W41zXw",
       applications: [
         {
           library: "ts-pattern",
