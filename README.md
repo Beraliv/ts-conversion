@@ -21,8 +21,8 @@ npm run dev -- --host
 ## Features
 
 - [x] 36 conversions in total
-- [x] Code snippets and links to TypeScript Playground
-- [x] Applications from popular libraries
+- [x] Hand-on examples and links to TypeScript Playground
+- [x] References to widely used libraries
 - [x] A list of insights
   - [x] Notes with definitions and links to TypeScript documentation
   - [x] Warnings, which highlight potential issues and how to mitigate them
