@@ -7,9 +7,9 @@ export const Intro = () => (
       <sup className={styles.ProgressData}>beta</sup>
     </h2>
     <p>
-      Interactive website, helping engineers understand, how they can convert
-      one type to another in TypeScript, with examples and links to TypeScript
-      playground.
+      Interactive TypeScript tool: learn how to transform types effectively with
+      hands-on examples, TypeScript Playground, and references to widely used
+      libraries.
     </p>
   </div>
 );

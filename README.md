@@ -1,6 +1,6 @@
 # ts-conversion
 
-Interactive website, helping understand, how to convert one type to another in TypeScript, with code examples, links to TypeScript playground and applications from popular libraries
+Interactive TypeScript tool: learn how to convert types effectively with hands-on examples, TypeScript Playground, and references to widely used libraries.
 
 Try it now: https://ts-conversion.beraliv.com
 
@@ -32,4 +32,4 @@ npm run dev -- --host
   - [ ] Accessibility-friendly (_in progress_)
 - [x] Analytics
   - [x] Added [Plausible](https://plausible.io/ts-conversion.beraliv.com)
-- [ ] SEO-friendly (_in progress_)
+- [x] SEO-friendly
