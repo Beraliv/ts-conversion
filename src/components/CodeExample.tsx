@@ -1,4 +1,5 @@
-import SyntaxHighlighter from "react-syntax-highlighter";
+import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
+import typescriptLanguage from "react-syntax-highlighter/dist/esm/languages/hljs/typescript";
 import {
   tomorrow,
   tomorrowNightEighties,
@@ -12,6 +13,12 @@ import { Link } from "./Link";
 import { UserInputContext } from "../contexts/UserInputContext";
 
 import style from "./CodeExample.module.css";
+
+// This project only requires TypeScript language support, therefore avoid
+// importing default SyntaxHighlighter to minimise the bundle size impact. With
+// default import, the bundle size increased by ~840 KB.
+
+SyntaxHighlighter.registerLanguage("typescript", typescriptLanguage);
 
 export const CodeExample = () => {
   const { source, target } = useContext(UserInputContext);
