@@ -3,6 +3,21 @@
   gap: 0.5rem;
 }
 
+.Title {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 1rem;
+}
+
+.IconWrapper {
+  align-self: end;
+}
+
+.Icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .ProgressData {
   font-size: 0.75rem;
 }
