@@ -1,10 +1,11 @@
 .App {
   max-width: 42rem;
+  margin-top: auto;
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: 1rem;
-  min-height: 96vh;
-  padding: 2vh;
+  height: calc(100% - 1rem);
+  padding: 0.5rem 1rem;
 }
 
 .Conversion {
